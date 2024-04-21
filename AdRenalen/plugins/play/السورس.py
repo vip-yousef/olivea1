@@ -2,6 +2,7 @@
 #𝙳𝙴𝚅 𝙼𝙰𝚉𝙴𝙽 : @ZzZzZl1l
 #𝚂𝚄𝙿𝙿𝙾𝚁𝚃 : @miika3
 #Vip MaZeN تم التعديل بواسطة 🎸 ⋅
+from pyrogram.types import CallbackQuery
 import asyncio
 from asyncio import gather
 import os
@@ -101,7 +102,7 @@ async def deev(client: Client, message: Message):
        os.remove(photo)
      except:
         passpass
-        
+               
         iddof = []
 id = {}
 
