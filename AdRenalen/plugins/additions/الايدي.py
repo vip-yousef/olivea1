@@ -89,7 +89,7 @@ async def heart(client, query: CallbackQuery):
     
     idd = len(id[user.id])
     
-    caption = f"⌯ 𝐍𝐚𝐦𝐞 :{message.from_user.mention}\n⌯ 𝐔𝐬𝐞𝐫 :@{message.from_user.username}\n⌯ 𝐈𝐝 :`{message.from_user.id}`\n⌯ 𝐁𝐢𝐨 :{usr.bio}\n⌯ 𝐂𝐡𝐚𝐭 : {message.chat.title}\n⌯ 𝐈𝐝 𝐜𝐡𝐚𝐭:`{message.chat.id}"
+    caption = f"name : {first_name}\nid : {user_id}\nuser : [@{username}]\nbio : {bioo}"
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton(f"{idd} 🤍", callback_data=f"heart{user_id}")]])
     
     await query.edit_message_text(caption, reply_markup=reply_markup)
