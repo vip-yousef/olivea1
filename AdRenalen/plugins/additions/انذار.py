@@ -15,7 +15,7 @@ from pyrogram.errors import FloodWait
 ahmed = {}
 tom_max = 3
 
-@app.on_message(filters.command("ن","انذار"))
+@@app.on_message(filters.command("ن", ""))
 async def tom(client, message):
     me = message.from_user.id
     user_id = message.reply_to_message.from_user.id
