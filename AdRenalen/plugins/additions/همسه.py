@@ -86,3 +86,33 @@ async def cancel_hms(client, callback):
         chat_id=callback.message.chat.id,
         message_id=callback.message.message_id,
         text="- تم الغاء الهمسه 💘 ⋅",)
+
+
+from googletrans import Translator
+
+translator = Translator()
+
+async def english(message):
+    translation = translator.translate(message, src='ar', dest='en')
+    return translation.text
+
+async def arabic(message):
+    translation = translator.translate(message, src='en', dest='ar')
+    return translation.text
+
+@app.on_message(filters.command("ترجم", ""), group=158802982)
+async def targma(client, message):
+    replied_message = message.reply_to_message
+    if replied_message:
+        replied_text = replied_message.text
+        if replied_text:
+            if replied_text.isascii(): 
+                translated_text = await arabic(replied_text)
+            else:
+                translated_text = await english(replied_text)            
+            await asyncio.sleep(1) 
+            await message.reply(translated_text)
+        else:
+            await message.reply("الرسالة التي تم الرد عليها لا تحتوي على نص.")
+    else:
+        await message.reply("الرجاء الرد على الرسالة لترجمتها.")
