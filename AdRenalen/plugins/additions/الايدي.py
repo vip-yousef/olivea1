@@ -11,8 +11,8 @@ from pyrogram import filters
 from pyrogram import Client
 from pyrogram.enums import ChatMemberStatus
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup
-from AdRenalen import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
-from AdRenalen import app
+from iLBaReD import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
+from iLBaReD import app
 from telegraph import upload_file
 from asyncio import gather
 from pyrogram.errors import FloodWait
@@ -43,7 +43,7 @@ async def iddopen(client: Client, message):
     else:
         return await message.reply_text("♪ عذرا عزيزي هذا الامر للادمن الجروب فقط 💎 .")
 
-@app.on_message(filters.command(["ايدي"], "ا"))
+@app.on_message(filters.command(["ايدي"], ""))
 async def muid(client: Client, message):
     if message.chat.id in iddof:
         return await message.reply_text("♪ تم تعطيل امر الايدي من قبل المشرفين 💎 .")
@@ -67,7 +67,7 @@ async def muid(client: Client, message):
     
     idd = len(id[user.id])
     
-    caption = f"🧞‍♂️ ¦𝙽𝙰𝙼𝙴 : {first_name}\n🎃 ¦𝙸𝙳 : {user_id}\n🎯 ¦𝚄𝚂𝙴𝚁 : [@{username}]\n💌 ¦𝙱𝙸𝙾 : {bio}"
+    caption = f"name : {first_name}\nid : {user_id}\nuser : [@{username}]\nbio : {bio}"
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton(f"{idd} 🤍", callback_data=f"heart{user_id}")]])
     
     await message.reply_photo(photo=photo, caption=caption, reply_markup=reply_markup)
