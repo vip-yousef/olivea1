@@ -1,4 +1,3 @@
-googletrans
 aiofiles
 aiohttp
 asyncio
