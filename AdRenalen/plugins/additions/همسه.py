@@ -1,3 +1,4 @@
+from googletrans import Translator
 from pyrogram import enums
 from pyrogram import types
 from pyrogram import Client, filters
@@ -87,8 +88,6 @@ async def cancel_hms(client, callback):
         message_id=callback.message.message_id,
         text="- تم الغاء الهمسه 💘 ⋅",)
 
-
-from googletrans import Translator
 
 translator = Translator()
 
