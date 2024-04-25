@@ -1,3 +1,18 @@
+from iLBaReD import app
+from pyrogram import enums
+from pyrogram import Client
+from strings.filters import command
+import asyncio
+from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup
+from strings.filters import command
+from iLBaReD import app
+from pyrogram import Client, filters
+from pyrogram.types import Message
+from pyrogram.enums import ChatMemberStatus
+
+stiklok = []
+
+@app.on_message(filters.command(["قفل الملصقات","تعطيل الملصقات"],""))
 async def block_stickers(client:Client, message:Message):
     get = await client.get_chat_member(message.chat.id, message.from_user.id)
     if get.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
@@ -23,4 +38,4 @@ async def unblock_stickers(client:Client, message:Message):
 async def delete_stickers(client:Client, message:Message):
     if message.chat.id in stiklok:
         await message.delete()
-        await message.reply("لا يمكن ارسال الملصقات هنا ")
+        await message.reply("لا يمكنك ارسال الملصقات هنا 😋♥️ ،")
