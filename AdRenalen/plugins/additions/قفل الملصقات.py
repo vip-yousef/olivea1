@@ -1,11 +1,11 @@
-from iLBaReD import app
+from AdRenalen import app
 from pyrogram import enums
 from pyrogram import Client
 from strings.filters import command
 import asyncio
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup
 from strings.filters import command
-from iLBaReD import app
+from AdRenalen import app
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from pyrogram.enums import ChatMemberStatus
