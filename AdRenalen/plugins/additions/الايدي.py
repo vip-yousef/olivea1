@@ -67,8 +67,8 @@ async def muid(client: Client, message):
     
     idd = len(id[user.id])
     
-    caption = f"name : {first_name}\nid : {user_id}\nuser : [@{username}]\nbio : {bio}"
-    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton(f"{idd} 🤍", callback_data=f"heart{user_id}")]])
+    caption = f"🧞‍♂️ ¦𝙽𝙰𝙼𝙴 : {first_name}\n🎃 ¦𝙸𝙳 : {user_id}\n🎯 ¦𝚄𝚂𝙴𝚁 : [@{username}]\n💌 ¦𝙱𝙸𝙾 : {bio}"
+    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton(f"{idd} ❤️", callback_data=f"heart{user_id}")]])
     
     await message.reply_photo(photo=photo, caption=caption, reply_markup=reply_markup)
 
@@ -89,7 +89,7 @@ async def heart(client, query: CallbackQuery):
     
     idd = len(id[user.id])
     
-    caption = f"name : {first_name}\nid : {user_id}\nuser : [@{username}]\nbio : {bioo}"
-    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton(f"{idd} 🤍", callback_data=f"heart{user_id}")]])
+    caption = f"🧞‍♂️ ¦𝙽𝙰𝙼𝙴 : {first_name}\n🎃 ¦𝙸𝙳 : {user_id}\n🎯 ¦𝚄𝚂𝙴𝚁 : [@{username}]\n💌 ¦𝙱𝙸𝙾 : {bioo}"
+    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton(f"{idd} ❤️", callback_data=f"heart{user_id}")]])
     
     await query.edit_message_text(caption, reply_markup=reply_markup)
