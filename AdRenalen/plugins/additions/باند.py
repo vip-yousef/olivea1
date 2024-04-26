@@ -9,9 +9,9 @@ from pyrogram.errors.exceptions.bad_request_400 import (
     UserAdminInvalid,
     BadRequest
 )
-from AlinaXIQ.misc import SUDOERS
+from AdRenalen.misc import SUDOERS
 import datetime
-from AlinaXIQ import app
+from AdRenalen import app
 
 
 
