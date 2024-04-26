@@ -16,7 +16,7 @@ def almortagel(client, message):
 def almortagely(client, callback_query):
     video = "https://graph.org/file/fb6ae3a43f73ef2aee8a9.mp4"
     callback_query.edit_message_media(
-        media=InputMediaVideo(media=video, caption=f"⚡هو المعفن اللى صحي الصرصار يجماعه😂👇\n\n{callback_query.from_user.first_name}")
+        media=InputMediaVideo(media=video, caption=f"⚡هو المعفن اللى صحي الصرصار يجماعه😂👇\n{callback_query.from_user.first_name}")
     )
     
     
@@ -29,7 +29,7 @@ def zeqe(client, message):
 
 @app.on_callback_query(filters.command("almortagell"))
 def zeqep(client, callback_query):
-    video = "https://graph.org/file/274b6971aeb298bdcd6fe.mp4"
+    video = "https://graph.org/file/274b6971aeb298bdcd6fe.jpg"
     callback_query.edit_message_media(
         media=InputMediaVideo(media=video, caption=f"⚡هو المعفن اللى صحي الخنزير يجماعه😂👇\n\n{callback_query.from_user.first_name}")
     )    
@@ -42,7 +42,7 @@ def namlo(client, message):
         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("《🦗》", callback_data="almortagelll")]])
     )
 
-@app.on_callback_query(filters.command("almortagelll"))
+@app.on_callback_query(filters.command("نمله"))
 def namlop(client, callback_query):
     video = "https://graph.org/file/2d20cb201e06612588136.mp4"
     callback_query.edit_message_media(
