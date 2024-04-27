@@ -4,7 +4,7 @@ import random
 import requests
 from AdRenalen import app 
 
-SUPPORT_CHAT = "MGIMT"
+SUPPORT_CHAT = "SOURCEOLIVEA"
 
 @app.on_message(filters.command(["wish","حەز","هیوا","خۆزگە"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
 async def wish(_, m):
@@ -16,9 +16,9 @@ async def wish(_, m):
     url = api["results"][0]['url']
     text = m.text.split(None, 1)[1]
     wish_count = random.randint(1, 100)
-    wish = f"**🍓 اسمك {m.from_user.first_name}!**\n"
-    wish += f"**🍓 رغبتك: {text} **\n\n"
-    wish += f"**🍓 نسبه حدوثها: {wish_count}% **"
+    wish = f"🍓 اسمك {m.from_user.first_name}!**\n"
+    wish += f"🍓 رغبتك: {text} **\n\n"
+    wish += f"🍓 نسبه حدوثها: {wish_count}% **"
     
     await app.send_animation(
         chat_id=m.chat.id,
@@ -41,9 +41,9 @@ async def cute(_, message):
         user_id = message.reply_to_message.from_user.id
         user_name = message.reply_to_message.from_user.first_name
 
-    mention = f"[{user_name}](tg://user?id={str(user_name)})"
+    mention = f"[{user_name}])"
     mm = random.randint(1, 100)
-    CUTE = f"**🍓 {mention}\nنسبه جمالك يقلبي {mm}% 🥺🫶🏻**"
+    CUTE = f"🍓 {mention}\nنسبه جمالك يقلبي {mm}% 🥺🫶🏻"
 
     await app.send_document(
         chat_id=message.chat.id,
