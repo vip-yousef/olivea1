@@ -14,6 +14,6 @@ def owner(app, message):
     if owner.status == enums.ChatMemberStatus.OWNER:
       saidi = app.get_users(owner.user.id)
       JABWA = InlineKeyboardMarkup([[InlineKeyboardButton(saidi.first_name, url=f"https://t.me/{saidi.username}")]])
-      for x in c.get_chat_photos(saidi.id, limit=1):
+      for x in app.get_chat_photos(saidi.id, limit=1):
         photo = x.file_id
       message.reply_photo(photo,caption=f"**• name : [{saidi.first_name}](tg://user?id={saidi.id})\n• user : [@{saidi.username}]\n• id : {saidi.id}**",reply_markup=JABWA,quote=True)
