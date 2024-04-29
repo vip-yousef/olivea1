@@ -5,6 +5,7 @@ from pyrogram import Client, filters
 from pyrogram import enums, filters
 from strings.filters import command
 from AdRenalen import app
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.enums import ChatMemberStatus
 
 @app.on_message(~filters.private & command(["المالك","المنشئ"]), group=222)
