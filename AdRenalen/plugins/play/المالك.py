@@ -16,4 +16,4 @@ def owner(app, message):
       JABWA = InlineKeyboardMarkup([[InlineKeyboardButton(saidi.first_name, url=f"https://t.me/{saidi.username}")]])
       for x in app.get_chat_photos(saidi.id, limit=1):
         photo = x.file_id
-      message.reply_photo(photo,caption=f"**• name : [{saidi.first_name}](tg://user?id={saidi.id})\n• user : [@{saidi.username}]\n• id : {saidi.id}**",reply_markup=JABWA,quote=True)
+      message.reply_photo(photo,caption=f"• 𝅄 𓏺 Owner 𝖭𝖺𝗆𝖾 : [{saidi.first_name}](tg://user?id={saidi.id})\n• 𝅄 𓏺 Owner user : [@{saidi.username}]\n• 𝅄 𓏺 Owner 𝗂𝖽 : {saidi.id}",reply_markup=JABWA,quote=True)
