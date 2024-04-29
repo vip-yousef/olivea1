@@ -47,7 +47,7 @@ def keyboard(user_id: int):
         [
             types.InlineKeyboardButton(ON_TYPES[False if False in Temp[user_id].values() else True],
                                        f"up_all_prom|" + json.dumps({'user_id': user_id})),
-            types.InlineKeyboardButton('تثبيت الرسائل', 'None')
+            types.InlineKeyboardButton('جميع الصلاحيات', 'None')
         ], [
             types.InlineKeyboardButton(ON_TYPES[Temp[user_id]['edit_info']],
                                        f"up_prom|" + json.dumps({'user_id': user_id, 'promote': 'edit_info'})),
