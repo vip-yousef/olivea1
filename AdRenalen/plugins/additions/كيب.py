@@ -23,7 +23,7 @@ async def start(client, message):
 ["قسم التعيين","قسم البوت"],
 ["قسم المساعد","قسم الاذاعه"],
 ["تحديث البوت","الغاء الامر"]], resize_keyboard=True)
-   return await message.reply_text("**• اهلا بك ، عزيزي المطور الاساسي  • .**", reply_markup=kep,quote=True)
+   return await message.reply_text("• اهلا بك ، عزيزي المطور الاساسي  • .", reply_markup=kep,quote=True)
  else:
   kep = ReplyKeyboardMarkup([
 ["مطور البوت", "مطور السورس"],
@@ -38,22 +38,8 @@ async def start(client, message):
 ["حروف","بوت"],
 ["قران الكريم","استوري قران"],
 ["رمزيات بنات","المزيد من الصور"]], resize_keyboard=True)
-  await message.reply_text("**• اهلا بك ، عزيزي العضو السكر  • .**", reply_markup=kep,quote=True)
-  username = client.me.username
-  if os.path.isfile(f"{username}.png"):
-    photo = f"{username}.png"
-  else:
-    bot = await client.get_me()
-    if not bot.photo:
-       button = [[InlineKeyboardButton(text="ᴇɴɢʟɪѕʜ 🇺🇲", callback_data=f"english"), InlineKeyboardButton(text="عربي 🇪🇬", callback_data=f"arbic")], [InlineKeyboardButton(text=f"{nn}", user_id=f"{dev}")]]
-       return await client.send_message(message.chat.id, "ѕᴇʟᴇᴄᴛ ʏᴏụʀ ʟᴀɴɢụᴀɢᴇ •", reply_to_message_id=message.id, reply_markup=InlineKeyboardMarkup(button))
-    photo = bot.photo.big_file_id
-    photo = await client.download_media(photo)
-    username = client.me.username
-    photo = await gen_bot(client, username, photo)
-  button = [[InlineKeyboardButton(text="ᴇɴɢʟɪѕʜ 🇺🇲", callback_data=f"english"), InlineKeyboardButton(text="عربي 🇪🇬", callback_data=f"arbic")], [InlineKeyboardButton(text=f"{nn}", user_id=f"{dev}")]]
-  await client.send_photo(message.chat.id, photo=photo, caption="الرجاء الضغط علي اللغة اذا كانت اللغة العربية او باللغة الانجلزية\n\nᴘʟᴇᴀѕᴇ ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʟᴀɴɢụᴀɢᴇ ɪғ ɪᴛ ɪѕ ᴀʀᴀʙɪᴄ ᴏʀ ᴇɴɢʟɪѕʜ", reply_to_message_id=message.id, reply_markup=InlineKeyboardMarkup(button))
-  
+  await message.reply_text("• اهلا بك ، عزيزي العضو السكر •", reply_markup=kep,quote=True)
+
 
 ############//((/start))//############
 @Client.on_message(filters.command("قسم التفعيل والتعطيل", ""))
@@ -68,7 +54,7 @@ async def helpercn(client, message):
 ["تعطيل سجل التشغيل","تفعيل سجل التشغيل"],
 ["تعطيل الاشتراك","تفعيل الاشتراك"],
 ["رجوع للقائمة الرئيسيه"]], resize_keyboard=True)
-    await message.reply_text(f"**• مرحبا بك في قسم ⟨ التفعيل والتعطيل ⟩ 🚦 .**", reply_markup=kep,quote=True)
+    await message.reply_text(f"• مرحبا بك في قسم ⟨ التفعيل والتعطيل ⟩ 🚦 .", reply_markup=kep,quote=True)
 
 @Client.on_message(filters.command(["قسم التعيين"], ""))
 async def cast(client: Client, message):
@@ -81,7 +67,7 @@ async def cast(client: Client, message):
 ["تعين قناة السورس","تعين مجموعة السورس"],
 ["تعين لوجو السورس","تعين يوزر مطور السورس"], 
 ["رجوع للقائمة الرئيسيه"]], resize_keyboard=True)
-    await message.reply_text("**• مرحبا بك في قسم ⟨ التعيين ⟩ ⚡ .**", reply_markup=kep)
+    await message.reply_text("• مرحبا بك في قسم ⟨ التعيين ⟩ ⚡ .", reply_markup=kep)
 
 @Client.on_message(filters.command("قسم البوت", ""))
 async def Zo_Mbi_e(client, message):
@@ -95,4 +81,4 @@ async def Zo_Mbi_e(client, message):
 ["المجموعات","المستخدمين"],
 ["تغير مكان سجل التشغيل"],
 ["رجوع للقائمة الرئيسيه"]], resize_keyboard=True)
-    await message.reply_text(f"**• مرحبا بك في قسم ⟨ البوت ⟩  • .**", reply_markup=kep,quote=True) 
+    await message.reply_text(f"• مرحبا بك في قسم ⟨ البوت ⟩  • .", reply_markup=kep,quote=True) 
