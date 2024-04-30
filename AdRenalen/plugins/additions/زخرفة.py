@@ -7,15 +7,15 @@ from pyrogram import Client
 from pyrogram.types import Message
 from AdRenalen import app
 
-@app.on_message(command("ز"))
+@app.on_message(command("زخرفه"))
 async def zahrafa(c: Client, m: Message):
     text_list = m.text.split(None, 1)
     if len(text_list) < 2:
-        await m.reply_text("**◍ قم بكتابة ما تريد زخرفته\n\nاكتبها بهذه الطريقة : `زخرفه مازن` √**", reply_to_message_id=m.id)
+        await m.reply_text("◍ قم بكتابة ما تريد زخرفته\n\nاكتبها بهذه الطريقة : `زخرفه مازن` √", reply_to_message_id=m.id)
         return
     text = text_list[1].split(None, 1)[1] if len(text_list[1].split()) > 1 else text_list[1]
     if len(text) > 20:
-        await m.reply_text("**◍ لا أستطيع أن أفعل أكثر من 𝟐𝟎 اكتب رسالة، حاول مرة أخرى\n√**", reply_to_message_id=m.id)
+        await m.reply_text("◍ لا أستطيع أن أفعل أكثر من 𝟐𝟎 اكتب رسالة، حاول مرة أخرى\n√", reply_to_message_id=m.id)
         return
 
     # هنا يتم تنفيذ زخرفة النص
@@ -23,7 +23,7 @@ async def zahrafa(c: Client, m: Message):
 
     else:
         if re.match("\n", str(m.text)):
-            await m.reply_text("**◍ لا أستطيع تزيين النص إذا كان من سطرين\n√**", reply_to_message_id=m.id)
+            await m.reply_text("◍ لا أستطيع تزيين النص إذا كان من سطرين\n√", reply_to_message_id=m.id)
             return
     EmojeS = [
         ' 𓁻',
@@ -837,5 +837,5 @@ async def zahrafa(c: Client, m: Message):
                  + "`\n\n` " + zhrf8 + random.choice(Emoje) \
                  + "`\n\n` " + zhrf9 + random.choice(Emoje) \
                  + "`\n\n` " + zhrf5 + random.choice(Emoje)
-    Text_Zhrfa = Text_Zhrfa + "**\n\n تم زخرفه اسمك بي نجاح \n│ \n👾**"
+    Text_Zhrfa = Text_Zhrfa + "\n\n تم زخرفه اسمك بي نجاح \n│ \n👾"
     await m.reply_text(Text_Zhrfa, reply_to_message_id=m.id)
