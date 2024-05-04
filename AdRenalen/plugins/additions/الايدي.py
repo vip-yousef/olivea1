@@ -43,7 +43,7 @@ async def iddopen(client: Client, message):
     else:
         return await message.reply_text("♪ عذرا عزيزي هذا الامر للادمن الجروب فقط 💎 .")
 
-@app.on_message(filters.command(["ايدي", "ا"]))
+@app.on_message(filters.command(["ا"], ""))
 async def muid(client: Client, message):
     if message.chat.id in iddof:
         return await message.reply_text("♪ تم تعطيل امر الايدي من قبل المشرفين 💎 .")
