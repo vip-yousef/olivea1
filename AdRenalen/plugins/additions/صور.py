@@ -23,7 +23,7 @@ async def pinterest(_, message):
                   
           media_group.append(InputMediaPhoto(media=url))
           count += 1
-          await msg.edit(f"**=>  {count}**")
+          await msg.edit(f"=>  {count}")
 
      try:
         
@@ -35,4 +35,4 @@ async def pinterest(_, message):
 
      except Exception as e:
            await msg.delete()
-           return await message.reply(f"**➲ هەڵە: {e} **")
+           return await message.reply(f"➲ هەڵە: {e}")
