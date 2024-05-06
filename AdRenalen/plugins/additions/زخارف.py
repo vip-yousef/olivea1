@@ -1,7 +1,7 @@
 from pyrogram import  filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from strings.filters import command
-from AdRenalen.utils.alina_font import Fonts
+from AdRenalen import Fonts
 from AdRenalen import app
 
 @app.on_message(filters.command(["font", "fonts", "زخرفه"]))
