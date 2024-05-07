@@ -54,11 +54,11 @@ async def huhh(client: Client, message: Message):
 
 
 
-@app.on_message(filters.command(["مازن","ميزو"], ""), group=221212)
+@app.on_message(filters.command(["مازن","زوز"], ""), group=221212)
 async def huhh(client: Client, message: Message):
     await message.reply_photo(
-        photo=f"https://telegra.ph/file/84a08fb44bd1e80baf64f.jpg",
-        caption=f"""• ⌯ Developer Name : ˛ 𝙼𝙰𝚉𝙴𝙽 ⌯ •\n- Devloper Username : @ZzZzZl1l Devlopr id : 6816180621 ⋅""",
+        photo=f"https://telegra.ph/file/477d457991f935bfb233c.jpg",
+        caption=f"""• ⌯ Developer Name : ˛ 𝙼𝙰𝚉𝙴𝙽 ⌯ •\n- Devloper Username : @ZzZzZl1l Devloper id : 6816180621 ⋅""",
         reply_markup=InlineKeyboardMarkup(
         [
             [
@@ -66,7 +66,7 @@ async def huhh(client: Client, message: Message):
                         " ‹ قناة السورس 💘 ⋅ › ", url=f"https://t.me/SOURCEOliVEA"),
                 ],[
                     InlineKeyboardButton(
-                        "𓂄𓆩νιρ ʍαzεπ𓆪𓂁", url=f"https://t.me/ZzZzZl1l"), 
+                        "𓄼⦁ 𝙕ٰٖ𝙤ٰٖ𝙯ٰٖ ➪🇳🇱⦁𓄹", url=f"https://t.me/ZzZzZl1l"), 
                 ],[
                     InlineKeyboardButton(
                         "‹ اضف بوت السورس الي مجموعتك ⚡️🎸 ⋅ ›", url=f"http://t.me/V_E_PBot?startgroup=new"),
