@@ -1226,7 +1226,7 @@ txt = ["لو قالوا لك  تناول صنف واحد فقط من الطعا�
 "• أوصف نفسك بكلمة؟**",
         ]
         
-@app.on_message(filters.command(["تويت","كت","كت تويت"], ""))
+@app.on_message(filters.command(["تويت","كت","هه"], ""))
 
 async def khyrok(client: Client, message: Message):
 
