@@ -1,5 +1,5 @@
 import random
-from AarohiX import app
+from AdRenalen import app
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from pyrogram.enums import ChatMemberStatus
