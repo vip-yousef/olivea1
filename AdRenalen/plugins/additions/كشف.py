@@ -21,12 +21,12 @@ def jabwa(c, m):
   user = m.reply_to_message.from_user.username
   rank = f"{Who(m,m.reply_to_message.from_user.id)}"
   money = random.randint(1, 100)
-  Text =f"""**
-• الاسم : {name}
-• الايدي : {id}
-• اليوزر : {user}
-• الرتبه {rank}
-• سعر الكشف : {money} جنيه 😂❤️
-**"""
+  Text =f"""
+⚡╖الاسم «» {name}
+🧞‍♂╢الايدي «» {id}
+💎╢اليوزر «» {user}
+🐣╢الرتبه «» {rank}
+👀╜سعر الكشف «» {money} جنيه 😂❤️
+"""
   return m.reply(Text)
 
