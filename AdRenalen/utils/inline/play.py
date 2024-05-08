@@ -1,4 +1,3 @@
-ᯓ 𓆩 ˹ ᴍʀ ᴇʟᴍᴏʀᴛᴀɢᴇʟ ˼⍣⃝🇪🇬𓆪𓆃:
 import math
 import config
 from config import SUPPORT_CHAT, OWNER_ID
