@@ -544,10 +544,10 @@ async def caesar(client: Client, message: Message):
         f"{a}")   
 
 pphtxt = [
-" امك اسمها احلام 😹😹"
+" صلي على النبي وتبسم ✨♥"
         ]
 
-@app.on_message(filters.command(["تمام"], ""), group=2000573)
+@app.on_message(filters.command(["."], ""), group=2000573)
 
 async def caesar(client: Client, message: Message):
 
