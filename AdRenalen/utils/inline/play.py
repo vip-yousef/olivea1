@@ -69,7 +69,7 @@ def stream_markup_timer(_, chat_id, played, dur):
             InlineKeyboardButton(text="𝐂𝐇𝐀𝐍𝐍𝐄𝐋 ", url=f"https://t.me/SOURCEOLIVEA"),
             InlineKeyboardButton(text="𝐆𝐑𝐎𝐔𝐏", url=f"https://t.me/D1_FD"),
         ],[
-            InlineKeyboardButton(text="𓂄𓆩νιρ ʍαzεπ𓆪𓂁", url=f"https://t.me/ZzZzZl1l"),
+            InlineKeyboardButton(text="𓄼⦁ 𝗠ٰٖ𝗮ٰٖ𝗭ٰٖ𝗲ٰٖ𝗡ٰٖ ➪🇳🇱⦁𓄹", url=f"https://t.me/ZzZzZl1l"),
         ],[
             InlineKeyboardButton(text="اضف البوت الي مجموعتك او قناتك⚡", url=f"https://t.me/{app.username}?startgroup=true")],
     ]
@@ -87,7 +87,7 @@ def stream_markup(_, chat_id):
             InlineKeyboardButton(text="𝐂𝐇𝐀𝐍𝐍𝐄𝐋 ", url=f"https://t.me/SOURCEOLIVEA"),
             InlineKeyboardButton(text="𝐆𝐑𝐎𝐔𝐏", url=f"https://t.me/D1_FD"),
         ],[
-            InlineKeyboardButton(text="𓂄𓆩νιρ ʍαzεπ𓆪𓂁", url=f"https://t.me/ZzZzZl1l"),
+            InlineKeyboardButton(text="𓄼⦁ 𝗠ٰٖ𝗮ٰٖ𝗭ٰٖ𝗲ٰٖ𝗡ٰٖ ➪🇳🇱⦁𓄹", url=f"https://t.me/ZzZzZl1l"),
         ],[
             InlineKeyboardButton(text="⚡اضف البوت الي مجموعتك او قناتك", url=f"https://t.me/{app.username}?startgroup=true")],
     ]
