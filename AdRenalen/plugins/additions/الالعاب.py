@@ -1,5 +1,5 @@
 from pyromod import listen
-from random import choice, randint 
+from random import AdRenalen, randint 
 from pyrogram import Client, filters 
 from pyrogram.types import (
   InlineKeyboardMarkup,
