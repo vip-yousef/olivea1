@@ -1,5 +1,6 @@
+import random
 from pyromod import listen
-from random import choice, randint 
+from AdRenalen import app
 from pyrogram import Client, filters 
 from pyrogram.types import (
   InlineKeyboardMarkup,
@@ -10,10 +11,10 @@ from pyrogram.types import (
 
 
 EMOJIS = list("😭🤣😂😅😆😁😄😃😀🥳🤩🤩😍🥰😘😚😙😗😉🤪😜😝😛😋🥲🙂🙃😶😐😑🫣🤭")
-@Client.on_message(filters.regex("^الاسرع$") & filters.group)
-@Client.on_edited_message(filters.regex("^الاسرع$") & filters.group)
+@app.on_message(filters.regex("^الاسرع$") & filters.group)
+@app.on_edited_message(filters.regex("^الاسرع$") & filters.group)
 async def game_1(client, message):
-   emoji = choice(EMOJIS)
+   emoji = random.choice(EMOJIS)
    re = f"^{emoji}$"
    ASK = await app.ask(
      message.chat.id,
@@ -45,10 +46,10 @@ AUT = [
   "https://telegra.ph/file/10f7ddbd1779f6bcc9df8.jpgZAIDوائل جسار"
 ]
 
-@Client.on_message(filters.regex("^مشاهير$") & filters.group)
-@Client.on_edited_message(filters.regex("^مشاهير$") & filters.group)
+@app.on_message(filters.regex("^مشاهير$") & filters.group)
+@app.on_edited_message(filters.regex("^مشاهير$") & filters.group)
 async def game_2(client, message):
-   photoo = choice(AUT)
+   photoo = random.choice(AUT)
    photo = photoo.split("ZAID")[0]
    print(photo)
    author = photoo.split("ZAID")[1]
@@ -83,10 +84,10 @@ EMO = [
   "💸:فلوس",
   "💻:لاب"
 ]
-@Client.on_message(filters.regex("^معاني$") & filters.group)
-@Client.on_edited_message(filters.regex("^معاني$") & filters.group)
+@app.on_message(filters.regex("^معاني$") & filters.group)
+@app.on_edited_message(filters.regex("^معاني$") & filters.group)
 async def game_3(client, message):
-   A = choice(EMO)
+   A = random.choice(EMO)
    emo = A.split(":")[0]
    print(emo)
    ans = A.split(":")[1]
@@ -118,10 +119,10 @@ FLAGS = [
   "🇴🇲:سلطنة عمان",
   "🇯🇵:اليابان"
 ]
-@Client.on_message(filters.regex("^اعلام دول$") & filters.group)
-@Client.on_edited_message(filters.regex("^اعلام دول$") & filters.group)
+@app.on_message(filters.regex("^اعلام دول$") & filters.group)
+@app.on_edited_message(filters.regex("^اعلام دول$") & filters.group)
 async def game_4(client, message):
-   A = choice(FLAGS)
+   A = random.choice(FLAGS)
    emo = A.split(":")[0]
    print(emo)
    ans = A.split(":")[1]
@@ -136,12 +137,12 @@ async def game_4(client, message):
    await ASK.reply(
     f"كفو {ASK.from_user.mention} اجابتك صحيحة"
    )
-@Client.on_message(filters.regex("^اقتباس$") & filters.group)
-@Client.on_edited_message(filters.regex("^اقتباس$") & filters.group)
+@app.on_message(filters.regex("^اقتباس$") & filters.group)
+@app.on_edited_message(filters.regex("^اقتباس$") & filters.group)
 async def game_5(client, message):
    f = "quotes555v"
    t = message.chat.id
-   d = randint(2,190)
+   d = random.randint(2,190)
    await app.copy_message(
       t,
       f,
@@ -156,12 +157,12 @@ async def game_5(client, message):
       )
    )
    
-@Client.on_message(filters.regex("^كت$") & filters.group)
-@Client.on_edited_message(filters.regex("^كت$") & filters.group)
+@app.on_message(filters.regex("^كت$") & filters.group)
+@app.on_edited_message(filters.regex("^كت$") & filters.group)
 async def game_6(client, message):
    f = "rancutt"
    t = message.chat.id
-   r = randint(2, 141)
+   r = random.randint(2, 141)
    a = await app.get_messages("rancutt", r)
    id = message.from_user.id
    await message.reply(
@@ -175,30 +176,30 @@ async def game_6(client, message):
       )
    )
    
-@Client.on_message(filters.regex("^افتار انمي$") & filters.group)
-@Client.on_edited_message(filters.regex("^افتار انمي$") & filters.group)
+@app.on_message(filters.regex("^افتار انمي$") & filters.group)
+@app.on_edited_message(filters.regex("^افتار انمي$") & filters.group)
 async def anime(c,m):
-    rl = randint(3,201)
+    rl = random.randint(3,201)
     url = f"https://t.me/foravaanime/{rl}"
     user = m.from_user.mention
     await m.reply_photo(url, caption=f"༄ {user}\n༄ تم اختيار افتار لك")     
     
-@Client.on_message(filters.regex("^افتار عيال$") & filters.group)
-@Client.on_edited_message(filters.regex("^افتار عيال$") & filters.group)
+@app.on_message(filters.regex("^افتار عيال$") & filters.group)
+@app.on_edited_message(filters.regex("^افتار عيال$") & filters.group)
 async def boys(c,m):
-    rl = randint(3,446)
+    rl = random.randint(3,446)
     url = f"https://t.me/foravaboys/{rl}"
     user = m.from_user.mention
     await m.reply_photo(url, caption=f"༄ {user}\n༄ تم اختيار افتار لك")  
 
-@Client.on_callback_query(filters.regex("cut:"))
+@app.on_callback_query(filters.regex("cut:"))
 async def next_cut(_, query: CallbackQuery):
     id = int(query.data.split(":")[1])
     if not query.from_user.id == id:
       return await query.answer("هذا الأمر لايخصك", show_alert=True)
     else:
       idd = query.from_user.id
-      r = randint(2, 141)
+      r = random.randint(2, 141)
       a = await app.get_messages("rancutt", r)
       await query.edit_message_text(
         f"- ‹ {query.from_user.mention} ›\n{a.text}",
