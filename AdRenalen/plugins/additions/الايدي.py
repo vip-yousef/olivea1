@@ -1,3 +1,4 @@
+import asyncio
 from asyncio import gather
 from pyrogram import Client, filters
 from pyrogram import filters
@@ -15,6 +16,7 @@ from AdRenalen import app
 from telegraph import upload_file
 from asyncio import gather
 from pyrogram.errors import FloodWait
+
 
 The_Stayle = [ "وربنا جامد يعم رقمك زيرو كام  😂♥️ ،","علفكرا صورتي احسن منك 😂♥️ ،","الجمال عدا الخيال 😂♥️ ،","متراعي ي لبن المراعي 😂♥️ ،","مش ناوي تغير الصوره دي بقا 😂♥️ ،","غيرها بقا لما بشوفها بتخض 😂♥️ ،"]
 iddof = []
@@ -66,7 +68,7 @@ async def muid(client: Client, message):
     
     idd = len(id[user.id])
     
-    caption = f" {choice(The_Stayle)} \n\n🧞‍♂️ ¦𝙽𝙰𝙼𝙴 : {first_name}\n🎃 ¦𝙸𝙳 : {user_id}\n🎯 ¦𝚄𝚂𝙴𝚁 : [@{username}]\n💌 ¦𝙱𝙸𝙾 : {bio}"
+    caption = f"🧞‍♂️ ¦𝙽𝙰𝙼𝙴 : {first_name}\n🎃 ¦𝙸𝙳 : {user_id}\n🎯 ¦𝚄𝚂𝙴𝚁 : [@{username}]\n💌 ¦𝙱𝙸𝙾 : {bio}"
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton(f"{idd} ❤️", callback_data=f"heart{user_id}")]])
     
     await message.reply_photo(photo=photo, caption=caption, reply_markup=reply_markup)
@@ -88,7 +90,7 @@ async def heart(client, query: CallbackQuery):
     
     idd = len(id[user.id])
     
-    caption = f" {choice(The_Stayle)} \n\n🧞‍♂️ ¦𝙽𝙰𝙼𝙴 : {first_name}\n🎃 ¦𝙸𝙳 : {user_id}\n🎯 ¦𝚄𝚂𝙴𝚁 : [@{username}]\n💌 ¦𝙱𝙸𝙾 : {bioo}"
+    caption = f"🧞‍♂️ ¦𝙽𝙰𝙼𝙴 : {first_name}\n🎃 ¦𝙸𝙳 : {user_id}\n🎯 ¦𝚄𝚂𝙴𝚁 : [@{username}]\n💌 ¦𝙱𝙸𝙾 : {bioo}"
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton(f"{idd} ❤️", callback_data=f"heart{user_id}")]])
     
     await query.edit_message_text(caption, reply_markup=reply_markup)
