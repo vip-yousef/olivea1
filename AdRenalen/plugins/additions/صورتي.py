@@ -25,3 +25,22 @@ async def madison(client: Client, message: Message):
             ]
         ),
     )
+
+EMOJIS = list("😭🤣😂😅😆😁😄😃😀🥳🤩🤩😍🥰😘😚😙😗😉🤪😜😝😛😋🥲🙂🙃😶😐😑🫣🤭")
+@app.on_message(filters.regex("^الاسرع$") & filters.group)
+@app.on_edited_message(filters.regex("^الاسرع$") & filters.group)
+async def game_1(client, message):
+   emoji = random.choice(EMOJIS)
+   re = f"^{emoji}$"
+   ASK = await app.ask(
+     message.chat.id,
+     "اسرع واحد يرسل الايموجي : `{}`".format(emoji),
+     reply_to_message_id=message.id,
+     filters=filters.regex(re)
+   )
+   await app.send_message(
+      message.chat.id,
+      "المستخدم {} كفو اجابتك صح".format(ASK.from_user.mention),
+      reply_to_message_id=ASK.id
+   )
+   
