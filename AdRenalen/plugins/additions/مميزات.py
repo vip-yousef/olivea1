@@ -2,7 +2,7 @@ import random
 from config import *
 from AdRenalen import app
 from pyrogram import Client, filters
-from pyrogram.types import InlineKeyboardButton
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.enums import ChatMemberStatus
 
 
@@ -17,6 +17,7 @@ def Who(m, user_id):
 
 forward = []
 cursing = []
+mute = []
 #####==> By JABWA <==#####
 @app.on_message(filters.command("تف", "") & filters.group & filters.reply)
 def jabwa(c, m):
@@ -147,13 +148,26 @@ def on_forward(c, m):
   forward.remove(idchat)
   m.reply(f"• تم فتح التوجيه بالكتم\n• بواسطة : {name}",quote=True)
   return
-    
+
+@app.on_message(filters.command("مسح المكتومين", "") & filters.group)
+def remove(c, m):
+  idchat = m.chat.id
+  name = m.from_user.mention
+  a = c.get_chat_member(m.chat.id, m.from_user.id)
+  if not a.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
+   if not m.from_user.id == OWNER_BOT:
+    return m.reply("يجب انت تكون ادمن للقيام بذلك")
+  mute.remove()
+  m.reply(f"• تم مسح المكتومين\n• بواسطة : {name}",quote=True)
+  return
 
 @app.on_message(filters.text & filters.group)
 def msg(c, m):
-  ID_BOT = app.id
   text = m.text
   idchat = m.chat.id
+
+  if mute in mute:
+    m.delete()
 
   insults = ["كس","كسمك","كسختك","عير","كسخالتك","خرا بالله","عير بالله","كسخواتكم","كحاب","مناويج","مناويج","كحبه","ابن الكحبه","فرخ","فروخ","طيزك","طيزختك","كسمك","يا ابن الخول","المتناك","شرموط","شرموطه","ابن الشرموطه","ابن الخول","ابن العرص","منايك","متناك","احا","ابن المتناكه","زبك","عرص","زبي","خول","لبوه","لباوي","ابن اللبوه","منيوك","كسمكك","متناكه","احو","احي","يا عرص","يا خول","قحبه","القحبه","شراميط","العلق","العلوق","العلقه","كسمك","يا ابن الخول","المتناك","شرموط","شرموطه","ابن الشرموطه","ابن الخول","االمنيوك","كسمككك","الشرموطه","ابن العرث","ابن الحيضانه","زبك","خول","زبي","قاحب","تيزك"]
   if str(text) in insults:
@@ -162,10 +176,11 @@ def msg(c, m):
       if not a.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
        if not m.from_user.id == OWNER_BOT:
          m.delete()
-         Text =f"""**
+         mute.append(m.from_user.id)
+         Text =f"""
 ♪ عذرا {m.from_user.mention} ⚡ .
 ♪ ممنوع الشتائم ⚡ .
-**"""
+"""
          m.reply(Text,quote=True)
 
   if m.forward_date:
@@ -174,8 +189,9 @@ def msg(c, m):
       if not a.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
        if not m.from_user.id == OWNER_BOT:
          m.delete()
-         Text =f"""**
+         mute.append(m.from_user.id)
+         Text =f"""
 ♪ عذرا {m.from_user.mention} ⚡ .
 ♪ ممنوع التوجيه هنا ⚡ .
-**"""
+"""
          m.reply(Text,quote=True)
