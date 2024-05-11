@@ -4,9 +4,10 @@ from AdRenalen import app
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton
 from pyrogram.enums import ChatMemberStatus
+
 redis = redis.Redis(host="127.0.0.1", port=6379, charset="utf-8", decode_responses=True)
 
-def Who(m, user_id):
+def Who(m,user_id):
   user = m.chat.get_member(user_id)
   if user.status == ChatMemberStatus.OWNER:
     return "المالك"
@@ -21,17 +22,17 @@ def jabwa(c, m):
   id = m.reply_to_message.from_user.id
   if id == OWNER_ID:
     return m.reply("• لا يمكنك التف علي المطور ❤️✌️")
-  if id == app.id:
+  if id == ID_BOT:
     return m.reply("• عاوزني اتف علي نفسي يعبيط 😂")
   if id == DEVELOPERS:
     return m.reply("• لا يمكنك التف علي مطورين السورس 🧑‍✈️")
-  Text =f"""**
+  Text =f"""
 • تم التف علي هذا الشخص
 
 ※ بواسطة {name}
 
  اععع اي القرف ده 🤢
-**"""
+"""
   JABWA = InlineKeyboardMarkup([
 [InlineKeyboardButton("اضف البوت الي مجموعتك او قناتك 🎸",url=f"https://t.me/{app.username}?startgroup=true")]])
   m.reply_photo("https://t.me/DEVSOLiVEA/14",caption=Text,reply_markup=JABWA)
@@ -47,20 +48,20 @@ def jabwa(c, m):
     return m.reply("• عاوزني اتف علي نفسي يعبيط 😂")
   if id == DEVELOPERS:
     return m.reply("• لا يمكنك التف علي مطورين السورس 🧑‍✈️")
-  Text =f"""**
+  Text =f"""
 • تم قتل هذا الشخص
 
 ※ بواسطة {name}
 
  ان لله وان اليه راجعون ⚰😭
-**"""
+"""
   JABWA = InlineKeyboardMarkup([
 [InlineKeyboardButton("اضف البوت الي مجموعتك او قناتك 🎸",url=f"https://t.me/{app.username}?startgroup=true")]])
   m.reply_photo("https://t.me/DEVSOLiVEA/14",caption=Text,reply_markup=JABWA)
 
 @app.on_message(filters.command("كشف", "") & filters.group)
 def jabwa(c, m):
-  global app.id
+  global ID_BOT
   name = m.reply_to_message.from_user.first_name
   id = m.reply_to_message.from_user.id
   user = m.reply_to_message.from_user.username
@@ -72,7 +73,7 @@ def jabwa(c, m):
 • اليوزر : {user}
 • الرتبه {rank}
 • سعر الكشف : {money} جنيه 😂❤️
-**"""
+"""
   return m.reply(Text)
 
 @app.on_message(filters.command("قفل الدردشه", "") & filters.group)
@@ -101,7 +102,7 @@ def on_chat(c, m):
 
 @app.on_message(filters.command("قفل السب بالكتم", "") & filters.group)
 def of_cursing(c, m):
-  global app.id
+  global ID_BOT
   idchat = m.chat.id
   name = m.from_user.mention
   a = c.get_chat_member(m.chat.id, m.from_user.id)
@@ -117,7 +118,7 @@ def of_cursing(c, m):
 
 @app.on_message(filters.command("فتح السب بالكتم", "") & filters.group)
 def on_cursing(c, m):
-  global app.id
+  global ID_BOT
   idchat = m.chat.id
   name = m.from_user.mention
   a = c.get_chat_member(m.chat.id, m.from_user.id)
@@ -133,7 +134,7 @@ def on_cursing(c, m):
 
 @app.on_message(filters.command("قفل التوجيه بالكتم", "") & filters.group)
 def of_forward(c, m):
-  global app.id
+  global ID_BOT
   idchat = m.chat.id
   name = m.from_user.mention
   a = c.get_chat_member(m.chat.id, m.from_user.id)
@@ -149,7 +150,7 @@ def of_forward(c, m):
 
 @app.on_message(filters.command("فتح التوجيه بالكتم", "") & filters.group)
 def on_forward(c, m):
-  global app.id
+  global ID_BOT
   idchat = m.chat.id
   name = m.from_user.mention
   a = c.get_chat_member(m.chat.id, m.from_user.id)
@@ -166,7 +167,7 @@ def on_forward(c, m):
 
 @app.on_message(filters.text & filters.group)
 def msg(c, m):
-  global app.id
+  global ID_BOT
   text = m.text
   idchat = m.chat.id
 
