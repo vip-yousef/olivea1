@@ -17,8 +17,7 @@ def Who(m, user_id):
 #####==> By JABWA <==#####
 @app.on_message(filters.command("تف", "") & filters.group & filters.reply)
 def jabwa(c, m):
-  name = m.reply_to_message.from_user.mention
-  user = m.reply_to_message.from_user.username
+  name = m.reply_to_message.from_user.first_name
   id = m.reply_to_message.from_user.id
   if id == OWNER_ID:
     return m.reply("• لا يمكنك التف علي المطور ❤️✌️")
@@ -40,8 +39,7 @@ def jabwa(c, m):
 
 @app.on_message(filters.command("تخ", "") & filters.group & filters.reply)
 def jabwa(c, m):
-  name = m.reply_to_message.from_user.mention
-  user = m.reply_to_message.from_user.username
+  name = m.reply_to_message.from_user.first_name
   id = m.reply_to_message.from_user.id
   if id == OWNER_ID:
     return m.reply("• لا يمكنك التف علي المطور ❤️✌️")
