@@ -30,15 +30,15 @@ def jabwa(c, m):
     return m.reply("• عاوزني اتف علي نفسي يعبيط 😂")
   if id == DEVELOPERS:
     return m.reply("• لا يمكنك التف علي مطورين السورس 🧑‍✈️")
-  Text =f"""**
+  Text =f"""
 • تم التف علي هذا الشخص
 
 ※ بواسطة {first_name}
 
  اععع اي القرف ده 🤢
-**"""
+"""
   JABWA = InlineKeyboardMarkup([[InlineKeyboardButton("اضف البوت الي مجموعتك او قناتك 🎸", url=f"https://t.me/{app.username}?startgroup=true"),]])
-  m.reply_photo("https://t.me/DEVSOLiVEA/14",caption=Text,reply_markup=JABWA)
+  m.reply_animation("https://t.me/DEVSOLiVEA/14",caption=Text,reply_markup=JABWA)
 
 @app.on_message(filters.command("تخ", "") & filters.group & filters.reply)
 def jabwa(c, m):
@@ -58,7 +58,8 @@ def jabwa(c, m):
 
  ان لله وان اليه راجعون ⚰😭
 """
-  m.reply_photo("https://t.me/DEVSOLiVEA/14",caption=Text)
+  JABWA = InlineKeyboardMarkup([[InlineKeyboardButton("اضف البوت الي مجموعتك او قناتك 🎸", url=f"https://t.me/{app.username}?startgroup=true"),]])
+  m.reply_animation("https://t.me/DEVSOLiVEA/14",caption=Text,reply_markup=JABWA)
 
 @app.on_message(filters.command("كشف", "") & filters.group)
 def jabwa(c, m):
@@ -157,7 +158,12 @@ def remove(c, m):
    if not m.from_user.id == OWNER_BOT:
     return m.reply("يجب انت تكون ادمن للقيام بذلك")
   for member in c.get_chat_members(idchat):
-    mute.remove(member.user)
+    if member.user.is_bot == True:
+      pass
+    elif member.user.is_deleted == True:
+      pass
+    else:
+      mute.remove(member.user.id)
   m.reply(f"• تم مسح المكتومين\n• بواسطة : {name}",quote=True)
   return
 
