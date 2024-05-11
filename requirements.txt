@@ -1,4 +1,4 @@
-sudopython3-m pipinstallredis
+sudopython3-mpipinstallredis
 sudoapt-getinstallredis-server-y
 aiofiles
 aiohttp
