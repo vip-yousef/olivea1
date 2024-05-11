@@ -82,7 +82,7 @@ def of_chat(c, m):
   a = c.get_chat_member(m.chat.id, m.from_user.id)
   if not a.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
    if not m.from_user.id == OWNER_ID:
-    return await m.reply("يجب انت تكون ادمن للقيام بذلك")
+    return m.reply("يجب انت تكون ادمن للقيام بذلك")
   c.set_chat_permissions(idchat, ChatPermissions())
   m.reply(f"• تم قفل الدردشه\n• بواسطة : {name}",quote=True)
   return
@@ -93,7 +93,7 @@ def on_chat(c, m):
   a = c.get_chat_member(m.chat.id, m.from_user.id)
   if not a.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
    if not m.from_user.id == OWNER_ID:
-    return await m.reply("يجب انت تكون ادمن للقيام بذلك")
+    return m.reply("يجب انت تكون ادمن للقيام بذلك")
   c.set_chat_permissions(idchat, ChatPermissions(can_send_messages=True, can_send_media_messages=True))
   m.reply(f"• تم فتح الدردشه\n• بواسطة : {name}",quote=True)
   return
@@ -105,7 +105,7 @@ def of_cursing(c, m):
   a = c.get_chat_member(m.chat.id, m.from_user.id)
   if not a.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
    if not m.from_user.id == OWNER_BOT:
-    return await m.reply("يجب انت تكون ادمن للقيام بذلك")
+    return m.reply("يجب انت تكون ادمن للقيام بذلك")
   if redis.get(f"lock_cursing{ID_BOT}{idchat}"):
     m.reply("• السب مقفول من قبل",quote=True)
   else:
@@ -120,7 +120,7 @@ def on_cursing(c, m):
   a = c.get_chat_member(m.chat.id, m.from_user.id)
   if not a.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
    if not m.from_user.id == OWNER_BOT:
-    return await m.reply("يجب انت تكون ادمن للقيام بذلك")
+    return m.reply("يجب انت تكون ادمن للقيام بذلك")
   if redis.get(f"lock_cursing{ID_BOT}{idchat}"):
     m.reply("• السب مفتوح من قبل",quote=True)
   else:
@@ -135,7 +135,7 @@ def of_forward(c, m):
   a = c.get_chat_member(m.chat.id, m.from_user.id)
   if not a.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
    if not m.from_user.id == OWNER_BOT:
-    return await m.reply("يجب انت تكون ادمن للقيام بذلك")
+    return m.reply("يجب انت تكون ادمن للقيام بذلك")
   if redis.get(f"lock_forward{ID_BOT}{idchat}"):
     m.reply("• التوجيه مقفول من قبل",quote=True)
   else:
@@ -150,7 +150,7 @@ def on_forward(c, m):
   a = c.get_chat_member(m.chat.id, m.from_user.id)
   if not a.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
    if not m.from_user.id == OWNER_ID:
-    return await m.reply("يجب انت تكون ادمن للقيام بذلك")
+    return m.reply("يجب انت تكون ادمن للقيام بذلك")
   if redis.get(f"lock_forward{ID_BOT}{idchat}"):
     m.reply("• التوجيه مفتوح من قبل",quote=True)
   else:
