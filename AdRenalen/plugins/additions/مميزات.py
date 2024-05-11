@@ -38,6 +38,7 @@ def jabwa(c, m):
 
 @app.on_message(filters.command("تخ", "") & filters.group & filters.reply)
 def jabwa(c, m):
+  global ID_BOT
   name = m.reply_to_message.from_user.first_name
   id = m.reply_to_message.from_user.id
   if id == OWNER_ID:
@@ -59,6 +60,7 @@ def jabwa(c, m):
 
 @app.on_message(filters.command("كشف", "") & filters.group)
 def jabwa(c, m):
+  global ID_BOT
   name = m.reply_to_message.from_user.first_name
   id = m.reply_to_message.from_user.id
   user = m.reply_to_message.from_user.username
@@ -99,6 +101,7 @@ def on_chat(c, m):
 
 @app.on_message(filters.command("قفل السب بالكتم", "") & filters.group)
 def of_cursing(c, m):
+  global ID_BOT
   idchat = m.chat.id
   name = m.from_user.mention
   a = c.get_chat_member(m.chat.id, m.from_user.id)
@@ -114,6 +117,7 @@ def of_cursing(c, m):
 
 @app.on_message(filters.command("فتح السب بالكتم", "") & filters.group)
 def on_cursing(c, m):
+  global ID_BOT
   idchat = m.chat.id
   name = m.from_user.mention
   a = c.get_chat_member(m.chat.id, m.from_user.id)
@@ -129,6 +133,7 @@ def on_cursing(c, m):
 
 @app.on_message(filters.command("قفل التوجيه بالكتم", "") & filters.group)
 def of_forward(c, m):
+  global ID_BOT
   idchat = m.chat.id
   name = m.from_user.mention
   a = c.get_chat_member(m.chat.id, m.from_user.id)
@@ -144,6 +149,7 @@ def of_forward(c, m):
 
 @app.on_message(filters.command("فتح التوجيه بالكتم", "") & filters.group)
 def on_forward(c, m):
+  global ID_BOT
   idchat = m.chat.id
   name = m.from_user.mention
   a = c.get_chat_member(m.chat.id, m.from_user.id)
@@ -160,6 +166,7 @@ def on_forward(c, m):
 
 @app.on_message(filters.text & filters.group)
 def msg(c, m):
+  global ID_BOT
   text = m.text
   idchat = m.chat.id
 
