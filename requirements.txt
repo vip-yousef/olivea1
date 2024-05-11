@@ -1,5 +1,5 @@
-redis
-redis-server
+sudo python3 -m pip install redis
+sudo apt-get install redis-server -y
 aiofiles
 aiohttp
 asyncio
