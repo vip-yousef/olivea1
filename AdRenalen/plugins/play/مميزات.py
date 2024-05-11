@@ -2,7 +2,7 @@ import random, redis
 from config import *
 from AdRenalen import app
 from pyrogram import Client, filters
-from pyrogram.types import Message
+from pyrogram.types import InlineKeyboardButton
 from pyrogram.enums import ChatMemberStatus
 redis = redis.Redis(host="127.0.0.1", port=6379, charset="utf-8", decode_responses=True)
 
@@ -17,8 +17,8 @@ def Who(m, user_id):
 #####==> By JABWA <==#####
 @app.on_message(filters.command("تف", "") & filters.group & filters.reply)
 def jabwa(c, m):
-  name = m.reply_to_message.from_user.mention
-  user = m.reply_to_message.from_user.username
+  ID_BOT = app.id
+  name = m.reply_to_message.from_user.first_name
   id = m.reply_to_message.from_user.id
   if id == OWNER_ID:
     return m.reply("• لا يمكنك التف علي المطور ❤️✌️")
@@ -33,14 +33,14 @@ def jabwa(c, m):
 
  اععع اي القرف ده 🤢
 **"""
-  JABWA = InlineKeyboardButton("اضف البوت الي جروبك او قناتك 🎸 ⋅", url=f"https://t.me/{app.username}?startgroup=true")]])
-  return m.reply_photo("https://t.me/DEVSOLiVEA/13",caption=Text,reply_markup=JABWA,quote=True)
-
+  JABWA = InlineKeyboardMarkup([
+[InlineKeyboardButton("اضف البوت الي مجموعتك او قناتك 🎸",url=f"https://t.me/{app.username}?startgroup=true")]])
+  m.reply_photo("https://t.me/DEVSOLiVEA/14",caption=Text,reply_markup=JABWA)
 
 @app.on_message(filters.command("تخ", "") & filters.group & filters.reply)
 def jabwa(c, m):
-  name = m.reply_to_message.from_user.mention
-  user = m.reply_to_message.from_user.username
+  ID_BOT = app.id
+  name = m.reply_to_message.from_user.first_name
   id = m.reply_to_message.from_user.id
   if id == OWNER_ID:
     return m.reply("• لا يمكنك التف علي المطور ❤️✌️")
@@ -55,8 +55,9 @@ def jabwa(c, m):
 
  ان لله وان اليه راجعون ⚰😭
 **"""
-  JABWA = InlineKeyboardButton("اضف البوت الي جروبك او قناتك 🎸 ⋅", url=f"https://t.me/{app.username}?startgroup=true")]])
-  return m.reply_photo("https://t.me/DEVSOLiVEA/14",caption=Text,reply_markup=JABWA,quote=True)
+  JABWA = InlineKeyboardMarkup([
+[InlineKeyboardButton("اضف البوت الي مجموعتك او قناتك 🎸",url=f"https://t.me/{app.username}?startgroup=true")]])
+  m.reply_photo("https://t.me/DEVSOLiVEA/14",caption=Text,reply_markup=JABWA)
 
 @app.on_message(filters.command("كشف", "") & filters.group)
 def jabwa(c, m):
@@ -77,10 +78,11 @@ def jabwa(c, m):
 @app.on_message(filters.command("قفل الدردشه", "") & filters.group)
 def of_chat(c, m):
   idchat = m.chat.id
+  name = m.from_user.mention
   a = c.get_chat_member(m.chat.id, m.from_user.id)
   if not a.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
    if not m.from_user.id == OWNER_ID:
-    return await m.reply("يجب انت تكون ادمن للقيام بذلك")
+    return m.reply("يجب انت تكون ادمن للقيام بذلك")
   c.set_chat_permissions(idchat, ChatPermissions())
   m.reply(f"• تم قفل الدردشه\n• بواسطة : {name}",quote=True)
   return
@@ -88,22 +90,24 @@ def of_chat(c, m):
 @app.on_message(filters.command("فتح الدردشه", "") & filters.group)
 def on_chat(c, m):
   idchat = m.chat.id
+  name = m.from_user.mention
   a = c.get_chat_member(m.chat.id, m.from_user.id)
   if not a.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
    if not m.from_user.id == OWNER_ID:
-    return await m.reply("يجب انت تكون ادمن للقيام بذلك")
+    return m.reply("يجب انت تكون ادمن للقيام بذلك")
   c.set_chat_permissions(idchat, ChatPermissions(can_send_messages=True, can_send_media_messages=True))
   m.reply(f"• تم فتح الدردشه\n• بواسطة : {name}",quote=True)
   return
 
 @app.on_message(filters.command("قفل السب بالكتم", "") & filters.group)
 def of_cursing(c, m):
+  ID_BOT = app.id
   idchat = m.chat.id
   name = m.from_user.mention
   a = c.get_chat_member(m.chat.id, m.from_user.id)
   if not a.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
    if not m.from_user.id == OWNER_BOT:
-    return await m.reply("يجب انت تكون ادمن للقيام بذلك")
+    return m.reply("يجب انت تكون ادمن للقيام بذلك")
   if redis.get(f"lock_cursing{ID_BOT}{idchat}"):
     m.reply("• السب مقفول من قبل",quote=True)
   else:
@@ -113,12 +117,13 @@ def of_cursing(c, m):
 
 @app.on_message(filters.command("فتح السب بالكتم", "") & filters.group)
 def on_cursing(c, m):
+  ID_BOT = app.id
   idchat = m.chat.id
   name = m.from_user.mention
   a = c.get_chat_member(m.chat.id, m.from_user.id)
   if not a.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
    if not m.from_user.id == OWNER_BOT:
-    return await m.reply("يجب انت تكون ادمن للقيام بذلك")
+    return m.reply("يجب انت تكون ادمن للقيام بذلك")
   if redis.get(f"lock_cursing{ID_BOT}{idchat}"):
     m.reply("• السب مفتوح من قبل",quote=True)
   else:
@@ -128,12 +133,13 @@ def on_cursing(c, m):
 
 @app.on_message(filters.command("قفل التوجيه بالكتم", "") & filters.group)
 def of_forward(c, m):
+  ID_BOT = app.id
   idchat = m.chat.id
   name = m.from_user.mention
   a = c.get_chat_member(m.chat.id, m.from_user.id)
   if not a.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
    if not m.from_user.id == OWNER_BOT:
-    return await m.reply("يجب انت تكون ادمن للقيام بذلك")
+    return m.reply("يجب انت تكون ادمن للقيام بذلك")
   if redis.get(f"lock_forward{ID_BOT}{idchat}"):
     m.reply("• التوجيه مقفول من قبل",quote=True)
   else:
@@ -143,12 +149,13 @@ def of_forward(c, m):
 
 @app.on_message(filters.command("فتح التوجيه بالكتم", "") & filters.group)
 def on_forward(c, m):
+  ID_BOT = app.id
   idchat = m.chat.id
   name = m.from_user.mention
   a = c.get_chat_member(m.chat.id, m.from_user.id)
   if not a.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
    if not m.from_user.id == OWNER_ID:
-    return await m.reply("يجب انت تكون ادمن للقيام بذلك")
+    return m.reply("يجب انت تكون ادمن للقيام بذلك")
   if redis.get(f"lock_forward{ID_BOT}{idchat}"):
     m.reply("• التوجيه مفتوح من قبل",quote=True)
   else:
@@ -159,6 +166,7 @@ def on_forward(c, m):
 
 @app.on_message(filters.text & filters.group)
 def msg(c, m):
+  ID_BOT = app.id
   text = m.text
   idchat = m.chat.id
 
