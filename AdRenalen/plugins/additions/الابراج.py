@@ -2,8 +2,6 @@ import asyncio
 import config
 from pyrogram import Client, filters
 from pyrogram import filters
-from strings import get_command
-from strings.filters import command
 from AdRenalen import app
 from config import OWNER_ID
 from AdRenalen.misc import SUDOERS
