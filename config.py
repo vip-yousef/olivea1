@@ -24,7 +24,7 @@ LOGGER_ID = int(getenv("LOGGER_ID", None))
 OWNER_ID = int(getenv("OWNER_ID", 6816180621))
 DEVELOPERS = [6816180621]
 OWNER_BOT = 6816180621
-ID_BOT = 7101389316
+ID_BOT = "7101389316"
 
 ## Fill these variables if you're deploying on heroku.
 # Your heroku app name
