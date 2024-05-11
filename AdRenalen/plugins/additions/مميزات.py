@@ -133,7 +133,7 @@ def on_cursing(c, m):
 
 @app.on_message(filters.command("قفل التوجيه بالكتم", "") & filters.group)
 def of_forward(c, m):
-  global ID_BOT
+  global app.id
   idchat = m.chat.id
   name = m.from_user.mention
   a = c.get_chat_member(m.chat.id, m.from_user.id)
