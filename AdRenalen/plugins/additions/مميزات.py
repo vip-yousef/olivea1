@@ -158,7 +158,7 @@ def msg(c, m):
   insults = ["كس","كسمك","كسختك","عير","كسخالتك","خرا بالله","عير بالله","كسخواتكم","كحاب","مناويج","مناويج","كحبه","ابن الكحبه","فرخ","فروخ","طيزك","طيزختك","كسمك","يا ابن الخول","المتناك","شرموط","شرموطه","ابن الشرموطه","ابن الخول","ابن العرص","منايك","متناك","احا","ابن المتناكه","زبك","عرص","زبي","خول","لبوه","لباوي","ابن اللبوه","منيوك","كسمكك","متناكه","احو","احي","يا عرص","يا خول","قحبه","القحبه","شراميط","العلق","العلوق","العلقه","كسمك","يا ابن الخول","المتناك","شرموط","شرموطه","ابن الشرموطه","ابن الخول","االمنيوك","كسمككك","الشرموطه","ابن العرث","ابن الحيضانه","زبك","خول","زبي","قاحب","تيزك"]
   if str(text) in insults:
     if idchat in cursing:
-      a = c.get_chat_member(idchat, iduser)
+      a = c.get_chat_member(idchat, m.from_user.id)
       if not a.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
        if not m.from_user.id == OWNER_BOT:
          m.delete()
@@ -170,7 +170,7 @@ def msg(c, m):
 
   if m.forward_date:
     if idchat in forward:
-      a = c.get_chat_member(idchat, iduser)
+      a = c.get_chat_member(idchat, m.from_user.id)
       if not a.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
        if not m.from_user.id == OWNER_BOT:
          m.delete()
