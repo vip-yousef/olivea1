@@ -158,12 +158,7 @@ def remove(c, m):
    if not m.from_user.id == OWNER_BOT:
     return m.reply("يجب انت تكون ادمن للقيام بذلك")
   for member in c.get_chat_members(idchat):
-    if member.user.is_bot == True:
-      pass
-    elif member.user.is_deleted == True:
-      pass
-    else:
-      mute.remove(member.user.id)
+    mute.remove(member.user.id)
   m.reply(f"• تم مسح المكتومين\n• بواسطة : {name}",quote=True)
   return
 
