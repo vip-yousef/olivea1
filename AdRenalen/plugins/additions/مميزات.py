@@ -2,7 +2,7 @@ import random, redis
 from config import *
 from AdRenalen import app
 from pyrogram import Client, filters
-from pyrogram.types import Message
+from pyrogram.types import InlineKeyboardButton
 from pyrogram.enums import ChatMemberStatus
 redis = redis.Redis(host="127.0.0.1", port=6379, charset="utf-8", decode_responses=True)
 
@@ -33,7 +33,8 @@ def jabwa(c, m):
 
  اععع اي القرف ده 🤢
 **"""
-  JABWA = InlineKeyboardButton("اضف البوت الي جروبك او قناتك 🎸 ⋅", url=f"https://t.me/{app.username}?startgroup=true")]])
+  JABWA = InlineKeyboardMarkup([
+[InlineKeyboardButton("اضف البوت الي مجموعتك او قناتك 🎸",url=f"https://t.me/{app.username}?startgroup=true")]])
   return m.reply_photo("https://t.me/DEVSOLiVEA/13",caption=Text,reply_markup=JABWA,quote=True)
 
 
@@ -55,7 +56,8 @@ def jabwa(c, m):
 
  ان لله وان اليه راجعون ⚰😭
 **"""
-  JABWA = InlineKeyboardButton("اضف البوت الي جروبك او قناتك 🎸 ⋅", url=f"https://t.me/{app.username}?startgroup=true")]])
+  JABWA = InlineKeyboardMarkup([
+[InlineKeyboardButton("اضف البوت الي مجموعتك او قناتك 🎸",url=f"https://t.me/{app.username}?startgroup=true")]])
   return m.reply_photo("https://t.me/DEVSOLiVEA/14",caption=Text,reply_markup=JABWA,quote=True)
 
 @app.on_message(filters.command("كشف", "") & filters.group)
