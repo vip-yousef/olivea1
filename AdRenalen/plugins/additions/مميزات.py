@@ -34,8 +34,7 @@ def jabwa(c, m):
 **"""
   JABWA = InlineKeyboardMarkup([
 [InlineKeyboardButton("اضف البوت الي مجموعتك او قناتك 🎸",url=f"https://t.me/{app.username}?startgroup=true")]])
-  return m.reply_photo("https://t.me/DEVSOLiVEA/13",caption=Text,reply_markup=JABWA,quote=True)
-
+  m.reply_photo("https://t.me/DEVSOLiVEA/14",caption=Text,reply_markup=JABWA)
 
 @app.on_message(filters.command("تخ", "") & filters.group & filters.reply)
 def jabwa(c, m):
@@ -56,7 +55,7 @@ def jabwa(c, m):
 **"""
   JABWA = InlineKeyboardMarkup([
 [InlineKeyboardButton("اضف البوت الي مجموعتك او قناتك 🎸",url=f"https://t.me/{app.username}?startgroup=true")]])
-  return m.reply_photo("https://t.me/DEVSOLiVEA/14",caption=Text,reply_markup=JABWA,quote=True)
+  m.reply_photo("https://t.me/DEVSOLiVEA/14",caption=Text,reply_markup=JABWA)
 
 @app.on_message(filters.command("كشف", "") & filters.group)
 def jabwa(c, m):
@@ -77,6 +76,7 @@ def jabwa(c, m):
 @app.on_message(filters.command("قفل الدردشه", "") & filters.group)
 def of_chat(c, m):
   idchat = m.chat.id
+  name = m.from_user.mention
   a = c.get_chat_member(m.chat.id, m.from_user.id)
   if not a.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
    if not m.from_user.id == OWNER_ID:
@@ -88,6 +88,7 @@ def of_chat(c, m):
 @app.on_message(filters.command("فتح الدردشه", "") & filters.group)
 def on_chat(c, m):
   idchat = m.chat.id
+  name = m.from_user.mention
   a = c.get_chat_member(m.chat.id, m.from_user.id)
   if not a.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
    if not m.from_user.id == OWNER_ID:
