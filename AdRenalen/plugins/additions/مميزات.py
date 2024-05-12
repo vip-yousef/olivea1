@@ -33,7 +33,7 @@ def jabwa(c, m):
   Text =f"""
 • تم التف علي هذا الشخص
 
-※ بواسطة {first_name}
+※ بواسطة {mention}
 
  اععع اي القرف ده 🤢
 """
@@ -54,28 +54,12 @@ def jabwa(c, m):
   Text =f"""
 • تم قتل هذا الشخص
 
-※ بواسطة {first_name}
+※ بواسطة {mention}
 
  ان لله وان اليه راجعون ⚰😭
 """
   JABWA = InlineKeyboardMarkup([[InlineKeyboardButton("اضف البوت الي مجموعتك او قناتك 🎸", url=f"https://t.me/{app.username}?startgroup=true"),]])
   m.reply_animation("https://t.me/DEVSOLiVEA/14",caption=Text,reply_markup=JABWA)
-
-@app.on_message(filters.command("كشف", "") & filters.group)
-def jabwa(c, m):
-  name = m.reply_to_message.from_user.first_name
-  id = m.reply_to_message.from_user.id
-  user = m.reply_to_message.from_user.username
-  rank = f"{Who(m,m.reply_to_message.from_user.id)}"
-  money = random.randint(1, 100)
-  Text =f"""**
-• الاسم : {name}
-• الايدي : {id}
-• اليوزر : {user}
-• الرتبه {rank}
-• سعر الكشف : {money} جنيه 😂❤️
-**"""
-  return m.reply(Text)
 
 @app.on_message(filters.command("قفل الدردشه", "") & filters.group)
 def of_chat(c, m):
