@@ -164,7 +164,7 @@ def remove(c, m):
       pass
     else:
        mutes.remove(x)
-      mute.remove(member.user.id)
+      mute.remove(member_user.id)
   m.reply(f"• تم مسح المكتومين\n• بواسطة : {name}",quote=True)
   return
 
