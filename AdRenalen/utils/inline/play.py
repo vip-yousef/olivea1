@@ -26,35 +26,34 @@ def track_markup(_, videoid, user_id, channel, fplay):
 
 
 def stream_markup_timer(_, chat_id, played, dur):
-[  
-            InlineKeyboardButton(text="𝐄𝐍𝐃", callback_data=f"ADMIN Stop|{chat_id}"),
-            InlineKeyboardButton(text="𝐑𝐄𝐒𝐔𝐌𝐄", callback_data=f"ADMIN Resume|{chat_id}"),
-            InlineKeyboardButton(text="𝐏𝐀𝐔𝐒𝐄", callback_data=f"ADMIN Pause|{chat_id}"),
-            
+    [
+            InlineKeyboardButton(text="⦗ استأناف ▷ ⦘", callback_data=f"ADMIN Resume|{chat_id}"),
+            InlineKeyboardButton(text="⦗ ايقاف مؤقت II ⦘", callback_data=f"ADMIN Pause|{chat_id}"),
+            InlineKeyboardButton(text="⦗ إعادة تشغيل ↻ ⦘", callback_data=f"ADMIN Replay|{chat_id}"),
         ],[
-            InlineKeyboardButton(text="𝐂𝐇𝐀𝐍𝐍𝐄𝐋 ", url=f"https://t.me/SOURCEOLIVEA"),
-            InlineKeyboardButton(text="𝐆𝐑𝐎𝐔𝐏", url=f"https://t.me/D1_FD"),
+            InlineKeyboardButton(text="⦗ تخطي ‣‣I ⦘", callback_data=f"ADMIN Skip|{chat_id}"),
+            InlineKeyboardButton(text="⦗ ايقاف ▢ ⦘", callback_data=f"ADMIN Stop|{chat_id}"),
         ],[
-            InlineKeyboardButton(text="𓄼⦁ 𝗠ٰٖ𝗮ٰٖ𝗭ٰٖ𝗲ٰٖ𝗡ٰٖ ➪🇳🇱⦁𓄹", url=f"https://t.me/ZzZzZl1l"),
+            InlineKeyboardButton(text="𓄼⦁ 𝗠ٰٖ𝗮ٰٖ𝗭ٰٖ𝗲ٰٖ𝗡ٰٖ ➪🇳🇱⦁𓄹", url=f"https://t.me/WA_AdRenalen"),
         ],[
-            InlineKeyboardButton(text="اضف البوت الي مجموعتك او قناتك⚡", url=f"https://t.me/{app.username}?startgroup=true")]
+            InlineKeyboardButton(text="اضف البوت الي جروبك او قناتك 🎸 ⋅", url=f"https://t.me/{app.username}?startgroup=true")]
     return buttons
 
 
 def stream_markup(_, chat_id):
     buttons = [
-[  
-            InlineKeyboardButton(text="𝐄𝐍𝐃", callback_data=f"ADMIN Stop|{chat_id}"),
-            InlineKeyboardButton(text="𝐑𝐄𝐒𝐔𝐌𝐄", callback_data=f"ADMIN Resume|{chat_id}"),
-            InlineKeyboardButton(text="𝐏𝐀𝐔𝐒𝐄", callback_data=f"ADMIN Pause|{chat_id}"),
-            
+        [
+            InlineKeyboardButton(text="⦗ استأناف ▷ ⦘", callback_data=f"ADMIN Resume|{chat_id}"),
+            InlineKeyboardButton(text="⦗ ايقاف مؤقت II ⦘", callback_data=f"ADMIN Pause|{chat_id}"),
+            InlineKeyboardButton(text="⦗ إعادة تشغيل ↻ ⦘", callback_data=f"ADMIN Replay|{chat_id}"),
         ],[
-            InlineKeyboardButton(text="𝐂𝐇𝐀𝐍𝐍𝐄𝐋 ", url=f"https://t.me/SOURCEOLIVEA"),
-            InlineKeyboardButton(text="𝐆𝐑𝐎𝐔𝐏", url=f"https://t.me/D1_FD"),
+            InlineKeyboardButton(text="⦗ تخطي ‣‣I ⦘", callback_data=f"ADMIN Skip|{chat_id}"),
+            InlineKeyboardButton(text="⦗ ايقاف ▢ ⦘", callback_data=f"ADMIN Stop|{chat_id}"),
         ],[
-            InlineKeyboardButton(text="𓄼⦁ 𝗠ٰٖ𝗮ٰٖ𝗭ٰٖ𝗲ٰٖ𝗡ٰٖ ➪🇳🇱⦁𓄹", url=f"https://t.me/ZzZzZl1l"),
+            InlineKeyboardButton(text="𓄼⦁ 𝗠ٰٖ𝗮ٰٖ𝗭ٰٖ𝗲ٰٖ𝗡ٰٖ ➪🇳🇱⦁𓄹", url=f"https://t.me/WA_AdRenalen"),
         ],[
-            InlineKeyboardButton(text="اضف البوت الي مجموعتك او قناتك⚡", url=f"https://t.me/{app.username}?startgroup=true")]
+            InlineKeyboardButton(text="اضف البوت الي جروبك او قناتك 🎸 ⋅", url=f"https://t.me/{app.username}?startgroup=true")],
+    ]
     return buttons
 
 
