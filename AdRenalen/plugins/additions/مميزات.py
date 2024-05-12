@@ -149,24 +149,6 @@ def on_forward(c, m):
   m.reply(f"• تم فتح التوجيه بالكتم\n• بواسطة : {name}",quote=True)
   return
 
-@app.on_message(filters.command("مسح المكتومين", "") & filters.group)
-def remove(c, m):
-  idchat = m.chat.id
-  name = m.from_user.mention
-  a = c.get_chat_member(m.chat.id, m.from_user.id)
-  if not a.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
-   if not m.from_user.id == OWNER_BOT:
-    return m.reply("يجب انت تكون ادمن للقيام بذلك 💎.")
-  for member in c.get_chat_members(idchat):
-    if member.user.is_bot == True:
-      pass
-    elif member.user.is_deleted == True:
-      pass
-    else:
-      mute.remove(member.user.id)
-  m.reply(f"• تم مسح المكتومين\n• بواسطة : {name}",quote=True)
-  return
-
 @app.on_message(filters.text & filters.group)
 def msg(c, m):
   text = m.text
