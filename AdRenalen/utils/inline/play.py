@@ -1,11 +1,7 @@
 import math
-
 from AdRenalen import app 
-
 from pyrogram.types import InlineKeyboardButton
-
 from AdRenalen.utils.formatters import time_to_seconds
-
 
 def track_markup(_, videoid, user_id, channel, fplay):
     buttons = [
@@ -30,62 +26,31 @@ def track_markup(_, videoid, user_id, channel, fplay):
 
 
 def stream_markup_timer(_, chat_id, played, dur):
-    played_sec = time_to_seconds(played)
-    duration_sec = time_to_seconds(dur)
-    percentage = (played_sec / duration_sec) * 100
-    umm = math.floor(percentage)
-    if 0 < umm <= 10:
-        bar = "◉—————————"
-    elif 10 < umm < 20:
-        bar = "—◉————————"
-    elif 20 <= umm < 30:
-        bar = "——◉———————"
-    elif 30 <= umm < 40:
-        bar = "———◉——————"
-    elif 40 <= umm < 50:
-        bar = "————◉—————"
-    elif 50 <= umm < 60:
-        bar = "—————◉————"
-    elif 60 <= umm < 70:
-        bar = "——————◉———"
-    elif 70 <= umm < 80:
-        bar = "———————◉——"
-    elif 80 <= umm < 95:
-        bar = "————————◉—"
-    else:
-        bar = "—————————◉"
-    buttons = [
-                [
-            InlineKeyboardButton(
-                text=f"{played} {bar} {dur}",
-                callback_data="GetTimer",
-            )
-        ],[  
-            InlineKeyboardButton(text="𖥳 𝙴𝙽𝙳 𖥳", callback_data=f"ADMIN Stop|{chat_id}"),
-            InlineKeyboardButton(text="𖥳 𝚁𝙴𝚂𝚄𝙼𝙴 𖥳", callback_data=f"ADMIN Resume|{chat_id}"),
-            InlineKeyboardButton(text="𖥳 𝙿𝙰𝚄𝚂𝙴 𖥳", callback_data=f"ADMIN Pause|{chat_id}"),
+   [  
+            InlineKeyboardButton(text="𝙴𝙽𝙳", callback_data=f"ADMIN Stop|{chat_id}"),
+            InlineKeyboardButton(text="𝚁𝙴𝚂𝚄𝙼𝙴", callback_data=f"ADMIN Resume|{chat_id}"),
+            InlineKeyboardButton(text="𝙿𝙰𝚄𝚂𝙴", callback_data=f"ADMIN Pause|{chat_id}"),
             
         ],[
-            InlineKeyboardButton(text="‹ 𖥳 𝙲𝙷𝙰𝙽𝙽𝙴𝙻 𖥳 › ", url=f"https://t.me/SOURCEOLIVEA"),
-            InlineKeyboardButton(text="‹ 𖥳 𝙶𝚁𝙾𝚄𝙿 𖥳 ›", url=f"https://t.me/D1_FD"),
+            InlineKeyboardButton(text="𖥳 𝙲𝙷𝙰𝙽𝙽𝙴𝙻 𖥳", url=f"https://t.me/SOURCEOLIVEA"),
+            InlineKeyboardButton(text="𖥳 𝙶𝚁𝙾𝚄𝙿 𖥳", url=f"https://t.me/D1_FD"),
         ],[
             InlineKeyboardButton(text="𓄼⦁ 𝗠ٰٖ𝗮ٰٖ𝗭ٰٖ𝗲ٰٖ𝗡ٰٖ ➪🇳🇱⦁𓄹", url=f"https://t.me/ZzZzZl1l"),
         ],[
-            InlineKeyboardButton(text="اضف البوت الي مجموعتك او قناتك⚡", url=f"https://t.me/{app.username}?startgroup=true")],
-    ]
+            InlineKeyboardButton(text="اضف البوت الي مجموعتك او قناتك⚡", url=f"https://t.me/{app.username}?startgroup=true")]
     return buttons
 
 
 def stream_markup(_, chat_id):
     buttons = [
         [
-            InlineKeyboardButton(text="𖥳 𝙴𝙽𝙳 𖥳", callback_data=f"ADMIN Stop|{chat_id}"),
-            InlineKeyboardButton(text="𖥳 𝚁𝙴𝚂𝚄𝙼𝙴 𖥳", callback_data=f"ADMIN Resume|{chat_id}"),
-            InlineKeyboardButton(text="𖥳 𝙿𝙰𝚄𝚂𝙴 𖥳", callback_data=f"ADMIN Pause|{chat_id}"),
+            InlineKeyboardButton(text="𝙴𝙽𝙳", callback_data=f"ADMIN Stop|{chat_id}"),
+            InlineKeyboardButton(text="𝚁𝙴𝚂𝚄𝙼𝙴", callback_data=f"ADMIN Resume|{chat_id}"),
+            InlineKeyboardButton(text="𝙿𝙰𝚄𝚂𝙴", callback_data=f"ADMIN Pause|{chat_id}"),
             
         ],[
-            InlineKeyboardButton(text="‹ 𖥳 𝙲𝙷𝙰𝙽𝙽𝙴𝙻 𖥳 › ", url=f"https://t.me/SOURCEOLIVEA"),
-            InlineKeyboardButton(text="‹ 𖥳 𝙶𝚁𝙾𝚄𝙿 𖥳 ›", url=f"https://t.me/D1_FD"),
+            InlineKeyboardButton(text="𖥳 𝙲𝙷𝙰𝙽𝙽𝙴𝙻 𖥳", url=f"https://t.me/SOURCEOLIVEA"),
+            InlineKeyboardButton(text="𖥳 𝙶𝚁𝙾𝚄𝙿 𖥳", url=f"https://t.me/D1_FD"),
         ],[
             InlineKeyboardButton(text="𓄼⦁ 𝗠ٰٖ𝗮ٰٖ𝗭ٰٖ𝗲ٰٖ𝗡ٰٖ ➪🇳🇱⦁𓄹", url=f"https://t.me/ZzZzZl1l"),
         ],[
@@ -141,7 +106,8 @@ def slider_markup(_, videoid, user_id, query, query_type, channel, fplay):
             InlineKeyboardButton(
                 text=_["P_B_1"],
                 callback_data=f"MusicStream {videoid}|{user_id}|a|{channel}|{fplay}",
-            ),
+
+),
             InlineKeyboardButton(
                 text=_["P_B_2"],
                 callback_data=f"MusicStream {videoid}|{user_id}|v|{channel}|{fplay}",
@@ -157,7 +123,7 @@ def slider_markup(_, videoid, user_id, query, query_type, channel, fplay):
                 callback_data=f"forceclose {query}|{user_id}",
             ),
             InlineKeyboardButton(
-                text="𝐑𝐄𝐒𝐔𝐌𝐄",
+                text="𝚁𝙴𝚂𝚄𝙼𝙴",
                 callback_data=f"slider F|{query_type}|{query}|{user_id}|{channel}|{fplay}",
             ),
         ],
