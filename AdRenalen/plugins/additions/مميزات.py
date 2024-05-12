@@ -38,7 +38,7 @@ def jabwa(c, m):
  اععع اي القرف ده 🤢
 """
   JABWA = InlineKeyboardMarkup([[InlineKeyboardButton("اضف البوت الي مجموعتك او قناتك 🎸", url=f"https://t.me/{app.username}?startgroup=true"),]])
-  m.reply_animation("https://t.me/DEVSOLiVEA/14",caption=Text,reply_markup=JABWA)
+  m.reply_animation("https://t.me/DEVSOLiVEA/13",caption=Text,reply_markup=JABWA)
 
 @app.on_message(filters.command("تخ", "") & filters.group & filters.reply)
 def jabwa(c, m):
@@ -46,11 +46,11 @@ def jabwa(c, m):
   first_name = m.reply_to_message.from_user.first_name
   id = m.reply_to_message.from_user.id
   if id == OWNER_ID:
-    return m.reply("• لا يمكنك التف علي المطور ❤️✌️")
+    return m.reply("• لا يمكنك قتل المطور ❤️✌️")
   if id == ID_BOT:
-    return m.reply("• عاوزني اتف علي نفسي يعبيط 😂")
+    return m.reply("• عاوزني اقتل نفسي 😂")
   if id == DEVELOPERS:
-    return m.reply("• لا يمكنك التف علي مطورين السورس 🧑‍✈️")
+    return m.reply("• لا يمكنك قتل مطورين السورس 🧑‍✈️")
   Text =f"""
 • تم قتل هذا الشخص
 
@@ -84,7 +84,7 @@ def of_chat(c, m):
   a = c.get_chat_member(m.chat.id, m.from_user.id)
   if not a.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
    if not m.from_user.id == OWNER_ID:
-    return m.reply("يجب انت تكون ادمن للقيام بذلك")
+    return m.reply("يجب انت تكون ادمن للقيام بذلك 💎.")
   c.set_chat_permissions(idchat, ChatPermissions())
   m.reply(f"• تم قفل الدردشه\n• بواسطة : {mention}",quote=True)
   return
@@ -96,7 +96,7 @@ def on_chat(c, m):
   a = c.get_chat_member(m.chat.id, m.from_user.id)
   if not a.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
    if not m.from_user.id == OWNER_ID:
-    return m.reply("يجب انت تكون ادمن للقيام بذلك")
+    return m.reply("يجب انت تكون ادمن للقيام بذلك 💎.")
   c.set_chat_permissions(idchat, ChatPermissions(can_send_messages=True, can_send_media_messages=True))
   m.reply(f"• تم فتح الدردشه\n• بواسطة : {mention}",quote=True)
   return
@@ -108,7 +108,7 @@ def of_cursing(c, m):
   a = c.get_chat_member(m.chat.id, m.from_user.id)
   if not a.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
    if not m.from_user.id == OWNER_BOT:
-    return m.reply("يجب انت تكون ادمن للقيام بذلك")
+    return m.reply("يجب انت تكون ادمن للقيام بذلك 💎.")
   cursing.append(idchat)
   m.reply(f"• تم قفل السب بالكتم\n• بواسطة : {name}",quote=True)
   return
@@ -120,7 +120,7 @@ def on_cursing(c, m):
   a = c.get_chat_member(m.chat.id, m.from_user.id)
   if not a.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
    if not m.from_user.id == OWNER_BOT:
-    return m.reply("يجب انت تكون ادمن للقيام بذلك")
+    return m.reply("يجب انت تكون ادمن للقيام بذلك 💎.")
   cursing.remove(idchat)
   m.reply(f"• تم فتح السب بالكتم\n• بواسطة : {name}",quote=True)
   return
@@ -132,7 +132,7 @@ def of_forward(c, m):
   a = c.get_chat_member(m.chat.id, m.from_user.id)
   if not a.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
    if not m.from_user.id == OWNER_BOT:
-    return m.reply("يجب انت تكون ادمن للقيام بذلك")
+    return m.reply("يجب انت تكون ادمن للقيام بذلك 💎.")
   forward.append(idchat)
   m.reply(f"• تم قفل التوجيه بالكتم\n• بواسطة : {name}",quote=True)
   return
@@ -144,7 +144,7 @@ def on_forward(c, m):
   a = c.get_chat_member(m.chat.id, m.from_user.id)
   if not a.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
    if not m.from_user.id == OWNER_ID:
-    return m.reply("يجب انت تكون ادمن للقيام بذلك")
+    return m.reply("يجب انت تكون ادمن للقيام بذلك 💎.")
   forward.remove(idchat)
   m.reply(f"• تم فتح التوجيه بالكتم\n• بواسطة : {name}",quote=True)
   return
@@ -156,9 +156,15 @@ def remove(c, m):
   a = c.get_chat_member(m.chat.id, m.from_user.id)
   if not a.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
    if not m.from_user.id == OWNER_BOT:
-    return m.reply("يجب انت تكون ادمن للقيام بذلك")
+    return m.reply("يجب انت تكون ادمن للقيام بذلك 💎.")
   for member in c.get_chat_members(idchat):
-    mute.remove(member.user.id)
+    if member.user.is_bot == True:
+      pass
+    elif member.user.is_deleted == True:
+      pass
+    else:
+       mutes.remove(x)
+      mute.remove(member.user.id)
   m.reply(f"• تم مسح المكتومين\n• بواسطة : {name}",quote=True)
   return
 
