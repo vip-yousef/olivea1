@@ -27,12 +27,12 @@ def track_markup(_, videoid, user_id, channel, fplay):
 
 def stream_markup_timer(_, chat_id, played, dur):
     [
-            InlineKeyboardButton(text="⦗ استأناف ▷ ⦘", callback_data=f"ADMIN Resume|{chat_id}"),
-            InlineKeyboardButton(text="⦗ ايقاف مؤقت II ⦘", callback_data=f"ADMIN Pause|{chat_id}"),
-            InlineKeyboardButton(text="⦗ إعادة تشغيل ↻ ⦘", callback_data=f"ADMIN Replay|{chat_id}"),
+            InlineKeyboardButton(text="𝙴𝙽𝙳", callback_data=f"ADMIN Resume|{chat_id}"),
+            InlineKeyboardButton(text="𝙿𝙰𝚄𝚂𝙴", callback_data=f"ADMIN Pause|{chat_id}"),
+            InlineKeyboardButton(text="𝚁𝙴𝚂𝚄𝙼𝙴", callback_data=f"ADMIN Replay|{chat_id}"),
         ],[
-            InlineKeyboardButton(text="𝐂𝐇𝐀𝐍𝐍𝐄𝐋 ", url=f"https://t.me/SOURCEOLIVEA"),
-            InlineKeyboardButton(text="𝐆𝐑𝐎𝐔𝐏", url=f"https://t.me/D1_FD"),
+            InlineKeyboardButton(text="𝙲𝙷𝙰𝙽𝙽𝙴𝙻 ", url=f"https://t.me/SOURCEOLIVEA"),
+            InlineKeyboardButton(text="𝙶𝚁𝙾𝚄𝙿", url=f"https://t.me/D1_FD"),
         ],[
             InlineKeyboardButton(text="𓄼⦁ 𝗠ٰٖ𝗮ٰٖ𝗭ٰٖ𝗲ٰٖ𝗡ٰٖ ➪🇳🇱⦁𓄹", url=f"https://t.me/WA_AdRenalen"),
         ],[
@@ -43,12 +43,12 @@ def stream_markup_timer(_, chat_id, played, dur):
 def stream_markup(_, chat_id):
     buttons = [
         [
-            InlineKeyboardButton(text="⦗ استأناف ▷ ⦘", callback_data=f"ADMIN Resume|{chat_id}"),
-            InlineKeyboardButton(text="⦗ ايقاف مؤقت II ⦘", callback_data=f"ADMIN Pause|{chat_id}"),
-            InlineKeyboardButton(text="⦗ إعادة تشغيل ↻ ⦘", callback_data=f"ADMIN Replay|{chat_id}"),
+            InlineKeyboardButton(text="𝙴𝙽𝙳", callback_data=f"ADMIN Resume|{chat_id}"),
+            InlineKeyboardButton(text="𝙿𝙰𝚄𝚂𝙴", callback_data=f"ADMIN Pause|{chat_id}"),
+            InlineKeyboardButton(text="𝚁𝙴𝚂𝚄𝙼𝙴", callback_data=f"ADMIN Replay|{chat_id}"),
         ],[
-            InlineKeyboardButton(text="𝐂𝐇𝐀𝐍𝐍𝐄𝐋 ", url=f"https://t.me/SOURCEOLIVEA"),
-            InlineKeyboardButton(text="𝐆𝐑𝐎𝐔𝐏", url=f"https://t.me/D1_FD"),
+            InlineKeyboardButton(text="𝙲𝙷𝙰𝙽𝙽𝙴𝙻 ", url=f"https://t.me/SOURCEOLIVEA"),
+            InlineKeyboardButton(text="𝙶𝚁𝙾𝚄𝙿", url=f"https://t.me/D1_FD"),
         ],[
             InlineKeyboardButton(text="𓄼⦁ 𝗠ٰٖ𝗮ٰٖ𝗭ٰٖ𝗲ٰٖ𝗡ٰٖ ➪🇳🇱⦁𓄹", url=f"https://t.me/WA_AdRenalen"),
         ],[
