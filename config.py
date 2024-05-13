@@ -78,19 +78,19 @@ autoclean = []
 confirmer = {}
 
 
-START_IMG_URL = getenv("START_IMG_URL", "https://te.legra.ph/file/bd995b032b6bd263e2cc9.jpg")
-PING_IMG_URL = getenv("PING_IMG_URL", "https://te.legra.ph/file/37d163a2f75e0d3b403d6.jpg")
-PLAYLIST_IMG_URL = "https://te.legra.ph/file/37d163a2f75e0d3b403d6.jpg"
-STATS_IMG_URL = "https://te.legra.ph/file/bd995b032b6bd263e2cc9.jpg"
-TELEGRAM_AUDIO_URL = "https://te.legra.ph/file/37d163a2f75e0d3b403d6.jpg"
-TELEGRAM_VIDEO_URL = "https://te.legra.ph/file/37d163a2f75e0d3b403d6.jpg"
+START_IMG_URL = getenv("START_IMG_URL", "https://telegra.ph/file/42cd0af59250286f215f5.jpg")
+PING_IMG_URL = getenv("PING_IMG_URL", "https://telegra.ph/file/dc81e0df42149471aa325.jpg")
+PLAYLIST_IMG_URL = "https://telegra.ph/file/dc81e0df42149471aa325.jpg"
+STATS_IMG_URL = "https://telegra.ph/file/42cd0af59250286f215f5.jpg"
+TELEGRAM_AUDIO_URL = "https://telegra.ph/file/dc81e0df42149471aa325.jpg"
+TELEGRAM_VIDEO_URL = "https://telegra.ph/file/dc81e0df42149471aa325.jpg"
 STREAM_IMG_URL = "https://te.legra.ph/file/37d163a2f75e0d3b403d6.jpg"
-SOUNCLOUD_IMG_URL = "https://te.legra.ph/file/37d163a2f75e0d3b403d6.jpg"
-YOUTUBE_IMG_URL = "https://te.legra.ph/file/37d163a2f75e0d3b403d6.jpg"
-SPOTIFY_ARTIST_IMG_URL = "https://te.legra.ph/file/37d163a2f75e0d3b403d6.jpg"
-SPOTIFY_ALBUM_IMG_URL = "https://te.legra.ph/file/37d163a2f75e0d3b403d6.jpg"
-SPOTIFY_PLAYLIST_IMG_URL = "https://te.legra.ph/file/37d163a2f75e0d3b403d6.jpg"
-AdRenalen_KleCha_play = "https://te.legra.ph/file/37d163a2f75e0d3b403d6.jpg"
+SOUNCLOUD_IMG_URL = "https://telegra.ph/file/dc81e0df42149471aa325.jpg"
+YOUTUBE_IMG_URL = "https://telegra.ph/file/dc81e0df42149471aa325.jpg"
+SPOTIFY_ARTIST_IMG_URL = "https://telegra.ph/file/dc81e0df42149471aa325.jpg"
+SPOTIFY_ALBUM_IMG_URL = "https://telegra.ph/file/dc81e0df42149471aa325.jpg"
+SPOTIFY_PLAYLIST_IMG_URL = "https://telegra.ph/file/dc81e0df42149471aa325.jpg"
+AdRenalen_KleCha_play = "https://telegra.ph/file/dc81e0df42149471aa325.jpg"
 
 def time_to_seconds(time):
     stringt = str(time)
