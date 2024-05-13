@@ -17,12 +17,6 @@ def start_panel(_):
 
 def private_panel(_):
     buttons = [
-        [
-            InlineKeyboardButton(
-                text="اضف البوت الي مجموعتك ✅ ⋅",
-                url=f"https://t.me/{app.username}?startgroup=true",
-            )
-        ],
         [InlineKeyboardButton(text="الاوامر ⚙", callback_data="settings_back_helper")],
         [
             InlineKeyboardButton(text="المطور ⋅", user_id=config.OWNER_ID),
