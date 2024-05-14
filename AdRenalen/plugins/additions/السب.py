@@ -60,26 +60,26 @@ def jabwa(c, m):
   JABWA = InlineKeyboardMarkup([[InlineKeyboardButton("اضف البوت الي مجموعتك او قناتك 🎸", url=f"https://t.me/{app.username}?startgroup=true"),]])
   m.reply_animation("https://t.me/DEVSOLiVEA/14",caption=Text,reply_markup=JABWA)
 
-@app.on_message(filters.command("قفل الدردشه", "") & filters.group)
-def of_chat(c, m):
+@app.on_message(filters.command("قفل التوجيه", "") & filters.group)
+def of_forward(c, m):
   idchat = m.chat.id
-  mention = m.from_user.mention
+  name = m.from_user.mention
   a = c.get_chat_member(m.chat.id, m.from_user.id)
   if not a.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
-   if not m.from_user.id == OWNER_ID:
+   if not m.from_user.id == OWNER_BOT:
     return m.reply("يجب انت تكون ادمن للقيام بذلك")
-  c.set_chat_permissions(idchat, ChatPermissions())
-  m.reply(f"• تم قفل الدردشه\n• بواسطة : {mention}",quote=True)
+  forward.append(idchat)
+  m.reply(f"• تم قفل التوجيه بالكتم\n• بواسطة : {name}",quote=True)
   return
 
-@app.on_message(filters.command("فتح الدردشه", "") & filters.group)
-def on_chat(c, m):
+@app.on_message(filters.command("فتح التوجيه", "") & filters.group)
+def on_forward(c, m):
   idchat = m.chat.id
-  mention = m.from_user.mention
+  name = m.from_user.mention
   a = c.get_chat_member(m.chat.id, m.from_user.id)
   if not a.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
    if not m.from_user.id == OWNER_ID:
     return m.reply("يجب انت تكون ادمن للقيام بذلك")
-  c.set_chat_permissions(idchat, ChatPermissions(can_send_messages=True, can_send_media_messages=True))
-  m.reply(f"• تم فتح الدردشه\n• بواسطة : {mention}",quote=True)
+  forward.remove(idchat)
+  m.reply(f"• تم فتح التوجيه بالكتم\n• بواسطة : {name}",quote=True)
   return
