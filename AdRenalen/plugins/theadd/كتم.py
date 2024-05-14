@@ -50,6 +50,30 @@ async def unmute(app,message):
        mutes.remove(x)
        return await message.reply("- العضو ⦗ {} ⦘  تم الغاء كتمة بواسطة ⦗ {} ⦘ 💘 ⋅".format(message.reply_to_message.from_user.mention,message.from_user.mention))
 
+@app.on_message(filters.command("قفل التوجيه بالكتم", "") & filters.group)
+def of_forward(c, m):
+  idchat = m.chat.id
+  name = m.from_user.mention
+  a = c.get_chat_member(m.chat.id, m.from_user.id)
+  if not a.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
+   if not m.from_user.id == OWNER_BOT:
+    return m.reply("يجب انت تكون ادمن للقيام بذلك")
+  forward.append(idchat)
+  m.reply(f"• تم قفل التوجيه بالكتم\n• بواسطة : {name}",quote=True)
+  return
+
+@app.on_message(filters.command("فتح التوجيه بالكتم", "") & filters.group)
+def on_forward(c, m):
+  idchat = m.chat.id
+  name = m.from_user.mention
+  a = c.get_chat_member(m.chat.id, m.from_user.id)
+  if not a.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
+   if not m.from_user.id == OWNER_ID:
+    return m.reply("يجب انت تكون ادمن للقيام بذلك")
+  forward.remove(idchat)
+  m.reply(f"• تم فتح التوجيه بالكتم\n• بواسطة : {name}",quote=True)
+  return
+
 @app.on_message(filters.command(["المكتومين"],"")   & filters.group)
 def get_dmute(app, message):
    if len(mutes) == 0: return
