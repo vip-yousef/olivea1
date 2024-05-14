@@ -60,7 +60,7 @@ def jabwa(c, m):
   JABWA = InlineKeyboardMarkup([[InlineKeyboardButton("اضف البوت الي مجموعتك او قناتك 🎸", url=f"https://t.me/{app.username}?startgroup=true"),]])
   m.reply_animation("https://t.me/DEVSOLiVEA/14",caption=Text,reply_markup=JABWA)
 
-@app.on_message(filters.command("قفل التوجيه", "") & filters.group)
+@app.on_message(filters.command("قفل التوجيه بالكتم", "") & filters.group)
 def of_forward(c, m):
   idchat = m.chat.id
   name = m.from_user.mention
@@ -72,7 +72,7 @@ def of_forward(c, m):
   m.reply(f"• تم قفل التوجيه بالكتم\n• بواسطة : {name}",quote=True)
   return
 
-@app.on_message(filters.command("فتح التوجيه", "") & filters.group)
+@app.on_message(filters.command("فتح التوجيه بالكتم", "") & filters.group)
 def on_forward(c, m):
   idchat = m.chat.id
   name = m.from_user.mention
