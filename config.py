@@ -78,10 +78,10 @@ autoclean = []
 confirmer = {}
 
 
-START_IMG_URL = getenv("START_IMG_URL", "https://telegra.ph/file/42cd0af59250286f215f5.jpg")
+START_IMG_URL = getenv("START_IMG_URL", "https://telegra.ph/file/c5dbae3fe33e050aeddd9.jpg")
 PING_IMG_URL = getenv("PING_IMG_URL", "https://telegra.ph/file/dc81e0df42149471aa325.jpg")
 PLAYLIST_IMG_URL = "https://telegra.ph/file/dc81e0df42149471aa325.jpg"
-STATS_IMG_URL = "https://telegra.ph/file/42cd0af59250286f215f5.jpg"
+STATS_IMG_URL = "https://telegra.ph/file/c5dbae3fe33e050aeddd9.jpg"
 TELEGRAM_AUDIO_URL = "https://telegra.ph/file/dc81e0df42149471aa325.jpg"
 TELEGRAM_VIDEO_URL = "https://telegra.ph/file/dc81e0df42149471aa325.jpg"
 STREAM_IMG_URL = "https://te.legra.ph/file/37d163a2f75e0d3b403d6.jpg"
