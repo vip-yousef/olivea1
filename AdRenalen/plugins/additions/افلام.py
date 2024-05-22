@@ -1,6 +1,14 @@
+"""
+        [InlineKeyboardButton("◁", callback_data="Yrw1 " + str(m.from_user.id))],
+        [InlineKeyboardButton(" التالي", callback_data="Yrw3 " + str(m.from_user.id))],
+        [InlineKeyboardButton("𝗁᥆ꪔᥱ", callback_data="moslsl " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌞ ᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ⌝", url=f"https://t.me/SOURCEOLIVEA")],
+"""
 
 import asyncio
 
+from strings import get_command
+from strings.filters import command
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message, CallbackQuery
 from AdRenalen import app
@@ -16,8 +24,8 @@ from AdRenalen import app
 # Replay Text
 
 @app.on_message(
-    filters.command(["افلام"], "")
-    & filters.group
+    command(["افلام"])
+    & ~filters.edited
 )
 async def aflamAR(c: Client, m: Message):
     global mid
@@ -28,7 +36,7 @@ async def aflamAR(c: Client, m: Message):
         [InlineKeyboardButton("مسلسلات 📼", callback_data="moslsl " + str(m.from_user.id))],
         [InlineKeyboardButton("مسرحيات 🎭 ", callback_data="msrahia " + str(m.from_user.id))],
 
-        [InlineKeyboardButton("᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ️", url=f"https://t.me/SOURCEOLIVEA")],
+        [InlineKeyboardButton("⌞ ᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ⌝", url=f"https://t.me/SOURCEOLIVEA")],
 
     ])
     await m.reply_text("◍ اهلا بيك في قائمة الافلام والمسلسلات العربيه\n√", reply_markup=keyboard)
@@ -39,7 +47,7 @@ async def aflamAR(c: Client, m: Message):
 async def aflamAR2(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
 
@@ -47,7 +55,7 @@ async def aflamAR2(c: Client, m: CallbackQuery):
         [InlineKeyboardButton("مسلسلات 📼", callback_data="moslsl " + str(m.from_user.id))],
         [InlineKeyboardButton("مسرحيات 🎭 ", callback_data="msrahia " + str(m.from_user.id))],
 
-        [InlineKeyboardButton("᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ️", url=f"https://t.me/SOURCEOLIVEA")],
+        [InlineKeyboardButton("⌞ ᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ⌝", url=f"https://t.me/SOURCEOLIVEA")],
 
     ])
     await m.message.edit_text("◍ اهلا بيك في قائمة الافلام والمسلسلات العربيه\n√", reply_markup=keyboard)
@@ -57,16 +65,16 @@ async def aflamAR2(c: Client, m: CallbackQuery):
 async def film(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
 
-        [InlineKeyboardButton("كوميدي 😹", callback_data="comedy " + str(m.from_user.id))],
-        [InlineKeyboardButton("اكشن 🔥", callback_data="action " + str(m.from_user.id))],
-        [InlineKeyboardButton("دراما 🌚", callback_data="drama " + str(m.from_user.id))],
+        [InlineKeyboardButton("كوميدي 😂", callback_data="comedy " + str(m.from_user.id))],
+        [InlineKeyboardButton("اكشن ❤️‍🔥", callback_data="action " + str(m.from_user.id))],
+        [InlineKeyboardButton("دراما 🥹", callback_data="drama " + str(m.from_user.id))],
 
-        [InlineKeyboardButton("𝐇𝐎𝐌", callback_data="aflamAR2 " + str(m.from_user.id))],
-        [InlineKeyboardButton("᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ️", url=f"https://t.me/SOURCEOLIVEA")],
+        [InlineKeyboardButton("𝗁᥆ꪔᥱ", callback_data="aflamAR2 " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌞ ᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ⌝", url=f"https://t.me/SOURCEOLIVEA")],
 
     ])
     await m.message.edit_text("◍ اهلا بيك في قائمة الافلام العربيه\n√", reply_markup=keyboard)
@@ -82,47 +90,47 @@ async def film(c: Client, m: CallbackQuery):
 async def comedy(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
 
-        [InlineKeyboardButton("⌯ وقفة رجاله", callback_data="Xco1 " + str(m.from_user.id))] +
-        [InlineKeyboardButton("⌯ الخطة العايمة", callback_data="Xco2 " + str(m.from_user.id))],
-        [InlineKeyboardButton("⌯ بنات ثانوي", callback_data="Xco3 " + str(m.from_user.id))] +
-        [InlineKeyboardButton("⌯ عفريت ترانزيت", callback_data="Xco4 " + str(m.from_user.id))],
-        [InlineKeyboardButton("⌯ زكي شان", callback_data="Xco5 " + str(m.from_user.id))] +
-        [InlineKeyboardButton("⌯ سمير وشهير وبهير", callback_data="Xco6 " + str(m.from_user.id))],
-        [InlineKeyboardButton("⌯ تصبح علي خير", callback_data="Xco7 " + str(m.from_user.id))] +
-        [InlineKeyboardButton("⌯ بابا", callback_data="Xco8 " + str(m.from_user.id))],
-        [InlineKeyboardButton("⌯ جدو نحنوح", callback_data="Xco9 " + str(m.from_user.id))] +
-        [InlineKeyboardButton("⌯ سمير ابو النيل", callback_data="Xco10 " + str(m.from_user.id))],
-        [InlineKeyboardButton("⌯ كلبي دليلي", callback_data="Xco11 " + str(m.from_user.id))] +
-        [InlineKeyboardButton("⌯ بنات العم", callback_data="Xco12 " + str(m.from_user.id))],
-        [InlineKeyboardButton("⌯ علي بابا", callback_data="Xco13 " + str(m.from_user.id))] +
-        [InlineKeyboardButton("⌯ فول الصين العظيم", callback_data="Xco14 " + str(m.from_user.id))],
-        [InlineKeyboardButton("⌯ حسن وبقلظ", callback_data="Xco15 " + str(m.from_user.id))] +
-        [InlineKeyboardButton("⌯ الكويسين", callback_data="Xco16 " + str(m.from_user.id))],
-        [InlineKeyboardButton("⌯ يوم مالوش لازمه", callback_data="Xco17 " + str(m.from_user.id))] +
-        [InlineKeyboardButton("⌯ غبي منه فيه", callback_data="Xco18 " + str(m.from_user.id))],
-        [InlineKeyboardButton("⌯ خير وبركه", callback_data="Xco19 " + str(m.from_user.id))] +
-        [InlineKeyboardButton("⌯ البدله", callback_data="Xco20 " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌯ وقفة رجاله", callback_data="AFYONA1 " + str(m.from_user.id))] +
+        [InlineKeyboardButton("⌯ الخطة العايمة", callback_data="AFYONA2 " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌯ بنات ثانوي", callback_data="AFYONA3 " + str(m.from_user.id))] +
+        [InlineKeyboardButton("⌯ عفريت ترانزيت", callback_data="AFYONA4 " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌯ زكي شان", callback_data="AFYONA5 " + str(m.from_user.id))] +
+        [InlineKeyboardButton("⌯ سمير وشهير وبهير", callback_data="AFYONA6 " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌯ تصبح علي خير", callback_data="AFYONA7 " + str(m.from_user.id))] +
+        [InlineKeyboardButton("⌯ بابا", callback_data="AFYONA8 " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌯ جدو نحنوح", callback_data="AFYONA9 " + str(m.from_user.id))] +
+        [InlineKeyboardButton("⌯ سمير ابو النيل", callback_data="AFYONA10 " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌯ كلبي دليلي", callback_data="AFYONA11 " + str(m.from_user.id))] +
+        [InlineKeyboardButton("⌯ بنات العم", callback_data="AFYONA12 " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌯ علي بابا", callback_data="AFYONA13 " + str(m.from_user.id))] +
+        [InlineKeyboardButton("⌯ فول الصين العظيم", callback_data="AFYONA14 " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌯ حسن وبقلظ", callback_data="AFYONA15 " + str(m.from_user.id))] +
+        [InlineKeyboardButton("⌯ الكويسين", callback_data="AFYONA16 " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌯ يوم مالوش لازمه", callback_data="AFYONA17 " + str(m.from_user.id))] +
+        [InlineKeyboardButton("⌯ غبي منه فيه", callback_data="AFYONA18 " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌯ خير وبركه", callback_data="AFYONA19 " + str(m.from_user.id))] +
+        [InlineKeyboardButton("⌯ البدله", callback_data="AFYONA20 " + str(m.from_user.id))],
 
-        [InlineKeyboardButton("𝐇𝐎𝐌", callback_data="film " + str(m.from_user.id))],
-        [InlineKeyboardButton("᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ️", url=f"https://t.me/SOURCEOLIVEA")],
+        [InlineKeyboardButton("𝗁᥆ꪔᥱ", callback_data="film " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌞ ᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ⌝", url=f"https://t.me/SOURCEOLIVEA")],
 
     ])
     await m.message.edit_text("◍ اهلا بك في قائمة الافلام الكوميدي العربيه\n√", reply_markup=keyboard)
 
 
-@app.on_callback_query(filters.regex("^Xco1 (\\d+)$"))
-async def Xco1(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^AFYONA1 (\\d+)$"))
+async def AFYONA1(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XXco1 " + str(m.from_user.id))] +
-        [InlineKeyboardButton("⌯ جوده عاليه", callback_data="XXco2 " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XAFYONA1 " + str(m.from_user.id))] +
+        [InlineKeyboardButton("⌯ جوده عاليه", callback_data="XAFYONA2 " + str(m.from_user.id))],
         [InlineKeyboardButton("◁", callback_data="comedy " + str(m.from_user.id))],
     ])
     await m.message.edit_text("""🎥 اسم الفيلم : وقفة رجالة
@@ -134,15 +142,15 @@ async def Xco1(c: Client, m: CallbackQuery):
     """, reply_markup=keyboard)
 
 
-@app.on_callback_query(filters.regex("^Xco2 (\\d+)$"))
-async def Xco2(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^AFYONA2 (\\d+)$"))
+async def AFYONA2(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XXco3 " + str(m.from_user.id))] +
-        [InlineKeyboardButton("⌯ جوده عاليه", callback_data="XXco4 " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XAFYONA3 " + str(m.from_user.id))] +
+        [InlineKeyboardButton("⌯ جوده عاليه", callback_data="XAFYONA4 " + str(m.from_user.id))],
         [InlineKeyboardButton("◁", callback_data="comedy " + str(m.from_user.id))],
     ])
     await m.message.edit_text("""🎥 اسم الفيلم : الخطة العايمة
@@ -154,15 +162,15 @@ async def Xco2(c: Client, m: CallbackQuery):
         """, reply_markup=keyboard)
 
 
-@app.on_callback_query(filters.regex("^Xco3 (\\d+)$"))
-async def Xco3(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^AFYONA3 (\\d+)$"))
+async def AFYONA3(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XXco5 " + str(m.from_user.id))] +
-        [InlineKeyboardButton("⌯ جوده عاليه", callback_data="XXco6 " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XAFYONA5 " + str(m.from_user.id))] +
+        [InlineKeyboardButton("⌯ جوده عاليه", callback_data="XAFYONA6 " + str(m.from_user.id))],
         [InlineKeyboardButton("◁", callback_data="comedy " + str(m.from_user.id))],
     ])
     await m.message.edit_text("""🎥 اسم الفيلم : بنات ثانوي
@@ -174,15 +182,15 @@ async def Xco3(c: Client, m: CallbackQuery):
         """, reply_markup=keyboard)
 
 
-@app.on_callback_query(filters.regex("^Xco4 (\\d+)$"))
-async def Xco4(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^AFYONA4 (\\d+)$"))
+async def AFYONA4(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XXco7 " + str(m.from_user.id))] +
-        [InlineKeyboardButton("⌯ جوده عاليه", callback_data="XXco8 " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XAFYONA7 " + str(m.from_user.id))] +
+        [InlineKeyboardButton("⌯ جوده عاليه", callback_data="XAFYONA8 " + str(m.from_user.id))],
         [InlineKeyboardButton("◁", callback_data="comedy " + str(m.from_user.id))],
     ])
     await m.message.edit_text("""🎥 اسم الفيلم : عفريت ترانزيت
@@ -194,15 +202,15 @@ async def Xco4(c: Client, m: CallbackQuery):
         """, reply_markup=keyboard)
 
 
-@app.on_callback_query(filters.regex("^Xco5 (\\d+)$"))
-async def Xco5(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^AFYONA5 (\\d+)$"))
+async def AFYONA5(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XXco9 " + str(m.from_user.id))] +
-        [InlineKeyboardButton("⌯ جوده عاليه", callback_data="XXco10 " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XAFYONA9 " + str(m.from_user.id))] +
+        [InlineKeyboardButton("⌯ جوده عاليه", callback_data="XAFYONA10 " + str(m.from_user.id))],
         [InlineKeyboardButton("◁", callback_data="comedy " + str(m.from_user.id))],
     ])
     await m.message.edit_text("""🎥 اسم الفيلم : زكي شان
@@ -214,15 +222,15 @@ async def Xco5(c: Client, m: CallbackQuery):
         """, reply_markup=keyboard)
 
 
-@app.on_callback_query(filters.regex("^Xco6 (\\d+)$"))
-async def Xco6(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^AFYONA6 (\\d+)$"))
+async def AFYONA6(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XXco11 " + str(m.from_user.id))] +
-        [InlineKeyboardButton("⌯ جوده عاليه", callback_data="XXco12 " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XAFYONA11 " + str(m.from_user.id))] +
+        [InlineKeyboardButton("⌯ جوده عاليه", callback_data="XAFYONA12 " + str(m.from_user.id))],
         [InlineKeyboardButton("◁", callback_data="comedy " + str(m.from_user.id))],
     ])
     await m.message.edit_text("""🎥 اسم الفيلم : سمير وشهير وبهير
@@ -234,15 +242,15 @@ async def Xco6(c: Client, m: CallbackQuery):
         """, reply_markup=keyboard)
 
 
-@app.on_callback_query(filters.regex("^Xco7 (\\d+)$"))
-async def Xco7(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^AFYONA7 (\\d+)$"))
+async def AFYONA7(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XXco13 " + str(m.from_user.id))] +
-        [InlineKeyboardButton("⌯ جوده عاليه", callback_data="XXco14 " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XAFYONA13 " + str(m.from_user.id))] +
+        [InlineKeyboardButton("⌯ جوده عاليه", callback_data="XAFYONA14 " + str(m.from_user.id))],
         [InlineKeyboardButton("◁", callback_data="comedy " + str(m.from_user.id))],
     ])
     await m.message.edit_text("""🎥 اسم الفيلم : تصبح علي خير
@@ -254,15 +262,15 @@ async def Xco7(c: Client, m: CallbackQuery):
         """, reply_markup=keyboard)
 
 
-@app.on_callback_query(filters.regex("^Xco8 (\\d+)$"))
-async def Xco8(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^AFYONA8 (\\d+)$"))
+async def AFYONA8(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XXco15 " + str(m.from_user.id))] +
-        [InlineKeyboardButton("⌯ جوده عاليه", callback_data="XXco16 " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XAFYONA15 " + str(m.from_user.id))] +
+        [InlineKeyboardButton("⌯ جوده عاليه", callback_data="XAFYONA16 " + str(m.from_user.id))],
         [InlineKeyboardButton("◁", callback_data="comedy " + str(m.from_user.id))],
     ])
     await m.message.edit_text("""🎥 اسم الفيلم : بابا
@@ -274,15 +282,15 @@ async def Xco8(c: Client, m: CallbackQuery):
         """, reply_markup=keyboard)
 
 
-@app.on_callback_query(filters.regex("^Xco9 (\\d+)$"))
-async def Xco9(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^AFYONA9 (\\d+)$"))
+async def AFYONA9(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XXco17 " + str(m.from_user.id))] +
-        [InlineKeyboardButton("⌯ جوده عاليه", callback_data="XXco18 " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XAFYONA17 " + str(m.from_user.id))] +
+        [InlineKeyboardButton("⌯ جوده عاليه", callback_data="XAFYONA18 " + str(m.from_user.id))],
         [InlineKeyboardButton("◁", callback_data="comedy " + str(m.from_user.id))],
     ])
     await m.message.edit_text("""🎥 اسم الفيلم : جدو نحنوح
@@ -294,15 +302,15 @@ async def Xco9(c: Client, m: CallbackQuery):
         """, reply_markup=keyboard)
 
 
-@app.on_callback_query(filters.regex("^Xco10 (\\d+)$"))
-async def Xco10(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^AFYONA10 (\\d+)$"))
+async def AFYONA10(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XXco19 " + str(m.from_user.id))] +
-        [InlineKeyboardButton("⌯ جوده عاليه", callback_data="XXco20 " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XAFYONA19 " + str(m.from_user.id))] +
+        [InlineKeyboardButton("⌯ جوده عاليه", callback_data="XAFYONA20 " + str(m.from_user.id))],
         [InlineKeyboardButton("◁", callback_data="comedy " + str(m.from_user.id))],
     ])
     await m.message.edit_text("""🎥 اسم الفيلم : سمير ابو النيل
@@ -314,15 +322,15 @@ async def Xco10(c: Client, m: CallbackQuery):
         """, reply_markup=keyboard)
 
 
-@app.on_callback_query(filters.regex("^Xco11 (\\d+)$"))
-async def Xco11(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^AFYONA11 (\\d+)$"))
+async def AFYONA11(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XXco21 " + str(m.from_user.id))] +
-        [InlineKeyboardButton("⌯ جوده عاليه", callback_data="XXco22 " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XAFYONA21 " + str(m.from_user.id))] +
+        [InlineKeyboardButton("⌯ جوده عاليه", callback_data="XAFYONA22 " + str(m.from_user.id))],
         [InlineKeyboardButton("◁", callback_data="comedy " + str(m.from_user.id))],
     ])
     await m.message.edit_text("""🎥 اسم الفيلم : كلبي دليلي
@@ -334,15 +342,15 @@ async def Xco11(c: Client, m: CallbackQuery):
         """, reply_markup=keyboard)
 
 
-@app.on_callback_query(filters.regex("^Xco12 (\\d+)$"))
-async def Xco12(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^AFYONA12 (\\d+)$"))
+async def AFYONA12(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XXco23 " + str(m.from_user.id))] +
-        [InlineKeyboardButton("⌯ جوده عاليه", callback_data="XXco24 " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XAFYONA23 " + str(m.from_user.id))] +
+        [InlineKeyboardButton("⌯ جوده عاليه", callback_data="XAFYONA24 " + str(m.from_user.id))],
         [InlineKeyboardButton("◁", callback_data="comedy " + str(m.from_user.id))],
     ])
     await m.message.edit_text("""🎥 اسم الفيلم : بنات العم
@@ -354,15 +362,15 @@ async def Xco12(c: Client, m: CallbackQuery):
         """, reply_markup=keyboard)
 
 
-@app.on_callback_query(filters.regex("^Xco13 (\\d+)$"))
-async def Xco13(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^AFYONA13 (\\d+)$"))
+async def AFYONA13(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XXco25 " + str(m.from_user.id))] +
-        [InlineKeyboardButton("⌯ جوده عاليه", callback_data="XXco26 " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XAFYONA25 " + str(m.from_user.id))] +
+        [InlineKeyboardButton("⌯ جوده عاليه", callback_data="XAFYONA26 " + str(m.from_user.id))],
         [InlineKeyboardButton("◁", callback_data="comedy " + str(m.from_user.id))],
     ])
     await m.message.edit_text("""🎥 اسم الفيلم : علي بابا
@@ -374,15 +382,15 @@ async def Xco13(c: Client, m: CallbackQuery):
         """, reply_markup=keyboard)
 
 
-@app.on_callback_query(filters.regex("^Xco14 (\\d+)$"))
-async def Xco14(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^AFYONA14 (\\d+)$"))
+async def AFYONA14(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XXco27 " + str(m.from_user.id))] +
-        [InlineKeyboardButton("⌯ جوده عاليه", callback_data="XXco28 " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XAFYONA27 " + str(m.from_user.id))] +
+        [InlineKeyboardButton("⌯ جوده عاليه", callback_data="XAFYONA28 " + str(m.from_user.id))],
         [InlineKeyboardButton("◁", callback_data="comedy " + str(m.from_user.id))],
     ])
     await m.message.edit_text("""🎥 اسم الفيلم : فول الصين العظيم
@@ -394,15 +402,15 @@ async def Xco14(c: Client, m: CallbackQuery):
         """, reply_markup=keyboard)
 
 
-@app.on_callback_query(filters.regex("^Xco15 (\\d+)$"))
-async def Xco15(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^AFYONA15 (\\d+)$"))
+async def AFYONA15(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XXco29 " + str(m.from_user.id))] +
-        [InlineKeyboardButton("⌯ جوده عاليه", callback_data="XXco30 " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XAFYONA29 " + str(m.from_user.id))] +
+        [InlineKeyboardButton("⌯ جوده عاليه", callback_data="XAFYONA30 " + str(m.from_user.id))],
         [InlineKeyboardButton("◁", callback_data="comedy " + str(m.from_user.id))],
     ])
     await m.message.edit_text("""🎥 اسم الفيلم : حسن وبقلظ
@@ -414,15 +422,15 @@ async def Xco15(c: Client, m: CallbackQuery):
         """, reply_markup=keyboard)
 
 
-@app.on_callback_query(filters.regex("^Xco16 (\\d+)$"))
-async def Xco16(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^AFYONA16 (\\d+)$"))
+async def AFYONA16(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XXco31 " + str(m.from_user.id))] +
-        [InlineKeyboardButton("⌯ جوده عاليه", callback_data="XXco32 " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XAFYONA31 " + str(m.from_user.id))] +
+        [InlineKeyboardButton("⌯ جوده عاليه", callback_data="XAFYONA32 " + str(m.from_user.id))],
         [InlineKeyboardButton("◁", callback_data="comedy " + str(m.from_user.id))],
     ])
     await m.message.edit_text("""🎥 اسم الفيلم : الكويسين
@@ -434,15 +442,15 @@ async def Xco16(c: Client, m: CallbackQuery):
         """, reply_markup=keyboard)
 
 
-@app.on_callback_query(filters.regex("^Xco17 (\\d+)$"))
-async def Xco17(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^AFYONA17 (\\d+)$"))
+async def AFYONA17(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XXco33 " + str(m.from_user.id))] +
-        [InlineKeyboardButton("⌯ جوده عاليه", callback_data="XXco34 " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XAFYONA33 " + str(m.from_user.id))] +
+        [InlineKeyboardButton("⌯ جوده عاليه", callback_data="XAFYONA34 " + str(m.from_user.id))],
         [InlineKeyboardButton("◁", callback_data="comedy " + str(m.from_user.id))],
     ])
     await m.message.edit_text("""🎥 اسم الفيلم : يوم مالوش لازمة
@@ -454,15 +462,15 @@ async def Xco17(c: Client, m: CallbackQuery):
         """, reply_markup=keyboard)
 
 
-@app.on_callback_query(filters.regex("^Xco18 (\\d+)$"))
-async def Xco18(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^AFYONA18 (\\d+)$"))
+async def AFYONA18(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XXco35 " + str(m.from_user.id))] +
-        [InlineKeyboardButton("⌯ جوده عاليه", callback_data="XXco36 " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XAFYONA35 " + str(m.from_user.id))] +
+        [InlineKeyboardButton("⌯ جوده عاليه", callback_data="XAFYONA36 " + str(m.from_user.id))],
         [InlineKeyboardButton("◁", callback_data="comedy " + str(m.from_user.id))],
     ])
     await m.message.edit_text("""🎥 اسم الفيلم : غبي منه فيه
@@ -474,15 +482,15 @@ async def Xco18(c: Client, m: CallbackQuery):
         """, reply_markup=keyboard)
 
 
-@app.on_callback_query(filters.regex("^Xco19 (\\d+)$"))
-async def Xco19(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^AFYONA19 (\\d+)$"))
+async def AFYONA19(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XXco37 " + str(m.from_user.id))] +
-        [InlineKeyboardButton("⌯ جوده عاليه", callback_data="XXco38 " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XAFYONA37 " + str(m.from_user.id))] +
+        [InlineKeyboardButton("⌯ جوده عاليه", callback_data="XAFYONA38 " + str(m.from_user.id))],
         [InlineKeyboardButton("◁", callback_data="comedy " + str(m.from_user.id))],
     ])
     await m.message.edit_text("""🎥 اسم الفيلم : خير وبركة
@@ -495,15 +503,15 @@ async def Xco19(c: Client, m: CallbackQuery):
         """, reply_markup=keyboard)
 
 
-@app.on_callback_query(filters.regex("^Xco20 (\\d+)$"))
-async def Xco20(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^AFYONA20 (\\d+)$"))
+async def AFYONA20(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XXco39 " + str(m.from_user.id))] +
-        [InlineKeyboardButton("⌯ جوده عاليه", callback_data="XXco40 " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XAFYONA39 " + str(m.from_user.id))] +
+        [InlineKeyboardButton("⌯ جوده عاليه", callback_data="XAFYONA40 " + str(m.from_user.id))],
         [InlineKeyboardButton("◁", callback_data="comedy " + str(m.from_user.id))],
     ])
     await m.message.edit_text("""🎥 اسم الفيلم : البدلة
@@ -519,401 +527,401 @@ async def Xco20(c: Client, m: CallbackQuery):
 #########################################################################################
 #########################################################################################
 
-@app.on_callback_query(filters.regex("^XXco1 (\\d+)$"))
-async def XXco1(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^XAFYONA1 (\\d+)$"))
+async def XAFYONA1(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/Musicah4/121", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/gyigkk/32", reply_to_message_id=mid)
 
 
-@app.on_callback_query(filters.regex("^XXco2 (\\d+)$"))
-async def XXco2(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^XAFYONA2 (\\d+)$"))
+async def XAFYONA2(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/Musicah4/122", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/gyigkk/32", reply_to_message_id=mid)
 
 
-@app.on_callback_query(filters.regex("^XXco3 (\\d+)$"))
-async def XXco3(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^XAFYONA3 (\\d+)$"))
+async def XAFYONA3(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/Musicah4/123", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/gyigkk/5", reply_to_message_id=mid)
 
 
-@app.on_callback_query(filters.regex("^XXco4 (\\d+)$"))
-async def XXco4(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^XAFYONA4 (\\d+)$"))
+async def XAFYONA4(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/Musicah4/124", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/gyigkk/5", reply_to_message_id=mid)
 
 
-@app.on_callback_query(filters.regex("^XXco5 (\\d+)$"))
-async def XXco5(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^XAFYONA5 (\\d+)$"))
+async def XAFYONA5(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/125", reply_to_message_id=mid)
 
 
-@app.on_callback_query(filters.regex("^XXco6 (\\d+)$"))
-async def XXco6(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^XAFYONA6 (\\d+)$"))
+async def XAFYONA6(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/126", reply_to_message_id=mid)
 
 
-@app.on_callback_query(filters.regex("^XXco7 (\\d+)$"))
-async def XXco7(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^XAFYONA7 (\\d+)$"))
+async def XAFYONA7(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/127", reply_to_message_id=mid)
 
 
-@app.on_callback_query(filters.regex("^XXco8 (\\d+)$"))
-async def XXco8(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^XAFYONA8 (\\d+)$"))
+async def XAFYONA8(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/128", reply_to_message_id=mid)
 
 
-@app.on_callback_query(filters.regex("^XXco9 (\\d+)$"))
-async def XXco9(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^XAFYONA9 (\\d+)$"))
+async def XAFYONA9(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/129", reply_to_message_id=mid)
 
 
-@app.on_callback_query(filters.regex("^XXco10 (\\d+)$"))
-async def XXco10(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^XAFYONA10 (\\d+)$"))
+async def XAFYONA10(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/130", reply_to_message_id=mid)
 
 
-@app.on_callback_query(filters.regex("^XXco11 (\\d+)$"))
-async def XXco11(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^XAFYONA11 (\\d+)$"))
+async def XAFYONA11(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/131", reply_to_message_id=mid)
 
 
-@app.on_callback_query(filters.regex("^XXco12 (\\d+)$"))
-async def XXco12(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^XAFYONA12 (\\d+)$"))
+async def XAFYONA12(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/132", reply_to_message_id=mid)
 
 
-@app.on_callback_query(filters.regex("^XXco13 (\\d+)$"))
-async def XXco13(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^XAFYONA13 (\\d+)$"))
+async def XAFYONA13(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/133", reply_to_message_id=mid)
 
 
-@app.on_callback_query(filters.regex("^XXco14 (\\d+)$"))
-async def XXco14(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^XAFYONA14 (\\d+)$"))
+async def XAFYONA14(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/134", reply_to_message_id=mid)
 
 
-@app.on_callback_query(filters.regex("^XXco15 (\\d+)$"))
-async def XXco15(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^XAFYONA15 (\\d+)$"))
+async def XAFYONA15(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/135", reply_to_message_id=mid)
 
 
-@app.on_callback_query(filters.regex("^XXco16 (\\d+)$"))
-async def XXco16(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^XAFYONA16 (\\d+)$"))
+async def XAFYONA16(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/136", reply_to_message_id=mid)
 
 
-@app.on_callback_query(filters.regex("^XXco17 (\\d+)$"))
-async def XXco17(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^XAFYONA17 (\\d+)$"))
+async def XAFYONA17(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/137", reply_to_message_id=mid)
 
 
-@app.on_callback_query(filters.regex("^XXco18 (\\d+)$"))
-async def XXco18(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^XAFYONA18 (\\d+)$"))
+async def XAFYONA18(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/139", reply_to_message_id=mid)
 
 
-@app.on_callback_query(filters.regex("^XXco19 (\\d+)$"))
-async def XXco19(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^XAFYONA19 (\\d+)$"))
+async def XAFYONA19(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/140", reply_to_message_id=mid)
 
 
-@app.on_callback_query(filters.regex("^XXco20 (\\d+)$"))
-async def XXco20(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^XAFYONA20 (\\d+)$"))
+async def XAFYONA20(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/Musicah4/141", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/gyigkk/30", reply_to_message_id=mid)
 
 
-@app.on_callback_query(filters.regex("^XXco21 (\\d+)$"))
-async def XXco21(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^XAFYONA21 (\\d+)$"))
+async def XAFYONA21(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/142", reply_to_message_id=mid)
 
 
-@app.on_callback_query(filters.regex("^XXco22 (\\d+)$"))
-async def XXco22(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^XAFYONA22 (\\d+)$"))
+async def XAFYONA22(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/143", reply_to_message_id=mid)
 
 
-@app.on_callback_query(filters.regex("^XXco23 (\\d+)$"))
-async def XXco23(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^XAFYONA23 (\\d+)$"))
+async def XAFYONA23(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/144", reply_to_message_id=mid)
 
 
-@app.on_callback_query(filters.regex("^XXco24 (\\d+)$"))
-async def XXco24(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^XAFYONA24 (\\d+)$"))
+async def XAFYONA24(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/145", reply_to_message_id=mid)
 
 
-@app.on_callback_query(filters.regex("^XXco25 (\\d+)$"))
-async def XXco25(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^XAFYONA25 (\\d+)$"))
+async def XAFYONA25(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/146", reply_to_message_id=mid)
 
 
-@app.on_callback_query(filters.regex("^XXco26 (\\d+)$"))
-async def XXco26(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^XAFYONA26 (\\d+)$"))
+async def XAFYONA26(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/147", reply_to_message_id=mid)
 
 
-@app.on_callback_query(filters.regex("^XXco27 (\\d+)$"))
-async def XXco27(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^XAFYONA27 (\\d+)$"))
+async def XAFYONA27(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/148", reply_to_message_id=mid)
 
 
-@app.on_callback_query(filters.regex("^XXco28 (\\d+)$"))
-async def XXco28(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^XAFYONA28 (\\d+)$"))
+async def XAFYONA28(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/149", reply_to_message_id=mid)
 
 
-@app.on_callback_query(filters.regex("^XXco29 (\\d+)$"))
-async def XXco29(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^XAFYONA29 (\\d+)$"))
+async def XAFYONA29(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/150", reply_to_message_id=mid)
 
 
-@app.on_callback_query(filters.regex("^XXco30 (\\d+)$"))
-async def XXco30(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^XAFYONA30 (\\d+)$"))
+async def XAFYONA30(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/151", reply_to_message_id=mid)
 
 
-@app.on_callback_query(filters.regex("^XXco31 (\\d+)$"))
-async def XXco31(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^XAFYONA31 (\\d+)$"))
+async def XAFYONA31(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/152", reply_to_message_id=mid)
 
 
-@app.on_callback_query(filters.regex("^XXco32 (\\d+)$"))
-async def XXco32(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^XAFYONA32 (\\d+)$"))
+async def XAFYONA32(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/153", reply_to_message_id=mid)
 
 
-@app.on_callback_query(filters.regex("^XXco33 (\\d+)$"))
-async def XXco33(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^XAFYONA33 (\\d+)$"))
+async def XAFYONA33(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/154", reply_to_message_id=mid)
 
 
-@app.on_callback_query(filters.regex("^XXco34 (\\d+)$"))
-async def XXco34(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^XAFYONA34 (\\d+)$"))
+async def XAFYONA34(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/155", reply_to_message_id=mid)
 
 
-@app.on_callback_query(filters.regex("^XXco35 (\\d+)$"))
-async def XXco35(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^XAFYONA35 (\\d+)$"))
+async def XAFYONA35(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/156", reply_to_message_id=mid)
 
 
-@app.on_callback_query(filters.regex("^XXco36 (\\d+)$"))
-async def XXco36(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^XAFYONA36 (\\d+)$"))
+async def XAFYONA36(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/157", reply_to_message_id=mid)
 
 
-@app.on_callback_query(filters.regex("^XXco37 (\\d+)$"))
-async def XXco37(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^XAFYONA37 (\\d+)$"))
+async def XAFYONA37(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/158", reply_to_message_id=mid)
 
 
-@app.on_callback_query(filters.regex("^XXco38 (\\d+)$"))
-async def XXco38(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^XAFYONA38 (\\d+)$"))
+async def XAFYONA38(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/159", reply_to_message_id=mid)
 
 
-@app.on_callback_query(filters.regex("^XXco39 (\\d+)$"))
-async def XXco39(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^XAFYONA39 (\\d+)$"))
+async def XAFYONA39(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/160", reply_to_message_id=mid)
 
 
-@app.on_callback_query(filters.regex("^XXco40 (\\d+)$"))
-async def XXco40(c: Client, m: CallbackQuery):
+@app.on_callback_query(filters.regex("^XAFYONA40 (\\d+)$"))
+async def XAFYONA40(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/161", reply_to_message_id=mid)
@@ -929,7 +937,7 @@ async def XXco40(c: Client, m: CallbackQuery):
 async def action(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
 
@@ -943,8 +951,8 @@ async def action(c: Client, m: CallbackQuery):
         [InlineKeyboardButton("ولاد العم", callback_data="Xact8 " + str(m.from_user.id))],
         [InlineKeyboardButton("وش سجون", callback_data="Xact9 " + str(m.from_user.id))],
 
-        [InlineKeyboardButton("𝐇𝐎𝐌", callback_data="aflamAR2 " + str(m.from_user.id))],
-        [InlineKeyboardButton("᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ️", url=f"https://t.me/SOURCEOLIVEA")],
+        [InlineKeyboardButton("𝗁᥆ꪔᥱ", callback_data="aflamAR2 " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌞ ᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ⌝", url=f"https://t.me/SOURCEOLIVEA")],
 
     ])
     await m.message.edit_text("اهلا بك في قائمة الافلام الاكشن العربيه", reply_markup=keyboard)
@@ -954,7 +962,7 @@ async def action(c: Client, m: CallbackQuery):
 async def Xact1(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
         [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XXact1 " + str(m.from_user.id))] +
@@ -974,7 +982,7 @@ async def Xact1(c: Client, m: CallbackQuery):
 async def Xact2(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
         [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XXact3 " + str(m.from_user.id))] +
@@ -994,7 +1002,7 @@ async def Xact2(c: Client, m: CallbackQuery):
 async def Xact3(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
         [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XXact5 " + str(m.from_user.id))] +
@@ -1010,7 +1018,7 @@ async def Xact3(c: Client, m: CallbackQuery):
 async def Xact4(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
         [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XXact7 " + str(m.from_user.id))] +
@@ -1030,7 +1038,7 @@ async def Xact4(c: Client, m: CallbackQuery):
 async def Xact5(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
         [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XXact9 " + str(m.from_user.id))] +
@@ -1050,7 +1058,7 @@ async def Xact5(c: Client, m: CallbackQuery):
 async def Xact6(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
         [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XXact11 " + str(m.from_user.id))] +
@@ -1070,7 +1078,7 @@ async def Xact6(c: Client, m: CallbackQuery):
 async def Xact7(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
         [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XXact13 " + str(m.from_user.id))] +
@@ -1090,7 +1098,7 @@ async def Xact7(c: Client, m: CallbackQuery):
 async def Xact8(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
         [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XXact15 " + str(m.from_user.id))] +
@@ -1110,7 +1118,7 @@ async def Xact8(c: Client, m: CallbackQuery):
 async def Xact9(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
         [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XXact17 " + str(m.from_user.id))] +
@@ -1133,7 +1141,7 @@ async def Xact9(c: Client, m: CallbackQuery):
 async def XXact1(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/162", reply_to_message_id=mid)
@@ -1143,7 +1151,7 @@ async def XXact1(c: Client, m: CallbackQuery):
 async def XXact2(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/163", reply_to_message_id=mid)
@@ -1153,7 +1161,7 @@ async def XXact2(c: Client, m: CallbackQuery):
 async def XXact3(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/164", reply_to_message_id=mid)
@@ -1163,7 +1171,7 @@ async def XXact3(c: Client, m: CallbackQuery):
 async def XXact4(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/165", reply_to_message_id=mid)
@@ -1173,7 +1181,7 @@ async def XXact4(c: Client, m: CallbackQuery):
 async def XXact5(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/166", reply_to_message_id=mid)
@@ -1183,7 +1191,7 @@ async def XXact5(c: Client, m: CallbackQuery):
 async def XXact6(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/167", reply_to_message_id=mid)
@@ -1193,7 +1201,7 @@ async def XXact6(c: Client, m: CallbackQuery):
 async def XXact7(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/168", reply_to_message_id=mid)
@@ -1203,7 +1211,7 @@ async def XXact7(c: Client, m: CallbackQuery):
 async def XXact8(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/169", reply_to_message_id=mid)
@@ -1213,7 +1221,7 @@ async def XXact8(c: Client, m: CallbackQuery):
 async def XXact9(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/170", reply_to_message_id=mid)
@@ -1223,7 +1231,7 @@ async def XXact9(c: Client, m: CallbackQuery):
 async def XXact10(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/171", reply_to_message_id=mid)
@@ -1233,7 +1241,7 @@ async def XXact10(c: Client, m: CallbackQuery):
 async def XXact11(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/172", reply_to_message_id=mid)
@@ -1243,7 +1251,7 @@ async def XXact11(c: Client, m: CallbackQuery):
 async def XXact12(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/173", reply_to_message_id=mid)
@@ -1253,7 +1261,7 @@ async def XXact12(c: Client, m: CallbackQuery):
 async def XXact13(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/174", reply_to_message_id=mid)
@@ -1263,7 +1271,7 @@ async def XXact13(c: Client, m: CallbackQuery):
 async def XXact14(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/175", reply_to_message_id=mid)
@@ -1273,7 +1281,7 @@ async def XXact14(c: Client, m: CallbackQuery):
 async def XXact15(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/176", reply_to_message_id=mid)
@@ -1283,7 +1291,7 @@ async def XXact15(c: Client, m: CallbackQuery):
 async def XXact16(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/177", reply_to_message_id=mid)
@@ -1293,7 +1301,7 @@ async def XXact16(c: Client, m: CallbackQuery):
 async def XXact17(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/178", reply_to_message_id=mid)
@@ -1303,7 +1311,7 @@ async def XXact17(c: Client, m: CallbackQuery):
 async def XXact18(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/179", reply_to_message_id=mid)
@@ -1319,7 +1327,7 @@ async def XXact18(c: Client, m: CallbackQuery):
 async def drama(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
 
@@ -1329,8 +1337,8 @@ async def drama(c: Client, m: CallbackQuery):
         [InlineKeyboardButton("⌯ القط", callback_data="Xdra4 " + str(m.from_user.id))],
         [InlineKeyboardButton("⌯ خان تيولا", callback_data="Xdra5 " + str(m.from_user.id))],
 
-        [InlineKeyboardButton("𝐇𝐎𝐌", callback_data="aflamAR2 " + str(m.from_user.id))],
-        [InlineKeyboardButton("᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ️", url=f"https://t.me/SOURCEOLIVEA")],
+        [InlineKeyboardButton("𝗁᥆ꪔᥱ", callback_data="aflamAR2 " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌞ ᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ⌝", url=f"https://t.me/SOURCEOLIVEA")],
 
     ])
     await m.message.edit_text("اهلا بك في قائمة الافلام الدراما العربيه", reply_markup=keyboard)
@@ -1340,7 +1348,7 @@ async def drama(c: Client, m: CallbackQuery):
 async def Xdra1(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
         [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XXdra1 " + str(m.from_user.id))] +
@@ -1360,7 +1368,7 @@ async def Xdra1(c: Client, m: CallbackQuery):
 async def Xdra2(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
         [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XXdra3 " + str(m.from_user.id))] +
@@ -1380,7 +1388,7 @@ async def Xdra2(c: Client, m: CallbackQuery):
 async def Xdra3(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
         [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XXdra5 " + str(m.from_user.id))] +
@@ -1400,7 +1408,7 @@ async def Xdra3(c: Client, m: CallbackQuery):
 async def Xdra4(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
         [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XXdra7 " + str(m.from_user.id))] +
@@ -1420,7 +1428,7 @@ async def Xdra4(c: Client, m: CallbackQuery):
 async def Xdra5(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
         [InlineKeyboardButton("⌯ جوده متوسطه", callback_data="XXdra9 " + str(m.from_user.id))] +
@@ -1443,7 +1451,7 @@ async def Xdra5(c: Client, m: CallbackQuery):
 async def XXdra1(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/180", reply_to_message_id=mid)
@@ -1453,17 +1461,17 @@ async def XXdra1(c: Client, m: CallbackQuery):
 async def XXdra2(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/Musicah4/181", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/gyigkk/29", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^XXdra3 (\\d+)$"))
 async def XXdra3(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/182", reply_to_message_id=mid)
@@ -1473,7 +1481,7 @@ async def XXdra3(c: Client, m: CallbackQuery):
 async def XXdra4(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/183", reply_to_message_id=mid)
@@ -1483,7 +1491,7 @@ async def XXdra4(c: Client, m: CallbackQuery):
 async def XXdra5(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/184", reply_to_message_id=mid)
@@ -1493,7 +1501,7 @@ async def XXdra5(c: Client, m: CallbackQuery):
 async def XXdra6(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/185", reply_to_message_id=mid)
@@ -1503,7 +1511,7 @@ async def XXdra6(c: Client, m: CallbackQuery):
 async def XXdra7(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/186", reply_to_message_id=mid)
@@ -1513,7 +1521,7 @@ async def XXdra7(c: Client, m: CallbackQuery):
 async def XXdra8(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/187", reply_to_message_id=mid)
@@ -1523,7 +1531,7 @@ async def XXdra8(c: Client, m: CallbackQuery):
 async def XXdra9(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/188", reply_to_message_id=mid)
@@ -1533,7 +1541,7 @@ async def XXdra9(c: Client, m: CallbackQuery):
 async def XXdra10(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/189", reply_to_message_id=mid)
@@ -1557,7 +1565,7 @@ async def XXdra10(c: Client, m: CallbackQuery):
 async def moslsl(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
 
@@ -1568,8 +1576,8 @@ async def moslsl(c: Client, m: CallbackQuery):
         [InlineKeyboardButton("توبه 📼", callback_data="toba " + str(m.from_user.id))],
         [InlineKeyboardButton("ابو العروسة 📼", callback_data="Xmos5 " + str(m.from_user.id))],
 
-        [InlineKeyboardButton("𝐇𝐎𝐌", callback_data="aflamAR2 " + str(m.from_user.id))],
-        [InlineKeyboardButton("᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ️", url=f"https://t.me/SOURCEOLIVEA")],
+        [InlineKeyboardButton("𝗁᥆ꪔᥱ", callback_data="aflamAR2 " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌞ ᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ⌝", url=f"https://t.me/SOURCEOLIVEA")],
 
     ])
     await m.message.edit_text("◍ اهلا بيك في قائمة المسلسلات العربيه\n√", reply_markup=keyboard)
@@ -1579,7 +1587,7 @@ async def moslsl(c: Client, m: CallbackQuery):
 async def Xmos1(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
 
@@ -1597,8 +1605,8 @@ async def Xmos1(c: Client, m: CallbackQuery):
         [InlineKeyboardButton("⌯ الحلقة 12", callback_data="Zmos225 " + str(m.from_user.id))],
         [InlineKeyboardButton("⌯ الحلقة 13", callback_data="Zmos226 " + str(m.from_user.id))],
 
-        [InlineKeyboardButton("𝐇𝐎𝐌", callback_data="moslsl " + str(m.from_user.id))],
-        [InlineKeyboardButton("᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ️", url=f"https://t.me/SOURCEOLIVEA")],
+        [InlineKeyboardButton("𝗁᥆ꪔᥱ", callback_data="moslsl " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌞ ᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ⌝", url=f"https://t.me/SOURCEOLIVEA")],
 
     ])
     await m.message.edit_text("◍ اهلا بيك في مسلسل 📼 حشمت في البيت الأبيض\n√", reply_markup=keyboard)
@@ -1608,7 +1616,7 @@ async def Xmos1(c: Client, m: CallbackQuery):
 async def Xmos2(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
 
@@ -1643,8 +1651,8 @@ async def Xmos2(c: Client, m: CallbackQuery):
         [InlineKeyboardButton("⌯ الحلقة 29", callback_data="Zmos257 " + str(m.from_user.id))] +
         [InlineKeyboardButton("⌯ الحلقة 30", callback_data="Zmos258 " + str(m.from_user.id))],
 
-        [InlineKeyboardButton("𝐇𝐎𝐌", callback_data="moslsl " + str(m.from_user.id))],
-        [InlineKeyboardButton("᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ️", url=f"https://t.me/SOURCEOLIVEA")],
+        [InlineKeyboardButton("𝗁᥆ꪔᥱ", callback_data="moslsl " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌞ ᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ⌝", url=f"https://t.me/SOURCEOLIVEA")],
 
     ])
     await m.message.edit_text("◍ اهلا بيك في مسلسل 📼 2- لعبة النسيان\n√", reply_markup=keyboard)
@@ -1654,7 +1662,7 @@ async def Xmos2(c: Client, m: CallbackQuery):
 async def Xmos3(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
 
@@ -1689,8 +1697,8 @@ async def Xmos3(c: Client, m: CallbackQuery):
         [InlineKeyboardButton("⌯ الحلقة 29", callback_data="Zmos289 " + str(m.from_user.id))] +
         [InlineKeyboardButton("⌯ الحلقة 30", callback_data="Zmos290 " + str(m.from_user.id))],
 
-        [InlineKeyboardButton("𝐇𝐎𝐌", callback_data="moslsl " + str(m.from_user.id))],
-        [InlineKeyboardButton("᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ️", url=f"https://t.me/SOURCEOLIVEA")],
+        [InlineKeyboardButton("𝗁᥆ꪔᥱ", callback_data="moslsl " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌞ ᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ⌝", url=f"https://t.me/SOURCEOLIVEA")],
 
     ])
     await m.message.edit_text("◍ اهلا بيك في مسلسل 📼 3- ب 100 وش\n√", reply_markup=keyboard)
@@ -1700,7 +1708,7 @@ async def Xmos3(c: Client, m: CallbackQuery):
 async def Xmos4(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
 
@@ -1735,8 +1743,8 @@ async def Xmos4(c: Client, m: CallbackQuery):
         [InlineKeyboardButton("⌯ الحلقة 29", callback_data="Zmos321 " + str(m.from_user.id))],
         [InlineKeyboardButton("⌯ الحلقة 30", callback_data="Zmos322 " + str(m.from_user.id))],
 
-        [InlineKeyboardButton("𝐇𝐎𝐌", callback_data="moslsl " + str(m.from_user.id))],
-        [InlineKeyboardButton("᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ️", url=f"https://t.me/SOURCEOLIVEA")],
+        [InlineKeyboardButton("𝗁᥆ꪔᥱ", callback_data="moslsl " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌞ ᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ⌝", url=f"https://t.me/SOURCEOLIVEA")],
 
     ])
     await m.message.edit_text("◍ اهلا بيك في مسلسل 📼 4- آدم\n√", reply_markup=keyboard)
@@ -1746,7 +1754,7 @@ async def Xmos4(c: Client, m: CallbackQuery):
 async def Xmos5(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
 
@@ -1811,8 +1819,8 @@ async def Xmos5(c: Client, m: CallbackQuery):
         [InlineKeyboardButton("⌯ الحلقة 59", callback_data="Zmos383 " + str(m.from_user.id))],
         [InlineKeyboardButton("⌯ الحلقة 60", callback_data="Zmos384 " + str(m.from_user.id))],
 
-        [InlineKeyboardButton("𝐇𝐎𝐌", callback_data="moslsl " + str(m.from_user.id))],
-        [InlineKeyboardButton("᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ️", url=f"https://t.me/SOURCEOLIVEA")],
+        [InlineKeyboardButton("𝗁᥆ꪔᥱ", callback_data="moslsl " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌞ ᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ⌝", url=f"https://t.me/SOURCEOLIVEA")],
 
     ])
     await m.message.edit_text("◍ اهلا بيك في مسلسل 📼 6-ابو العروسة\n√", reply_markup=keyboard)
@@ -1822,7 +1830,7 @@ async def Xmos5(c: Client, m: CallbackQuery):
 async def toba(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
 
@@ -1857,8 +1865,8 @@ async def toba(c: Client, m: CallbackQuery):
         [InlineKeyboardButton("⌯ الحلقة 29", callback_data="toba29 " + str(m.from_user.id))] +
         [InlineKeyboardButton("⌯ الحلقة 30", callback_data="toba30 " + str(m.from_user.id))],
 
-        [InlineKeyboardButton("𝐇𝐎𝐌", callback_data="moslsl " + str(m.from_user.id))],
-        [InlineKeyboardButton("᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ️", url=f"https://t.me/SOURCEOLIVEA")],
+        [InlineKeyboardButton("𝗁᥆ꪔᥱ", callback_data="moslsl " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌞ ᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ⌝", url=f"https://t.me/SOURCEOLIVEA")],
 
     ])
     await m.message.edit_text("◍ اهلا بيك في مسلسل 📼 5-توبه\n√", reply_markup=keyboard)
@@ -1869,7 +1877,7 @@ async def toba(c: Client, m: CallbackQuery):
 async def Zmos214(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/190", reply_to_message_id=mid)
@@ -1879,7 +1887,7 @@ async def Zmos214(c: Client, m: CallbackQuery):
 async def Zmos215(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/191", reply_to_message_id=mid)
@@ -1889,7 +1897,7 @@ async def Zmos215(c: Client, m: CallbackQuery):
 async def Zmos216(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/192", reply_to_message_id=mid)
@@ -1899,7 +1907,7 @@ async def Zmos216(c: Client, m: CallbackQuery):
 async def Zmos217(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/193", reply_to_message_id=mid)
@@ -1909,7 +1917,7 @@ async def Zmos217(c: Client, m: CallbackQuery):
 async def Zmos218(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/194", reply_to_message_id=mid)
@@ -1919,7 +1927,7 @@ async def Zmos218(c: Client, m: CallbackQuery):
 async def Zmos219(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/195", reply_to_message_id=mid)
@@ -1929,7 +1937,7 @@ async def Zmos219(c: Client, m: CallbackQuery):
 async def Zmos220(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/196", reply_to_message_id=mid)
@@ -1939,7 +1947,7 @@ async def Zmos220(c: Client, m: CallbackQuery):
 async def Zmos221(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/197", reply_to_message_id=mid)
@@ -1949,7 +1957,7 @@ async def Zmos221(c: Client, m: CallbackQuery):
 async def Zmos222(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/198", reply_to_message_id=mid)
@@ -1959,7 +1967,7 @@ async def Zmos222(c: Client, m: CallbackQuery):
 async def Zmos223(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/200", reply_to_message_id=mid)
@@ -1969,7 +1977,7 @@ async def Zmos223(c: Client, m: CallbackQuery):
 async def Zmos224(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/201", reply_to_message_id=mid)
@@ -1979,7 +1987,7 @@ async def Zmos224(c: Client, m: CallbackQuery):
 async def Zmos225(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/202", reply_to_message_id=mid)
@@ -1989,7 +1997,7 @@ async def Zmos225(c: Client, m: CallbackQuery):
 async def Zmos226(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/203", reply_to_message_id=mid)
@@ -1999,7 +2007,7 @@ async def Zmos226(c: Client, m: CallbackQuery):
 async def Zmos228(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/205", reply_to_message_id=mid)
@@ -2009,7 +2017,7 @@ async def Zmos228(c: Client, m: CallbackQuery):
 async def Zmos229(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/205", reply_to_message_id=mid)
@@ -2019,7 +2027,7 @@ async def Zmos229(c: Client, m: CallbackQuery):
 async def Zmos230(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/206", reply_to_message_id=mid)
@@ -2029,7 +2037,7 @@ async def Zmos230(c: Client, m: CallbackQuery):
 async def Zmos231(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/207", reply_to_message_id=mid)
@@ -2039,7 +2047,7 @@ async def Zmos231(c: Client, m: CallbackQuery):
 async def Zmos232(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/208", reply_to_message_id=mid)
@@ -2049,7 +2057,7 @@ async def Zmos232(c: Client, m: CallbackQuery):
 async def Zmos233(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/209", reply_to_message_id=mid)
@@ -2059,7 +2067,7 @@ async def Zmos233(c: Client, m: CallbackQuery):
 async def Zmos234(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/210", reply_to_message_id=mid)
@@ -2069,7 +2077,7 @@ async def Zmos234(c: Client, m: CallbackQuery):
 async def Zmos235(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/211", reply_to_message_id=mid)
@@ -2079,7 +2087,7 @@ async def Zmos235(c: Client, m: CallbackQuery):
 async def Zmos236(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/212", reply_to_message_id=mid)
@@ -2089,7 +2097,7 @@ async def Zmos236(c: Client, m: CallbackQuery):
 async def Zmos237(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/213", reply_to_message_id=mid)
@@ -2099,7 +2107,7 @@ async def Zmos237(c: Client, m: CallbackQuery):
 async def Zmos238(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/214", reply_to_message_id=mid)
@@ -2109,7 +2117,7 @@ async def Zmos238(c: Client, m: CallbackQuery):
 async def Zmos239(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/215", reply_to_message_id=mid)
@@ -2119,7 +2127,7 @@ async def Zmos239(c: Client, m: CallbackQuery):
 async def Zmos240(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/216", reply_to_message_id=mid)
@@ -2129,7 +2137,7 @@ async def Zmos240(c: Client, m: CallbackQuery):
 async def Zmos241(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/217", reply_to_message_id=mid)
@@ -2139,7 +2147,7 @@ async def Zmos241(c: Client, m: CallbackQuery):
 async def Zmos242(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/218", reply_to_message_id=mid)
@@ -2149,7 +2157,7 @@ async def Zmos242(c: Client, m: CallbackQuery):
 async def Zmos243(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/219", reply_to_message_id=mid)
@@ -2159,7 +2167,7 @@ async def Zmos243(c: Client, m: CallbackQuery):
 async def Zmos244(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/220", reply_to_message_id=mid)
@@ -2169,7 +2177,7 @@ async def Zmos244(c: Client, m: CallbackQuery):
 async def Zmos245(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/221", reply_to_message_id=mid)
@@ -2179,7 +2187,7 @@ async def Zmos245(c: Client, m: CallbackQuery):
 async def Zmos246(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/222", reply_to_message_id=mid)
@@ -2189,7 +2197,7 @@ async def Zmos246(c: Client, m: CallbackQuery):
 async def Zmos247(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/223", reply_to_message_id=mid)
@@ -2199,7 +2207,7 @@ async def Zmos247(c: Client, m: CallbackQuery):
 async def Zmos248(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/224", reply_to_message_id=mid)
@@ -2209,7 +2217,7 @@ async def Zmos248(c: Client, m: CallbackQuery):
 async def Zmos249(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/225", reply_to_message_id=mid)
@@ -2219,7 +2227,7 @@ async def Zmos249(c: Client, m: CallbackQuery):
 async def Zmos250(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/226", reply_to_message_id=mid)
@@ -2229,7 +2237,7 @@ async def Zmos250(c: Client, m: CallbackQuery):
 async def Zmos251(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/227", reply_to_message_id=mid)
@@ -2239,7 +2247,7 @@ async def Zmos251(c: Client, m: CallbackQuery):
 async def Zmos252(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/228", reply_to_message_id=mid)
@@ -2249,7 +2257,7 @@ async def Zmos252(c: Client, m: CallbackQuery):
 async def Zmos253(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/229", reply_to_message_id=mid)
@@ -2259,7 +2267,7 @@ async def Zmos253(c: Client, m: CallbackQuery):
 async def Zmos254(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/230", reply_to_message_id=mid)
@@ -2269,7 +2277,7 @@ async def Zmos254(c: Client, m: CallbackQuery):
 async def Zmos255(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/231", reply_to_message_id=mid)
@@ -2279,7 +2287,7 @@ async def Zmos255(c: Client, m: CallbackQuery):
 async def Zmos256(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/232", reply_to_message_id=mid)
@@ -2289,7 +2297,7 @@ async def Zmos256(c: Client, m: CallbackQuery):
 async def Zmos257(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/233", reply_to_message_id=mid)
@@ -2299,7 +2307,7 @@ async def Zmos257(c: Client, m: CallbackQuery):
 async def Zmos258(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/Musicah4/234", reply_to_message_id=mid)
@@ -2309,1170 +2317,1170 @@ async def Zmos258(c: Client, m: CallbackQuery):
 async def Zmos261(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/261", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/261", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos262 (\\d+)$"))
 async def Zmos262(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/262", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/262", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos263 (\\d+)$"))
 async def Zmos263(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/263", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/263", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos264 (\\d+)$"))
 async def Zmos264(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/264", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/264", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos265 (\\d+)$"))
 async def Zmos265(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/265", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/265", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos266 (\\d+)$"))
 async def Zmos266(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/266", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/266", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos267 (\\d+)$"))
 async def Zmos267(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/267", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/267", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos268 (\\d+)$"))
 async def Zmos268(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/268", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/268", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos269 (\\d+)$"))
 async def Zmos269(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/269", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/269", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos270 (\\d+)$"))
 async def Zmos270(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/270", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/270", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos271 (\\d+)$"))
 async def Zmos271(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/271", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/271", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos272 (\\d+)$"))
 async def Zmos272(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/272", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/272", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos273 (\\d+)$"))
 async def Zmos273(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/273", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/273", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos274 (\\d+)$"))
 async def Zmos274(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/274", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/274", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos275 (\\d+)$"))
 async def Zmos275(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/275", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/275", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos276 (\\d+)$"))
 async def Zmos276(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/276", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/276", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos277 (\\d+)$"))
 async def Zmos277(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/277", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/277", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos278 (\\d+)$"))
 async def Zmos278(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/278", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/278", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos279 (\\d+)$"))
 async def Zmos279(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/279", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/279", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos280 (\\d+)$"))
 async def Zmos280(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/280", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/280", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos281 (\\d+)$"))
 async def Zmos281(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/281", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/281", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos282 (\\d+)$"))
 async def Zmos282(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/282", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/282", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos283 (\\d+)$"))
 async def Zmos283(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/283", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/283", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos284 (\\d+)$"))
 async def Zmos284(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/284", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/284", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos285 (\\d+)$"))
 async def Zmos285(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/285", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/285", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos286 (\\d+)$"))
 async def Zmos286(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/286", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/286", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos287 (\\d+)$"))
 async def Zmos287(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/287", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/287", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos288 (\\d+)$"))
 async def Zmos288(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/288", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/288", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos289 (\\d+)$"))
 async def Zmos289(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/289", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/289", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos290 (\\d+)$"))
 async def Zmos290(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/290", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/290", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos293 (\\d+)$"))
 async def Zmos293(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/293", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/293", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos294 (\\d+)$"))
 async def Zmos294(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/294", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/294", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos295 (\\d+)$"))
 async def Zmos295(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/295", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/295", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos296 (\\d+)$"))
 async def Zmos296(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/296", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/296", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos297 (\\d+)$"))
 async def Zmos297(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/297", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/297", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos298 (\\d+)$"))
 async def Zmos298(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/298", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/298", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos299 (\\d+)$"))
 async def Zmos299(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/299", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/299", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos300 (\\d+)$"))
 async def Zmos300(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/300", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/300", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos301 (\\d+)$"))
 async def Zmos301(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/301", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/301", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos302 (\\d+)$"))
 async def Zmos302(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/302", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/302", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos303 (\\d+)$"))
 async def Zmos303(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/303", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/303", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos304 (\\d+)$"))
 async def Zmos304(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/304", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/304", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos305 (\\d+)$"))
 async def Zmos305(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/305", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/305", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos306 (\\d+)$"))
 async def Zmos306(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/306", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/306", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos307 (\\d+)$"))
 async def Zmos307(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/307", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/307", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos308 (\\d+)$"))
 async def Zmos308(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/308", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/308", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos309 (\\d+)$"))
 async def Zmos309(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/309", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/309", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos310 (\\d+)$"))
 async def Zmos310(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/310", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/310", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos311 (\\d+)$"))
 async def Zmos311(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/311", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/311", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos312 (\\d+)$"))
 async def Zmos312(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/312", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/312", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos313 (\\d+)$"))
 async def Zmos313(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/313", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/313", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos314 (\\d+)$"))
 async def Zmos314(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/314", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/314", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos315 (\\d+)$"))
 async def Zmos315(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/315", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/315", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos316 (\\d+)$"))
 async def Zmos316(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/316", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/316", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos317 (\\d+)$"))
 async def Zmos317(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/317", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/317", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos318 (\\d+)$"))
 async def Zmos318(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/318", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/318", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos319 (\\d+)$"))
 async def Zmos319(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/319", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/319", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos320 (\\d+)$"))
 async def Zmos320(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/320", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/320", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos321 (\\d+)$"))
 async def Zmos321(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/321", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/321", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos322 (\\d+)$"))
 async def Zmos322(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/322", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/322", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos325 (\\d+)$"))
 async def Zmos325(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/325", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/325", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos326 (\\d+)$"))
 async def Zmos326(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/326", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/326", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos327 (\\d+)$"))
 async def Zmos327(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/327", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/327", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos328 (\\d+)$"))
 async def Zmos328(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/328", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/328", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos329 (\\d+)$"))
 async def Zmos329(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/329", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/329", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos330 (\\d+)$"))
 async def Zmos330(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/330", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/330", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos331 (\\d+)$"))
 async def Zmos331(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/331", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/331", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos332 (\\d+)$"))
 async def Zmos332(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/332", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/332", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos333 (\\d+)$"))
 async def Zmos333(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/333", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/333", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos334 (\\d+)$"))
 async def Zmos334(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/334", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/334", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos335 (\\d+)$"))
 async def Zmos335(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/335", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/335", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos336 (\\d+)$"))
 async def Zmos336(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/336", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/336", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos337 (\\d+)$"))
 async def Zmos337(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/337", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/337", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos338 (\\d+)$"))
 async def Zmos338(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/338", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/338", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos339 (\\d+)$"))
 async def Zmos339(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/339", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/339", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos340 (\\d+)$"))
 async def Zmos340(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/340", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/340", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos341 (\\d+)$"))
 async def Zmos341(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/341", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/341", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos342 (\\d+)$"))
 async def Zmos342(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/342", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/342", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos343 (\\d+)$"))
 async def Zmos343(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/343", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/343", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos344 (\\d+)$"))
 async def Zmos344(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/344", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/344", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos345 (\\d+)$"))
 async def Zmos345(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/345", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/345", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos346 (\\d+)$"))
 async def Zmos346(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/346", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/346", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos347 (\\d+)$"))
 async def Zmos347(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/347", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/347", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos348 (\\d+)$"))
 async def Zmos348(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/348", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/348", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos349 (\\d+)$"))
 async def Zmos349(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/349", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/349", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos350 (\\d+)$"))
 async def Zmos350(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/350", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/350", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos351 (\\d+)$"))
 async def Zmos351(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/351", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/351", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos352 (\\d+)$"))
 async def Zmos352(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/352", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/352", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos353 (\\d+)$"))
 async def Zmos353(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/353", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/353", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos354 (\\d+)$"))
 async def Zmos354(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/354", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/354", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos355 (\\d+)$"))
 async def Zmos355(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/355", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/355", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos356 (\\d+)$"))
 async def Zmos356(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/356", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/356", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos357 (\\d+)$"))
 async def Zmos357(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/357", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/357", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos358 (\\d+)$"))
 async def Zmos358(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/358", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/358", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos359 (\\d+)$"))
 async def Zmos359(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/359", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/359", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos360 (\\d+)$"))
 async def Zmos360(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/360", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/360", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos361 (\\d+)$"))
 async def Zmos361(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/361", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/361", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos362 (\\d+)$"))
 async def Zmos362(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/362", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/362", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos363 (\\d+)$"))
 async def Zmos363(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/363", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/363", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos364 (\\d+)$"))
 async def Zmos364(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/364", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/364", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos365 (\\d+)$"))
 async def Zmos365(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/365", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/365", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos366 (\\d+)$"))
 async def Zmos366(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/366", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/366", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos367 (\\d+)$"))
 async def Zmos367(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/367", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/367", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos368 (\\d+)$"))
 async def Zmos368(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/368", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/368", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos369 (\\d+)$"))
 async def Zmos369(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/369", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/369", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos370 (\\d+)$"))
 async def Zmos370(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/370", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/370", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos371 (\\d+)$"))
 async def Zmos371(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/371", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/371", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos372 (\\d+)$"))
 async def Zmos372(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/372", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/372", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos373 (\\d+)$"))
 async def Zmos373(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/373", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/373", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos374 (\\d+)$"))
 async def Zmos374(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/374", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/374", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos375 (\\d+)$"))
 async def Zmos375(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/375", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/375", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos376 (\\d+)$"))
 async def Zmos376(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/376", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/376", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos377 (\\d+)$"))
 async def Zmos377(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/377", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/377", reply_to_message_id=mid)
 
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/381", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/381", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos382 (\\d+)$"))
 async def Zmos382(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/382", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/382", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos383 (\\d+)$"))
 async def Zmos383(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/383", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/383", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmos384 (\\d+)$"))
 async def Zmos384(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/384", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/384", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^toba1 (\\d+)$"))
 async def toba1(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/FFMMTTFF/7", reply_to_message_id=mid)
@@ -3482,7 +3490,7 @@ async def toba1(c: Client, m: CallbackQuery):
 async def toba2(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/FFMMTTFF/8", reply_to_message_id=mid)
@@ -3492,7 +3500,7 @@ async def toba2(c: Client, m: CallbackQuery):
 async def toba3(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/FFMMTTFF/9", reply_to_message_id=mid)
@@ -3502,7 +3510,7 @@ async def toba3(c: Client, m: CallbackQuery):
 async def toba4(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/FFMMTTFF/10", reply_to_message_id=mid)
@@ -3512,7 +3520,7 @@ async def toba4(c: Client, m: CallbackQuery):
 async def toba5(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/FFMMTTFF/11", reply_to_message_id=mid)
@@ -3522,7 +3530,7 @@ async def toba5(c: Client, m: CallbackQuery):
 async def toba6(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/FFMMTTFF/12", reply_to_message_id=mid)
@@ -3532,7 +3540,7 @@ async def toba6(c: Client, m: CallbackQuery):
 async def toba7(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/FFMMTTFF/13", reply_to_message_id=mid)
@@ -3542,7 +3550,7 @@ async def toba7(c: Client, m: CallbackQuery):
 async def toba8(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/FFMMTTFF/14", reply_to_message_id=mid)
@@ -3552,7 +3560,7 @@ async def toba8(c: Client, m: CallbackQuery):
 async def toba9(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/FFMMTTFF/15", reply_to_message_id=mid)
@@ -3562,7 +3570,7 @@ async def toba9(c: Client, m: CallbackQuery):
 async def toba10(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/FFMMTTFF/16", reply_to_message_id=mid)
@@ -3572,7 +3580,7 @@ async def toba10(c: Client, m: CallbackQuery):
 async def toba11(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/FFMMTTFF/17", reply_to_message_id=mid)
@@ -3582,7 +3590,7 @@ async def toba11(c: Client, m: CallbackQuery):
 async def toba12(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/FFMMTTFF/18", reply_to_message_id=mid)
@@ -3592,7 +3600,7 @@ async def toba12(c: Client, m: CallbackQuery):
 async def toba13(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/FFMMTTFF/19", reply_to_message_id=mid)
@@ -3602,7 +3610,7 @@ async def toba13(c: Client, m: CallbackQuery):
 async def toba14(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/FFMMTTFF/20", reply_to_message_id=mid)
@@ -3612,7 +3620,7 @@ async def toba14(c: Client, m: CallbackQuery):
 async def toba15(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/FFMMTTFF/21", reply_to_message_id=mid)
@@ -3622,7 +3630,7 @@ async def toba15(c: Client, m: CallbackQuery):
 async def toba16(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/FFMMTTFF/22", reply_to_message_id=mid)
@@ -3632,7 +3640,7 @@ async def toba16(c: Client, m: CallbackQuery):
 async def toba17(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/FFMMTTFF/23", reply_to_message_id=mid)
@@ -3642,7 +3650,7 @@ async def toba17(c: Client, m: CallbackQuery):
 async def toba18(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/FFMMTTFF/24", reply_to_message_id=mid)
@@ -3652,7 +3660,7 @@ async def toba18(c: Client, m: CallbackQuery):
 async def toba19(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/FFMMTTFF/25", reply_to_message_id=mid)
@@ -3662,7 +3670,7 @@ async def toba19(c: Client, m: CallbackQuery):
 async def toba20(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/FFMMTTFF/26", reply_to_message_id=mid)
@@ -3672,7 +3680,7 @@ async def toba20(c: Client, m: CallbackQuery):
 async def toba21(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/FFMMTTFF/27", reply_to_message_id=mid)
@@ -3682,7 +3690,7 @@ async def toba21(c: Client, m: CallbackQuery):
 async def toba22(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/FFMMTTFF/28", reply_to_message_id=mid)
@@ -3692,7 +3700,7 @@ async def toba22(c: Client, m: CallbackQuery):
 async def toba23(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/FFMMTTFF/29", reply_to_message_id=mid)
@@ -3702,7 +3710,7 @@ async def toba23(c: Client, m: CallbackQuery):
 async def toba24(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/FFMMTTFF/30", reply_to_message_id=mid)
@@ -3712,7 +3720,7 @@ async def toba24(c: Client, m: CallbackQuery):
 async def toba25(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/FFMMTTFF/31", reply_to_message_id=mid)
@@ -3722,7 +3730,7 @@ async def toba25(c: Client, m: CallbackQuery):
 async def toba26(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/FFMMTTFF/32", reply_to_message_id=mid)
@@ -3732,7 +3740,7 @@ async def toba26(c: Client, m: CallbackQuery):
 async def toba27(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/FFMMTTFF/33", reply_to_message_id=mid)
@@ -3742,7 +3750,7 @@ async def toba27(c: Client, m: CallbackQuery):
 async def toba28(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/FFMMTTFF/34", reply_to_message_id=mid)
@@ -3753,7 +3761,7 @@ async def toba28(c: Client, m: CallbackQuery):
 async def toba29(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/FFMMTTFF/35", reply_to_message_id=mid)
@@ -3763,7 +3771,7 @@ async def toba29(c: Client, m: CallbackQuery):
 async def toba30(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
     await m.message.reply_audio("https://t.me/FFMMTTFF/36", reply_to_message_id=mid)
@@ -3793,14 +3801,14 @@ async def toba30(c: Client, m: CallbackQuery):
 async def msrahia(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
 
         [InlineKeyboardButton("🎭 1- مسرح مصر", callback_data="Xms1 " + str(m.from_user.id))],
 
-        [InlineKeyboardButton("𝐇𝐎𝐌", callback_data="aflamAR2 " + str(m.from_user.id))],
-        [InlineKeyboardButton("᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ️", url=f"https://t.me/SOURCEOLIVEA")],
+        [InlineKeyboardButton("𝗁᥆ꪔᥱ", callback_data="aflamAR2 " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌞ ᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ⌝", url=f"https://t.me/SOURCEOLIVEA")],
 
     ])
     await m.message.edit_text("◍ اهلا بيك في قائمة المسرحيات العربيه\n√", reply_markup=keyboard)
@@ -3810,7 +3818,7 @@ async def msrahia(c: Client, m: CallbackQuery):
 async def Xms1(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
 
@@ -3820,8 +3828,8 @@ async def Xms1(c: Client, m: CallbackQuery):
         [InlineKeyboardButton("الجزء الرابع 🎭", callback_data="Xmsrh4 " + str(m.from_user.id))] +
         [InlineKeyboardButton("الجزء الخامس 🎭", callback_data="Xmsrh5 " + str(m.from_user.id))],
 
-        [InlineKeyboardButton("𝐇𝐎𝐌", callback_data="msrahia " + str(m.from_user.id))],
-        [InlineKeyboardButton("᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ️", url=f"https://t.me/SOURCEOLIVEA")],
+        [InlineKeyboardButton("𝗁᥆ꪔᥱ", callback_data="msrahia " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌞ ᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ⌝", url=f"https://t.me/SOURCEOLIVEA")],
 
     ])
     await m.message.edit_text("◍ اهلا بيك في قائمة اجزاء مسرح مصر\n√", reply_markup=keyboard)
@@ -3831,7 +3839,7 @@ async def Xms1(c: Client, m: CallbackQuery):
 async def Xmsrh1(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
 
@@ -3853,8 +3861,8 @@ async def Xmsrh1(c: Client, m: CallbackQuery):
         [InlineKeyboardButton("⌯ الحلقة 16", callback_data="Zmsrh403 " + str(m.from_user.id))],
         [InlineKeyboardButton("⌯ الحلقة 17", callback_data="Zmsrh404 " + str(m.from_user.id))],
 
-        [InlineKeyboardButton("𝐇𝐎𝐌", callback_data="Xms1 " + str(m.from_user.id))],
-        [InlineKeyboardButton("᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ️", url=f"https://t.me/SOURCEOLIVEA")],
+        [InlineKeyboardButton("𝗁᥆ꪔᥱ", callback_data="Xms1 " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌞ ᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ⌝", url=f"https://t.me/SOURCEOLIVEA")],
 
     ])
     await m.message.edit_text("◍ اهلا بيك في قائمه 🔘 | روايات والقصص |\n√", reply_markup=keyboard)
@@ -3865,7 +3873,7 @@ async def Xmsrh1(c: Client, m: CallbackQuery):
 async def Xmsrh2(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
 
@@ -3884,8 +3892,8 @@ async def Xmsrh2(c: Client, m: CallbackQuery):
         [InlineKeyboardButton("⌯ الحلقة 13", callback_data="Zmsrh418 " + str(m.from_user.id))] +
         [InlineKeyboardButton("⌯ الحلقة 14", callback_data="Zmsrh419 " + str(m.from_user.id))],
 
-        [InlineKeyboardButton("𝐇𝐎𝐌", callback_data="Xms1 " + str(m.from_user.id))],
-        [InlineKeyboardButton("᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ️", url=f"https://t.me/SOURCEOLIVEA")],
+        [InlineKeyboardButton("𝗁᥆ꪔᥱ", callback_data="Xms1 " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌞ ᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ⌝", url=f"https://t.me/SOURCEOLIVEA")],
 
     ])
     await m.message.edit_text("◍ اهلا بيك في قائمه 🔘 | روايات والقصص |\n√", reply_markup=keyboard)
@@ -3896,7 +3904,7 @@ async def Xmsrh2(c: Client, m: CallbackQuery):
 async def Xmsrh3(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
 
@@ -3923,8 +3931,8 @@ async def Xmsrh3(c: Client, m: CallbackQuery):
         [InlineKeyboardButton("⌯ الحلقة 21", callback_data="Zmsrh441 " + str(m.from_user.id))] +
         [InlineKeyboardButton("⌯ الحلقة 22", callback_data="Zmsrh442 " + str(m.from_user.id))],
 
-        [InlineKeyboardButton("𝐇𝐎𝐌", callback_data="Xms1 " + str(m.from_user.id))],
-        [InlineKeyboardButton("᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ️", url=f"https://t.me/SOURCEOLIVEA")],
+        [InlineKeyboardButton("𝗁᥆ꪔᥱ", callback_data="Xms1 " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌞ ᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ⌝", url=f"https://t.me/SOURCEOLIVEA")],
 
     ])
     await m.message.edit_text("◍ اهلا بيك في قائمه 🔘 | روايات والقصص |\n√", reply_markup=keyboard)
@@ -3935,7 +3943,7 @@ async def Xmsrh3(c: Client, m: CallbackQuery):
 async def Xmsrh4(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
 
@@ -3953,8 +3961,8 @@ async def Xmsrh4(c: Client, m: CallbackQuery):
         [InlineKeyboardButton("⌯ الحلقة 12", callback_data="Zmsrh455 " + str(m.from_user.id))],
         [InlineKeyboardButton("⌯ الحلقة 13", callback_data="Zmsrh456 " + str(m.from_user.id))],
 
-        [InlineKeyboardButton("𝐇𝐎𝐌", callback_data="Xms1 " + str(m.from_user.id))],
-        [InlineKeyboardButton("᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ️", url=f"https://t.me/SOURCEOLIVEA")],
+        [InlineKeyboardButton("𝗁᥆ꪔᥱ", callback_data="Xms1 " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌞ ᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ⌝", url=f"https://t.me/SOURCEOLIVEA")],
 
     ])
     await m.message.edit_text("◍ اهلا بيك في قائمه 🔘 | روايات والقصص |\n√", reply_markup=keyboard)
@@ -3965,7 +3973,7 @@ async def Xmsrh4(c: Client, m: CallbackQuery):
 async def Xmsrh5(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
 
@@ -3992,8 +4000,8 @@ async def Xmsrh5(c: Client, m: CallbackQuery):
         [InlineKeyboardButton("⌯ الحلقة 21", callback_data="Zmsrh487 " + str(m.from_user.id))] +
         [InlineKeyboardButton("⌯ الحلقة 22", callback_data="Zmsrh488 " + str(m.from_user.id))],
 
-        [InlineKeyboardButton("𝐇𝐎𝐌", callback_data="Xms1 " + str(m.from_user.id))],
-        [InlineKeyboardButton("᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ️", url=f"https://t.me/SOURCEOLIVEA")],
+        [InlineKeyboardButton("𝗁᥆ꪔᥱ", callback_data="Xms1 " + str(m.from_user.id))],
+        [InlineKeyboardButton("⌞ ᥉᥆υᖇᥴᥱ ᥆ᥣᎥ᥎ᥱᥲ⌝", url=f"https://t.me/SOURCEOLIVEA")],
 
     ])
     await m.message.edit_text("◍ اهلا بيك في قائمه 🔘 | روايات والقصص |\n√", reply_markup=keyboard)
@@ -4005,880 +4013,880 @@ async def Xmsrh5(c: Client, m: CallbackQuery):
 async def Zmsrh388(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/388", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/388", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh389 (\\d+)$"))
 async def Zmsrh389(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/389", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/389", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh390 (\\d+)$"))
 async def Zmsrh390(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/390", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/390", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh391 (\\d+)$"))
 async def Zmsrh391(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/391", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/391", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh392 (\\d+)$"))
 async def Zmsrh392(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/392", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/392", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh393 (\\d+)$"))
 async def Zmsrh393(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/393", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/393", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh394 (\\d+)$"))
 async def Zmsrh394(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/394", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/394", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh395 (\\d+)$"))
 async def Zmsrh395(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/395", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/395", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh396 (\\d+)$"))
 async def Zmsrh396(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/396", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/396", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh397 (\\d+)$"))
 async def Zmsrh397(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/397", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/397", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh398 (\\d+)$"))
 async def Zmsrh398(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/398", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/398", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh399 (\\d+)$"))
 async def Zmsrh399(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/399", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/399", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh400 (\\d+)$"))
 async def Zmsrh400(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/400", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/400", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh401 (\\d+)$"))
 async def Zmsrh401(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/401", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/401", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh402 (\\d+)$"))
 async def Zmsrh402(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/402", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/402", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh403 (\\d+)$"))
 async def Zmsrh403(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/403", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/403", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh404 (\\d+)$"))
 async def Zmsrh404(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/404", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/404", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh406 (\\d+)$"))
 async def Zmsrh406(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/406", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/406", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh407 (\\d+)$"))
 async def Zmsrh407(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/407", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/407", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh408 (\\d+)$"))
 async def Zmsrh408(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/408", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/408", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh409 (\\d+)$"))
 async def Zmsrh409(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/409", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/409", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh410 (\\d+)$"))
 async def Zmsrh410(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/410", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/410", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh411 (\\d+)$"))
 async def Zmsrh411(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/411", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/411", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh412 (\\d+)$"))
 async def Zmsrh412(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/412", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/412", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh413 (\\d+)$"))
 async def Zmsrh413(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/413", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/413", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh414 (\\d+)$"))
 async def Zmsrh414(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/414", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/414", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh415 (\\d+)$"))
 async def Zmsrh415(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/415", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/415", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh416 (\\d+)$"))
 async def Zmsrh416(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/416", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/416", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh417 (\\d+)$"))
 async def Zmsrh417(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/417", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/417", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh418 (\\d+)$"))
 async def Zmsrh418(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/418", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/418", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh419 (\\d+)$"))
 async def Zmsrh419(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/419", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/419", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh421 (\\d+)$"))
 async def Zmsrh421(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/421", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/421", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh422 (\\d+)$"))
 async def Zmsrh422(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/422", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/422", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh423 (\\d+)$"))
 async def Zmsrh423(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/423", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/423", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh424 (\\d+)$"))
 async def Zmsrh424(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/424", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/424", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh425 (\\d+)$"))
 async def Zmsrh425(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/425", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/425", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh426 (\\d+)$"))
 async def Zmsrh426(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/426", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/426", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh427 (\\d+)$"))
 async def Zmsrh427(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/427", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/427", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh428 (\\d+)$"))
 async def Zmsrh428(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/428", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/428", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh429 (\\d+)$"))
 async def Zmsrh429(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/429", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/429", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh430 (\\d+)$"))
 async def Zmsrh430(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/430", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/430", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh431 (\\d+)$"))
 async def Zmsrh431(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/431", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/431", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh432 (\\d+)$"))
 async def Zmsrh432(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/432", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/432", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh433 (\\d+)$"))
 async def Zmsrh433(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/433", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/433", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh434 (\\d+)$"))
 async def Zmsrh434(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/434", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/434", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh435 (\\d+)$"))
 async def Zmsrh435(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/435", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/435", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh436 (\\d+)$"))
 async def Zmsrh436(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/436", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/436", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh437 (\\d+)$"))
 async def Zmsrh437(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/437", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/437", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh438 (\\d+)$"))
 async def Zmsrh438(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/438", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/438", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh439 (\\d+)$"))
 async def Zmsrh439(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/439", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/439", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh440 (\\d+)$"))
 async def Zmsrh440(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/440", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/440", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh441 (\\d+)$"))
 async def Zmsrh441(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/441", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/441", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh442 (\\d+)$"))
 async def Zmsrh442(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/442", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/442", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh444 (\\d+)$"))
 async def Zmsrh444(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/444", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/444", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh445 (\\d+)$"))
 async def Zmsrh445(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/445", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/445", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh446 (\\d+)$"))
 async def Zmsrh446(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/446", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/446", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh447 (\\d+)$"))
 async def Zmsrh447(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/447", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/447", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh448 (\\d+)$"))
 async def Zmsrh448(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/448", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/448", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh449 (\\d+)$"))
 async def Zmsrh449(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/449", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/449", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh450 (\\d+)$"))
 async def Zmsrh450(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/450", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/450", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh451 (\\d+)$"))
 async def Zmsrh451(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/451", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/451", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh452 (\\d+)$"))
 async def Zmsrh452(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/452", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/452", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh453 (\\d+)$"))
 async def Zmsrh453(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/453", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/453", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh454 (\\d+)$"))
 async def Zmsrh454(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/454", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/454", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh455 (\\d+)$"))
 async def Zmsrh455(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/455", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/455", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh456 (\\d+)$"))
 async def Zmsrh456(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/456", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/456", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh467 (\\d+)$"))
 async def Zmsrh467(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/467", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/467", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh468 (\\d+)$"))
 async def Zmsrh468(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/468", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/468", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh469 (\\d+)$"))
 async def Zmsrh469(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/469", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/469", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh470 (\\d+)$"))
 async def Zmsrh470(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/470", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/470", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh471 (\\d+)$"))
 async def Zmsrh471(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/471", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/471", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh472 (\\d+)$"))
 async def Zmsrh472(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/472", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/472", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh473 (\\d+)$"))
 async def Zmsrh473(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/473", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/473", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh474 (\\d+)$"))
 async def Zmsrh474(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/474", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/474", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh475 (\\d+)$"))
 async def Zmsrh475(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/475", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/475", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh476 (\\d+)$"))
 async def Zmsrh476(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/476", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/476", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh477 (\\d+)$"))
 async def Zmsrh477(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/477", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/477", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh478 (\\d+)$"))
 async def Zmsrh478(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/478", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/478", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh479 (\\d+)$"))
 async def Zmsrh479(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/479", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/479", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh480 (\\d+)$"))
 async def Zmsrh480(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/480", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/480", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh481 (\\d+)$"))
 async def Zmsrh481(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/481", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/481", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh482 (\\d+)$"))
 async def Zmsrh482(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/482", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/482", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh483 (\\d+)$"))
 async def Zmsrh483(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/483", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/483", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh484 (\\d+)$"))
 async def Zmsrh484(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/484", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/484", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh485 (\\d+)$"))
 async def Zmsrh485(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/485", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/485", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh486 (\\d+)$"))
 async def Zmsrh486(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/486", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/486", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh487 (\\d+)$"))
 async def Zmsrh487(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/487", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/487", reply_to_message_id=mid)
 
 
 @app.on_callback_query(filters.regex("^Zmsrh488 (\\d+)$"))
 async def Zmsrh488(c: Client, m: CallbackQuery):
     a = m.data.split(" ")
     if m.from_user.id != int(a[1]):
-        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🖤🙂", show_alert=True)
+        await c.answer_callback_query(m.id, text="صاحب الامر هو فقط من يستطيع الضغط على الزر 🐉", show_alert=True)
         return
     await m.message.delete()
-    await m.message.reply_audio("https://t.me/UMoslsl/488", reply_to_message_id=mid)
+    await m.message.reply_audio("https://t.me/UMosls/488", reply_to_message_id=mid)
 
 #########################################################################################
 #########################################################################################
