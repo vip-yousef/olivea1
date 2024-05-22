@@ -31,10 +31,12 @@ from pyrogram.errors import FloodWait
 @app.on_message(filters.command(["سورس","السورس","سورس مين","اوليفيا"], ""), group=221213)
 async def huhh(client: Client, message: Message):
     await message.reply_video(
-        video=f"https://t.me/llle_rus/2",
-        caption=f"""• [⌯𝐃𝐄𝐕.𝐒𝐎𝐔𝐑𝐂𝐄⌯](https://t.me/ZzZzZl1l) •\n
- [⌯𝐒𝐎𝐔𝐑𝐂𝐄 𝐎𝑳𝐈𝐕𝐄𝐀⌯](https://t.me/SOURCEOliVEA)\n
- [⌯𝐒𝐔𝐏𝐏𝐔𝐑𝐓.𝐒𝐎𝐔𝐑𝐂𝐄⌯](https://t.me/D1_FD)\n""",
+        video=f"https://t.me/DEVSOLiVEA/5",
+        caption=f"""╭──── • ◈ • ────╮\n [  么 𝙊𝙇𝙄𝙑𝙀𝘼 𝙎𝙊𝙐𝙍𝘾𝙀⁩ ](https://t.me/SOURCEOLIVEA)\n
+ [  么 𝗔𝗦𝗞 𝗧𝗢 𝗠𝗘  ](https://t.me/D1_FD)\n
+ [  么 𓄼⦁ 𝙕ٰٖ𝙤ٰٖ𝙯ٰ➪🇪🇬⦁𓄹 ](https://t.me/ZzZzZl1l)\n
+ [  么 𓄼⦁ 𝗠ٰٖ𝗮ٰٖ𝗭ٰٖ𝗲ٰٖ𝗡ٰٖ ➪🇪🇬⦁𓄹  ](https://t.me/ZzZzZl1l)\n 
+ ⍟ 𝚃𝙷𝙴 𝙱𝙴𝚂𝚃 𝚂𝙾𝚄𝚁𝙲𝙴 𝙾𝙽 𝚃𝙴𝙻𝙴𝙶𝚁𝙰𝙼""",
         reply_markup=InlineKeyboardMarkup(
         [
             [
@@ -47,7 +49,7 @@ async def huhh(client: Client, message: Message):
                         "‹ 𝐒𝐔𝐏𝐏𝐔𝐑𝐓 ›", url=f"https://t.me/D1_FD"),
                 ],[
                     InlineKeyboardButton(
-                        "‹ اضف بوت السورس الي مجموعتك ⚡️ ⋅ ›", url=f"http://t.me/V_E_PBot?startgroup=new"),
+                        "‹ اضف بوت السورس الي مجموعتك ⚡️ ⋅ ›", url=f"http://t.me/OliIeBot?startgroup=new"),
             ]
         ]
          ),parse_mode=enums.ParseMode.MARKDOWN)
@@ -57,7 +59,7 @@ async def huhh(client: Client, message: Message):
 @app.on_message(filters.command(["مازن","زوز"], ""), group=221212)
 async def huhh(client: Client, message: Message):
     await message.reply_photo(
-        photo=f"https://telegra.ph/file/7ccd2677b1daea31775fa.jpg",
+        photo=f"https://telegra.ph/file/5e6c5e42e31e99661f8da.jpg",
         caption=f"""• ⌯ Developer Name : ˛ 𝙼𝙰𝚉𝙴𝙽 ⌯ •\n- Devloper Username : @ZzZzZl1l Devloper id : 6816180621 ⋅""",
         reply_markup=InlineKeyboardMarkup(
         [
@@ -66,7 +68,7 @@ async def huhh(client: Client, message: Message):
                         "𓄼⦁ 𝙕ٰٖ𝙤ٰٖ𝙯ٰٖ ➪🇳🇱⦁𓄹", url=f"https://t.me/ZzZzZl1l"), 
                 ],[
                     InlineKeyboardButton(
-                        "‹ اضف بوت السورس الي مجموعتك ⚡️🎸 ⋅ ›", url=f"http://t.me/V_E_PBot?startgroup=new"),
+                        "‹ اضف بوت السورس الي مجموعتك ⚡️›", url=f"http://t.me/OliIeBot?startgroup=new"),
             ]
         ]
          ),
