@@ -32,20 +32,14 @@ from pyrogram.errors import FloodWait
 async def huhh(client: Client, message: Message):
     await message.reply_photo(
         photo=f"https://t.me/DEVSOLiVEA/30",
-        caption=f"""╭──── • ◈ • ────╮\n [么 𝙊𝙇𝙄𝙑𝙀𝘼 𝙎𝙊𝙐𝙍𝘾𝙀⁩ ](https://t.me/SOURCEOLIVEA)
- [么 𝗔𝗦𝗞 𝗧𝗢 𝗠𝗘  ](https://t.me/D1_FD)
- [么 𓄼⦁ 𝙕ٰٖ𝙤ٰٖ𝙯ٰ➪🇪🇬⦁𓄹 ](https://t.me/ZzZzZl1l)
- [么 𓄼⦁ 𝗠ٰٖ𝗮ٰٖ𝗭ٰٖ𝗲ٰٖ𝗡ٰٖ ➪🇪🇬⦁𓄹  ](https://t.me/ZzZzZl1l)
-╰──── • ◈ • ────╯
-𝐓𝐇𝐄 𝐁𝐄𝐒𝐓 𝐒𝐎𝐔𝐑𝐂𝐄 𝐎𝐍 𝐓𝐄𝐋𝐄𝐆𝐑𝐀𝐌""",
+        caption=f"""𝐓𝐇𝐄 𝐁𝐄𝐒𝐓 𝐒𝐎𝐔𝐑𝐂𝐄 𝐎𝐍 𝐓𝐄𝐋𝐄𝐆𝐑𝐀𝐌""",
         reply_markup=InlineKeyboardMarkup(
         [
             [
                     InlineKeyboardButton(
-                        "◜ ᥉᥆υᖇᥴᥱ◞ ", url=f"https://t.me/SOURCEOLIVEA"),
-                ],[
+                        "◜ ᥉᥆υᖇᥴᥱ◞", url=f"https://t.me/SOURCEOliVEA"), 
                     InlineKeyboardButton(
-                        "◜ ꪔY ժᥱ᥎◞", url=f"https://t.me/ZzZzZl1l"), 
+                        "◜ ꪔY ժᥱ᥎◞", url=f"https://t.me/ZzZzZl1l"),
                 ],[
                     InlineKeyboardButton(
                         "- اضف البوت لمجموعتك ♡,", url=f"http://t.me/OliIeBot?startgroup=new"),
@@ -64,7 +58,7 @@ async def huhh(client: Client, message: Message):
         [
             [
                     InlineKeyboardButton(
-                        "'◜ ⎖᳒ᦔꫀꪜ ɀꪮɀ⤸►◞'", url=f"https://t.me/ZzZzZl1l"), 
+                        "◜ ⎖᳒ᦔꫀꪜ ɀꪮɀ⤸►◞", url=f"https://t.me/ZzZzZl1l"), 
                 ],[
                     InlineKeyboardButton(
                         "‹ اضف بوت السورس الي مجموعتك ⚡️›", url=f"http://t.me/OliIeBot?startgroup=new"),
