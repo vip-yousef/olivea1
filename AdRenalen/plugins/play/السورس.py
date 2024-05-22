@@ -36,21 +36,19 @@ async def huhh(client: Client, message: Message):
  [ 么 𝗔𝗦𝗞 𝗧𝗢 𝗠𝗘  ](https://t.me/D1_FD)
  [ 么 𓄼⦁ 𝙕ٰٖ𝙤ٰٖ𝙯ٰ➪🇪🇬⦁𓄹 ](https://t.me/ZzZzZl1l)
  [ 么 𓄼⦁ 𝗠ٰٖ𝗮ٰٖ𝗭ٰٖ𝗲ٰٖ𝗡ٰٖ ➪🇪🇬⦁𓄹  ](https://t.me/ZzZzZl1l)
-╰──── • ◈ • ────╯
+  ╰──── • ◈ • ────╯
  ⍟ 𝚃𝙷𝙴 𝙱𝙴𝚂𝚃 𝚂𝙾𝚄𝚁𝙲𝙴 𝙾𝙽 𝚃𝙴𝙻𝙴𝙶𝚁𝙰𝙼""",
         reply_markup=InlineKeyboardMarkup(
         [
             [
                     InlineKeyboardButton(
-                        "‹ 𝐃𝐄𝐕.𝐒𝐎𝐔𝐑𝐂𝐄 › ", url=f"https://t.me/ZzZzZl1l"),
+                        "◜ ᥉᥆υᖇᥴᥱ◞ ", url=f"https://t.me/SOURCEOLIVEA"),
                 ],[
                     InlineKeyboardButton(
-                        "‹ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐎𝑳𝐈𝐕𝐄𝐀 ›", url=f"https://t.me/SOURCEOliVEA"), 
-                    InlineKeyboardButton(
-                        "‹ 𝐒𝐔𝐏𝐏𝐔𝐑𝐓 ›", url=f"https://t.me/D1_FD"),
+                        "◜ ꪔY ժᥱ᥎◞", url=f"https://t.me/ZzZzZl1l"), 
                 ],[
                     InlineKeyboardButton(
-                        "‹ اضف بوت السورس الي مجموعتك ⚡️ ⋅ ›", url=f"http://t.me/OliIeBot?startgroup=new"),
+                        "- اضف البوت لمجموعتك ♡,", url=f"http://t.me/OliIeBot?startgroup=new"),
             ]
         ]
          ),parse_mode=enums.ParseMode.MARKDOWN)
@@ -60,13 +58,13 @@ async def huhh(client: Client, message: Message):
 @app.on_message(filters.command(["مازن","زوز"], ""), group=221212)
 async def huhh(client: Client, message: Message):
     await message.reply_photo(
-        photo=f"https://telegra.ph/file/5e6c5e42e31e99661f8da.jpg",
+        photo=f"https://telegra.ph/file/1ef368a28d3b75c8365a4.jpg",
         caption=f"""• ⌯ Developer Name : ˛ 𝙼𝙰𝚉𝙴𝙽 ⌯ •\n- Devloper Username : @ZzZzZl1l Devloper id : 6816180621 ⋅""",
         reply_markup=InlineKeyboardMarkup(
         [
             [
                     InlineKeyboardButton(
-                        "𓄼⦁ 𝙕ٰٖ𝙤ٰٖ𝙯ٰٖ ➪🇳🇱⦁𓄹", url=f"https://t.me/ZzZzZl1l"), 
+                        "'◜ ⎖᳒ᦔꫀꪜ ɀꪮɀ⤸►◞'", url=f"https://t.me/ZzZzZl1l"), 
                 ],[
                     InlineKeyboardButton(
                         "‹ اضف بوت السورس الي مجموعتك ⚡️›", url=f"http://t.me/OliIeBot?startgroup=new"),
