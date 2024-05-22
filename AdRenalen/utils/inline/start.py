@@ -8,8 +8,8 @@ def start_panel(_):
     buttons = [
         [InlineKeyboardButton(text="الاوامر ⚙", callback_data="settings_back_helper")],
         [
-            InlineKeyboardButton(text="المطور", user_id=config.OWNER_ID),
-            InlineKeyboardButton(text="قناة السورس", url=config.SUPPORT_CHANNEL),
+            InlineKeyboardButton(text="🔺️ - مطور السورس - 🔻", user_id=config.OWNER_ID),
+            InlineKeyboardButton(text="✅ - قناه السورس - ✅", url=config.SUPPORT_CHANNEL),
         ],
     ]
     return buttons
@@ -19,8 +19,8 @@ def private_panel(_):
     buttons = [
         [InlineKeyboardButton(text="الاوامر ⚙", callback_data="settings_back_helper")],
         [
-            InlineKeyboardButton(text="المطور ⋅", user_id=config.OWNER_ID),
-            InlineKeyboardButton(text="قناة السورس ⋅", url=config.SUPPORT_CHANNEL),
+            InlineKeyboardButton(text="🔺️ - مطور السورس - 🔻", user_id=config.OWNER_ID),
+            InlineKeyboardButton(text="✅ - قناه السورس - ✅", url=config.SUPPORT_CHANNEL),
         ],
     [
             InlineKeyboardButton(
