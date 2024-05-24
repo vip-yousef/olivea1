@@ -52,13 +52,13 @@ async def huhh(client: Client, message: Message):
 @app.on_message(filters.command(["مازن","زوز"], ""), group=221212)
 async def huhh(client: Client, message: Message):
     await message.reply_photo(
-        photo=f"https://telegra.ph/file/1ef368a28d3b75c8365a4.jpg",
-        caption=f"""• ⌯ Developer Name : ˛ 𝙼𝙰𝚉𝙴𝙽 ⌯ •\n- Devloper Username : @ZzZzZl1l Devloper id : 6816180621 ⋅""",
+        photo=f"https://telegra.ph/file/02ca23f83671e076c47a2.jpg",
+        caption=f"""[ٓ  ᯓ 𓆩 ˹ †ø δølløω ძενεløρεƦ øδ †hε ՏøuƦcε ˼ 𓆪 𓆃](t.me/ZzZzZl1l )""",
         reply_markup=InlineKeyboardMarkup(
         [
             [
                     InlineKeyboardButton(
-                        "◜ ⎖᳒ᦔꫀꪜ ɀꪮɀ⤸►◞", url=f"https://t.me/ZzZzZl1l"), 
+                        "'◜ ⎖᳒ᦔꫀꪜ ɀꪮɀ⤸►◞'", url=f"https://t.me/ZzZzZl1l"), 
                 ],[
                     InlineKeyboardButton(
                         "‹ اضف بوت السورس الي مجموعتك ⚡️›", url=f"http://t.me/OliIeBot?startgroup=new"),
