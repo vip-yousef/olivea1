@@ -53,7 +53,7 @@ async def huhh(client: Client, message: Message):
 async def huhh(client: Client, message: Message):
     await message.reply_photo(
         photo=f"https://telegra.ph/file/02ca23f83671e076c47a2.jpg",
-        caption=f""". [ٓ ᯓ 𓆩 ˹ †ø δølløω ძενεløρεƦ øδ †hε ՏøuƦcε ˼ 𓆪 𓆃](https://t.me/ZzZzZl1l)""",
+        caption=f"""ٓᯓ 𓆩 ˹ †ø δølløω ძενεløρεƦ øδ †hε ՏøuƦcε ˼ 𓆪 𓆃""",
         reply_markup=InlineKeyboardMarkup(
         [
             [
